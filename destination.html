@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest - Destination</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header with navigation bar -->
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <h1>Logo</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destination.html">Destinations</a></li>
+                <li><a href="#">Budget Planner</a></li>
+                <li><a href="#">Trip Generator</a></li>
+                <li><a href="#">Travel Mood</a></li>
+                <li><a href="#">Support</a></li>
+            </ul>
+            <button class="button">log in</button>
+        </nav>
+    </header>
+
+    <!-- Destination Explorer Section -->
+    <section class="destination-explorer">
+        <h1 class="headings-h1">Explore Destinations</h1>
+        <p>Discover amazing places to visit around the world.</p>
+        <div class="filters">
+            <input type="text" id="searchInput" placeholder="Search destinations...">
+            <select id="continent-filter" class="select-bar">
+                <option value="">All Continents</option>
+                <option value="Asia">Asia</option>
+                <option value="Europe">Europe</option>
+                <option value="North America">North America</option>
+                <option value="South America">South America</option>
+                <option value="Africa">Africa</option>
+                <option value="Oceania">Oceania</option>
+            </select>
+            <select id="type-filter" class="select-bar">
+                <option value="">All Types</option>
+                <option value="Beach">Beach</option>
+                <option value="City">City</option>
+                <option value="Nature">Nature</option>
+                <option value="Cultural">Cultural</option>
+            </select>
+        </div>
+
+        <div class="destination-grid" id="destination-grid">
+            <div class="explore-card">
+                <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?q=80&w=1000" alt="">
+                <div class="explore-card-info">
+                    <div class="explore-card-header">
+                        <h3>Sri Lanka</h3>
+                        <div>
+                            <h3>4.8</h3>
+                            <img src="icon/explore-card/star-icon.svg" alt="rating-star">
+                        </div>
+                    </div>
+                    <div class="explore-location">
+                        <img src="icon/explore-card/location-icon.svg" alt="location-icon">
+                        <p>Asia</p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Travel<span>Nest</span></h2>
+                <p>Plan your perfect trip with <br> our all-in-one travel planning platform.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="destination.html">Destinations</a></li>
+                    <li><a href="#">Budget Planner</a></li>
+                    <li><a href="#">Trip Generator</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Support</h3>
+                <p>Email: support@travelnest.com</p>
+                <div class="social-icons">
+                    <li>
+                        <a href="#"><img src="icon/social-media/fb-icon.svg" alt="Facebook"></a>
+                        <a href="#"><img src="icon/social-media/insta-icon.svg" alt="Instagram"></a>
+                        <a href="#"><img src="icon/social-media/printrest-icon.svg" alt="Pinterest"></a>
+                        <a href="#"><img src="icon/social-media/youtube-icon.svg" alt="YouTube"></a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TravelNest. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
