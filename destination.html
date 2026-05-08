@@ -8,6 +8,7 @@
 </head>
 <body>
 
+
     <!-- Header with navigation bar -->
     <header>
         <nav class="nav-bar">
@@ -17,113 +18,118 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="destination.html">Destinations</a></li>
-                <li><a href="#">Budget Planner</a></li>
-                <li><a href="#">Trip Generator</a></li>
-                <li><a href="#">Travel Mood</a></li>
-                <li><a href="#">Support</a></li>
+                <li><a href="budget-planner.html">Budget Planner</a></li>
+                <li><a href="trip-generator.html">Trip Generator</a></li>
+                <li><a href="travel-mood.html">Travel Mood</a></li>
+                <li><a href="support.html">Support</a></li>
             </ul>
             <button class="button">log in</button>
         </nav>
     </header>
+    <div class="header-image">
+            <img src="img/destination-top.svg" alt="Destination Header">
+    </div>
 
-    <!-- Destination Explorer Section -->
-    <section class="destination-explorer">
-        <h1 class="headings-h1">Explore Destinations</h1>
-        <p>Discover amazing places to visit around the world.</p>
-        <div class="filters">
-            <input type="text" id="searchInput" placeholder="Search destinations...">
-            <select id="continent-filter" class="select-bar">
-                <option value="">All Continents</option>
-                <option value="Asia">Asia</option>
-                <option value="Europe">Europe</option>
-                <option value="North America">North America</option>
-                <option value="South America">South America</option>
-                <option value="Africa">Africa</option>
-                <option value="Oceania">Oceania</option>
-            </select>
-            <select id="type-filter" class="select-bar">
-                <option value="">All Types</option>
-                <option value="Beach">Beach</option>
-                <option value="City">City</option>
-                <option value="Nature">Nature</option>
-                <option value="Cultural">Cultural</option>
-            </select>
-        </div>
-
-        <div class="destination-grid" id="destination-grid">
-            <div class="explore-card">
-                <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?q=80&w=1000" alt="">
-                <div class="explore-card-info">
-                    <div class="explore-card-header">
-                        <h3>Sri Lanka</h3>
-                        <div>
-                            <h3>4.8</h3>
-                            <img src="icon/explore-card/star-icon.svg" alt="rating-star">
-                        </div>
-                    </div>
-                    <div class="explore-location">
-                        <img src="icon/explore-card/location-icon.svg" alt="location-icon">
-                        <p>Asia</p>
-                    </div>
-                </div>
+    <main>
+        <!-- Destination Explorer Section -->
+        <section class="destination-explorer">
+            <h1 class="headings-h1"><span>Explore</span> Destinations</h1>
+            <p>Discover amazing places to visit around the world.</p>
+            <div class="filters">
+                <input type="text" id="searchInput" placeholder="Search destinations...">
+                <select id="continent-filter" class="select-bar">
+                    <option value="">All Continents</option>
+                    <option value="Asia">Asia</option>
+                    <option value="Europe">Europe</option>
+                    <option value="North America">North America</option>
+                    <option value="South America">South America</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Oceania">Oceania</option>
+                </select>
+                <select id="type-filter" class="select-bar">
+                    <option value="">All Types</option>
+                    <option value="Beach">Beach</option>
+                    <option value="City">City</option>
+                    <option value="Nature">Nature</option>
+                    <option value="Cultural">Cultural</option>
+                </select>
             </div>
 
-            <div class="popup-window">
-                <span class="close-button">&times;</span>
-                <div class="window-grid">
-                    <div>
-                        <img src="img/WELIGAMA.jpg" alt="">
-                    </div>
-                    <div class="popup-content">
-                        <h2>Unawatuna Beach</h2>
-                            <div class="popup-content-paragraph">
-                                <p>
-                                    A beautiful crescent-shaped beach known for its clear turquoise water, calm waves, and lush greenery. It’s a popular spot for swimming, snorkeling, and relaxing, with small fishing boats adding to its scenic coastal vibe.
-                                </p>
-                            </div>
-                        <div>
-                            <div class="popular-attractions">
-                                <h3>Popular Attractions</h3>
-                                <ul>
-                                    <li>Sea Turtle Watching</li>
-                                    <li>Snorkeling with Coral Reefs</li>
-                                    <li>Jungle Beach Experience</li>
-                                </ul>
-                            </div>
+            <div class="destination-grid" id="destination-grid">
+                <div class="explore-card">
+                    <img src="https://images.unsplash.com/photo-1540202404-a2f29016b523?q=80&w=1000" alt="">
+                    <div class="explore-card-info">
+                        <div class="explore-card-header">
+                            <h3>Sri Lanka</h3>
                             <div>
-                            <div class="cost-table-container">
-                                <h3>Travel Cost (Per Day)</h3>
-                                <table class="travel-table">
-                                    <thead>
-                                        <tr>
-                                            <th>Budget Type</th>
-                                            <th>Estimated Cost</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Low</td>
-                                            <td>$50 - $80</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Moderate</td>
-                                            <td>$80 - $150</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Luxury</td>
-                                            <td>$150+</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                <h3>4.8</h3>
+                                <img src="icon/explore-card/star-icon.svg" alt="rating-star">
                             </div>
+                        </div>
+                        <div class="explore-location">
+                            <img src="icon/explore-card/location-icon.svg" alt="location-icon">
+                            <p>Asia</p>
                         </div>
                     </div>
                 </div>
-                
+
+                <div class="popup-window">
+                    <span class="close-button">&times;</span>
+                    <div class="window-grid">
+                        <div>
+                            <img src="img/WELIGAMA.jpg" alt="">
+                        </div>
+                        <div class="popup-content">
+                            <h2>Unawatuna Beach</h2>
+                                <div class="popup-content-paragraph">
+                                    <p>
+                                        A beautiful crescent-shaped beach known for its clear turquoise water, calm waves, and lush greenery. It’s a popular spot for swimming, snorkeling, and relaxing, with small fishing boats adding to its scenic coastal vibe.
+                                    </p>
+                                </div>
+                            <div>
+                                <div class="popular-attractions">
+                                    <h3>Popular Attractions</h3>
+                                    <ul>
+                                        <li>Sea Turtle Watching</li>
+                                        <li>Snorkeling with Coral Reefs</li>
+                                        <li>Jungle Beach Experience</li>
+                                    </ul>
+                                </div>
+                                <div>
+                                <div class="cost-table-container">
+                                    <h3>Travel Cost (Per Day)</h3>
+                                    <table class="travel-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Budget Type</th>
+                                                <th>Estimated Cost</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Low</td>
+                                                <td>$50 - $80</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Moderate</td>
+                                                <td>$80 - $150</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Luxury</td>
+                                                <td>$150+</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-        </div>
-        
-    </section>
+            
+        </section>
+    </main>
     
     <!-- Footer -->
     <footer class="footer">
