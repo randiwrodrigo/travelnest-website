@@ -1,0 +1,71 @@
+@media screen and (max-width: 768px) {
+    /* Show the hamburger icon [cite: 18] */
+    .hamburger {
+        display: block;
+        color: var(--primary);
+        z-index: 1001; /* Stay above the menu */
+    }
+
+    /* Transform nav-links into a mobile overlay [cite: 16] */
+    .nav-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        right: -100%; /* Hidden by default off-screen */
+        width: 100%;
+        height: 100vh;
+        background: var(--white);
+        transition: 0.5s ease-in-out;
+        z-index: 1000;
+    }
+
+    /* Class to be toggled via JavaScript */
+    .nav-links.active {
+        right: 0; /* Slide into view */
+    }
+
+    .nav-links li {
+        margin: 1.5rem 0; 
+    }
+
+    .nav-links li a {
+        font-size: 1.5rem; /* Larger links for touch [cite: 17] */
+        margin-left: 0;
+    }
+
+    /* Rest of the mobile adjustments */
+    .hero {
+        grid-template-columns: 1fr; 
+        padding: 20px;
+        text-align: center;
+    }
+
+    .hero-image {
+        display: none; /* Hide large image for space [cite: 20, 24] */
+    }
+
+    .destination-box {
+        grid-template-columns: 1fr; 
+        margin: 1rem;
+        padding: 2rem 1rem;
+    }
+
+    .newsletter-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .newsletter-form {
+        margin-left: 0; 
+        width: 100%;
+    }
+
+    .newsletter-form input {
+        width: 100%; 
+        margin-bottom: 1rem;
+    }
+}
