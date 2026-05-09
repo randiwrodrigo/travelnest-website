@@ -1,71 +1,200 @@
-@media screen and (max-width: 768px) {
-    /* Show the hamburger icon [cite: 18] */
-    .hamburger {
-        display: block;
-        color: var(--primary);
-        z-index: 1001; /* Stay above the menu */
-    }
 
-    /* Transform nav-links into a mobile overlay [cite: 16] */
-    .nav-links {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        top: 0;
-        right: -100%; /* Hidden by default off-screen */
+@media screen and (max-width: 768px) { 
+    /* 1. Prevent Horizontal Scroll */
+    html, body {
+        overflow-x: hidden;
         width: 100%;
-        height: 100vh;
-        background: var(--white);
-        transition: 0.5s ease-in-out;
-        z-index: 1000;
+        position: relative;
     }
 
-    /* Class to be toggled via JavaScript */
-    .nav-links.active {
-        right: 0; /* Slide into view */
+    h1 {
+        font-size: 2rem !important; 
     }
 
-    .nav-links li {
-        margin: 1.5rem 0; 
+    .home-button-group {
+        flex-direction: column; 
+        gap: 10px; /* Add spacing between buttons */
     }
 
-    .nav-links li a {
-        font-size: 1.5rem; /* Larger links for touch [cite: 17] */
-        margin-left: 0;
+    .button {
+        padding: 10px 15px; 
+        font-size: 1rem;
     }
 
-    /* Rest of the mobile adjustments */
+    .secondary-button {
+        padding: 10px 15px; 
+        font-size: 1rem; 
+    }
+
+    /* 2. Fix the Navigation Bar */
+    .nav-bar {
+        padding: 10px 20px; 
+        height: 60px;
+        background: var(--white); 
+        backdrop-filter: none;
+    }
+
+    /* Hide the desktop links and the log-in button */
+    .nav-links, 
+    .nav-bar .button {
+        display: none; 
+    }
+
+    /* Show the hamburger icon */
+    .hamburger {
+        display: block ; 
+        color: var(--primary);
+        font-size: 2rem;
+        z-index: 1001;
+    }
+
+    /* 3. Fix Layout Widths (Removes Horizontal Scroll) */
     .hero {
-        grid-template-columns: 1fr; 
-        padding: 20px;
+        display: flex ;
+        flex-direction: column-reverse ;
+        padding: 0% ;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .hero-text {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+    }
+
+    .hero-text p, .hero-text h1 {
         text-align: center;
     }
 
-    .hero-image {
-        display: none; /* Hide large image for space [cite: 20, 24] */
+    .hero-text h1 span {
+        font-size: 2rem ; 
     }
 
+    .hero-image img {
+        height: auto;
+        border-radius: 0%;
+        width: 100%;
+        height: 20%; 
+    }
+    
+    .hero-stats {
+        display: flex ;
+        align-items: center;
+        margin: 10px 4px;
+        margin-top: 20px;
+    }
+
+    .stat-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stat-item h3, .stat-item p {
+        display: flex ;
+        text-align: center ;
+    }
+
+    .plane-design {
+        display: none; 
+    }
+
+    /* Responsive Destination Box */
     .destination-box {
         grid-template-columns: 1fr; 
         margin: 1rem;
-        padding: 2rem 1rem;
+        padding: 1rem;
+        width: auto;
+        gap: 1.5rem;
+    }
+
+    .destination-title {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .destination-title {
+        text-align: center;
+    }
+
+    .destination-card {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+    }
+
+    .destination-card p {
+        text-align: center;
+    }
+
+    .destination-card button {
+        align-items: center;
+    }
+
+    .destination-image img {
+        height: 250px; 
     }
 
     .newsletter-container {
-        flex-direction: column;
-        text-align: center;
-        padding: 2rem;
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+        padding: 1rem;
+    }
+
+    .newsletter-icon{
+        display: inline;
+    }
+
+    .news-letter-texts {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+        text-align: center ;
+    }
+
+    .news-letter-texts h2 
+    {
+        margin-top: 0%;
+        margin-bottom: 4px;
     }
 
     .newsletter-form {
-        margin-left: 0; 
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
         width: 100%;
     }
 
-    .newsletter-form input {
-        width: 100%; 
+    /* Fix Newsletter Input */
+    .newsletter-form button
+    {
+        width: 100%;
         margin-bottom: 1rem;
+        padding: 10px; 
     }
+
+    .newsletter-form input{
+        width: 94%; 
+        margin-bottom: 1rem;
+        padding: 10px;
+    }
+
+    .footer-container {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+        text-align: center ;
+        padding: 1rem;
+    }
+
+    .social-icons {
+        display: flex ;
+        justify-content: space-around;
+    }
+
+
+
 }
