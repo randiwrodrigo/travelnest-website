@@ -24,6 +24,9 @@
                 <li><a href="support.html">Support</a></li>
             </ul>
             <button class="button">log in</button>
+            <div class="hamburger">
+                ☰
+            </div>
         </nav>
     </header>
     <div class="header-image">
@@ -37,7 +40,8 @@
             <p>Discover amazing places to visit around the world.</p>
             <div class="filters">
                 <input type="text" id="searchInput" placeholder="Search destinations...">
-                <select id="continent-filter" class="select-bar">
+                <div>
+                    <select id="continent-filter" class="select-bar">
                     <option value="">All Continents</option>
                     <option value="Asia">Asia</option>
                     <option value="Europe">Europe</option>
@@ -53,6 +57,7 @@
                     <option value="Nature">Nature</option>
                     <option value="Cultural">Cultural</option>
                 </select>
+                </div>
             </div>
 
             <div class="destination-grid" id="destination-grid">
@@ -142,8 +147,8 @@
                 <h3>Quick Links</h3>
                 <ul>
                     <li><a href="destination.html">Destinations</a></li>
-                    <li><a href="#">Budget Planner</a></li>
-                    <li><a href="#">Trip Generator</a></li>
+                    <li><a href="budget-planner.html">Budget Planner</a></li>
+                    <li><a href="trip-generator.html">Trip Generator</a></li>
                     <li><a href="index.html">Home</a></li>
                 </ul>
             </div>
@@ -165,5 +170,6 @@
         </div>
     </footer>
     <script src="js/script.js"></script>
+    <link rel="stylesheet" href="mobile.css">
 </body>
 </html>

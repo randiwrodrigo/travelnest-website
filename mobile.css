@@ -1,10 +1,30 @@
 
 @media screen and (max-width: 768px) { 
+
+    :root {
+    /* Primary Colors */
+    --primary: #0F172A;       
+    --secondary: #0339e8;    
+
+    /* Light Colors */
+    --light-blue: #c9e1fd;
+    --light-grey: #F1F5F9;
+
+    /* General*/
+    --white: #ffffff;
+    --text-dark: #1E293B;
+
+    /* Accent */
+    --accent: #10B981;
+
+    }   
+
     /* 1. Prevent Horizontal Scroll */
     html, body {
         overflow-x: hidden;
         width: 100%;
         position: relative;
+        padding-top: 12%;
     }
 
     h1 {
@@ -30,8 +50,7 @@
     .nav-bar {
         padding: 10px 20px; 
         height: 60px;
-        background: var(--white); 
-        backdrop-filter: none;
+        backdrop-filter: blur(10px);
     }
 
     /* Hide the desktop links and the log-in button */
@@ -53,6 +72,7 @@
         display: flex ;
         flex-direction: column-reverse ;
         padding: 0% ;
+        margin: 0% ;
         width: 100%;
         box-sizing: border-box;
     }
@@ -194,6 +214,150 @@
         display: flex ;
         justify-content: space-around;
     }
+
+    /*For destination page========================================================================================================*/
+
+    .header-image img {
+        width: 130%;
+        height:250px;
+    }
+
+    .destination-explorer {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+        text-align: center;
+        padding: 1rem;
+        margin: 0%;
+    }
+
+    .filters {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .filters input {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .popup-window {
+        display: flex ;
+        position: fixed;
+        top: 55%;
+        left: 50%;
+        flex-direction: column ;
+        align-items: center ;
+        text-align: center ;
+        padding: 1rem;
+        padding: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+        width: 100%;
+        height: auto;
+        border-radius: 30px;
+    }
+
+    .close-button {
+        position: absolute;
+        top: 10px;
+        right: 30px;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .window-grid img {
+        margin-top: 25px;
+        width: 85%;
+        height: auto;
+    }
+
+    .window-grid {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+        text-align: center ;
+        padding: 1rem;
+        margin: 0%;
+        padding: 0%;
+        width: 100%;
+    }
+
+
+    /*For budget planner page========================================================================================================*/
+
+    .budget-planner-header {
+        display: flex ;  
+        flex-direction: column ;
+        align-items: center ;
+        text-align: center ;
+        padding: 1rem;
+        width: auto;
+        height: auto;
+        margin: 4%;
+        padding: 0%;
+    }
+
+    .budget-planner-container {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+        text-align: center ;
+        padding: 1rem;
+        width: 100%;
+        height: auto;
+        width: auto;
+        margin: 2%;
+        padding: 16px;
+        gap: 2px;
+    }
+
+    .budget-container-styles {
+        display: flex ;
+        flex-direction: column ;
+        align-items: center ;
+        text-align: center ;
+        padding: 5%;
+        width: auto;
+        height: auto;
+        
+    }
+
+    .budget-container-styles form input {
+        width: 90%;
+        padding: 10px;
+        margin-bottom: 1rem;
+    }
+
+    .estimated-budget {
+        width: 90%;
+        height: auto;
+    }
+
+    .progress-container {
+        width: 90%;
+        height: 1rem;
+        margin: 1rem auto;
+        background: var(--white);
+        border-radius: 50px;
+        overflow: hidden;
+}
+
+
+    .progress-bar {
+        width: 66%;
+        height: 100%;
+        background: var(--secondary);
+        border-radius: 50px;
+        flex-direction: start;
+    }
+
+
+
+
 
 
 
