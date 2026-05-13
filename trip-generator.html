@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest - Budget Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header with navigation bar -->
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <h1>Logo</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destination.html">Destinations</a></li>
+                <li><a href="budget-planner.html">Budget Planner</a></li>
+                <li><a href="trip-generator.html">Trip Generator</a></li>
+                <li><a href="travel-mood.html">Travel Mood</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <button class="button">log in</button>
+            <div class="hamburger">
+                ☰
+            </div>
+        </nav>
+    </header>
+    <div class="header-image">
+            <img src="img/trip-generate-top.png" alt="">
+    </div>
+
+    <main>
+        <section class="budget-planner-header">
+            <h1><span>Trip </span>Generator</h1>
+            <p>Generate your perfect trip itinerary with our easy-to-use trip generator.</p>
+        </section>
+
+        <section class="trip-generator">
+            <div class="trip-generator-container">
+                <div id="trip-generator-styles" class="trip-generator-styles" >
+                    <div class="trip-grnerator-form-grid">
+                        <div class="trip-generator-title-image">
+                            <img src="icon/trip-generator/flight-image (1).svg" alt="">
+                        </div>
+                        <div>
+                            <h3>Customize your surprise.</h3>
+                            <p>Not sure where to go? Let us surprise you with a personalized itinerary based on your preferences.</p>
+                        </div>
+                    </div>
+                    <form id="tripGeneratorForm" class="tripGeneratorForm">
+                        <label for="tripType">Trip Type:</label>
+                        <select id="tripType" name="tripType" required>
+                            <option value="">Select Trip Type</option>
+                            <option value="adventure">Adventure</option>
+                            <option value="relaxation">Relaxation</option>
+                            <option value="cultural">Cultural</option>
+                            <option value="nature">Nature</option>
+                        </select>
+
+                        <label for="budget">Budget ($):</label>
+                        <input type="number" id="budget" name="budget" required placeholder="💵 Budget">
+
+                        <label for="duration">Duration (days):</label>
+                        <input type="number" id="duration" name="duration" required placeholder="📆 Duration">
+
+                        <button type="submit" class="button">Generate Trip</button>
+                    </form>
+                </div>
+                <div class="trip-generator-styles" id="tripGen-budget-summary">
+                    <h3>🎉 Your Surprised Destination 🎈</h3>
+                    <div class="suprise-destination-image">
+                        <img src="img/Weligama-Beach-Best-Tourist-Destinations-in-Sri-Lanka.webp" alt="Surprised Destination">
+                    </div>
+                    <h2>
+                        <span id="surprisedDestination-name">Bali,Indonesia</span>
+                    </h2>
+                    <div id="surprisedDestination-details" class="surprised-destination-details">
+                        <div id="tripTypeDisplay"><h3>Adventure</h3></div>
+                        <div id="budgetDisplay"><h3>Medium Budget</h3></div>
+                        <div id="durationDisplay"><h3>7-10 days</h3></div>
+                    </div>
+                    <div class="trip-info-container">
+                        <div class="trip-info-box">
+                            <div class="icon">📅</div>
+                            <div>
+                                <h4>Best Time</h4>
+                                <p>Apr - Oct</p>
+                            </div>
+                        </div>
+
+                        <div class="trip-info-box">
+                            <div class="icon">☀️</div>
+                            <div>
+                                <h4>Weather</h4>
+                                <p>26-30°C</p>
+                            </div>
+                        </div>
+
+                        <div class="trip-info-box">
+                            <div class="icon">💬</div>
+                            <div>
+                                <h4>Language</h4>
+                                <p>Indonesian</p>
+                            </div>
+                        </div>
+
+                        <div class="trip-info-box">
+                            <div class="icon">💵</div>
+                            <div>
+                                <h4>Currency</h4>
+                                <p>IDR</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <button class="secondary-button" id="wish-button">✩₊˚.⋆──⋆Add To WishList⋆──⋆☾⋆⁺₊✧</button>
+                </div>
+                
+                
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Travel<span>Nest</span></h2>
+                <p>Plan your perfect trip with <br> our all-in-one travel planning platform.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="destination.html">Destinations</a></li>
+                    <li><a href="budget-planner.html">Budget Planner</a></li>
+                    <li><a href="trip-generator.html">Trip Generator</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Support</h3>
+                <p>Email: support@travelnest.com</p>
+                <div class="social-icons">
+                    <li>
+                        <a href="#"><img src="icon/social-media/fb-icon.svg" alt="Facebook"></a>
+                        <a href="#"><img src="icon/social-media/insta-icon.svg" alt="Instagram"></a>
+                        <a href="#"><img src="icon/social-media/printrest-icon.svg" alt="Pinterest"></a>
+                        <a href="#"><img src="icon/social-media/youtube-icon.svg" alt="YouTube"></a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TravelNest. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="mobile.css">
+</body>
+</html>

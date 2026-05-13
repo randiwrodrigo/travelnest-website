@@ -365,13 +365,14 @@ input:focus {
 .footer {
     background-color: var(--primary); 
     color: var(--white);
-    padding: 4rem 2rem 1rem;
+    padding: 4rem 2rem;
     margin-top: 0%;
 }
 
 .footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
+    width: 100%;
+    margin: 2rem;
+    justify-content: space-around;
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr;
     gap: 3rem;
@@ -748,7 +749,8 @@ input:focus {
 
 /* Trip Budget Planner Styles --------------------------------------------------------------------------------------------------------------*/
 
-.budget-planner-header {
+.budget-planner-header,
+.trip-generator {
     margin: 1rem 2.5rem;
 }
 
@@ -756,12 +758,12 @@ input:focus {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
-    margin: 3rem 2.5rem 2.5rem 2.5rem;
+    margin: 2rem 2.5rem 2.5rem 2.5rem;
     background-color: var(--light-grey);
     box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
     padding: 1rem 2rem;
     border-radius: 20px;
-    height: 65vh;
+    height: auto;
 }
 
 .budget-container-styles {
@@ -769,12 +771,14 @@ input:focus {
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem 0;
+    padding-bottom: 0%;
     height: 100%;
     background-color: var(--white);
-    padding: 1rem 2rem;
-    margin: 1rem 0;
+    padding: 0rem 2rem;
+    margin:1rem 0;
     height: auto;  
     border-radius: 20px;
+    padding-bottom: 1.5rem;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
 
@@ -822,12 +826,9 @@ input:focus {
     width: 100%;
 }
 
-#budget-summary {
-    background-color: var(--light-blue);
-}
-
 .estimated-budget {
     display: flex;
+    width: 95%;
     flex-direction: column;
     align-items: center;
     background-color: var(--white);
@@ -838,7 +839,7 @@ input:focus {
 
 #estimatedBudget {
     color: var(--accent);
-    font-size: 5rem;
+    font-size: 4rem;
     margin: 0.5rem 0 0 0;
 
 }
@@ -868,4 +869,236 @@ input:focus {
     color: var(--accent);
     font-size: 3rem;
     margin: 0.5rem 0 0 0;
+}
+
+.trip-generator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 2rem;
+    background-color: var(--light-grey);
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    height: auto;
+}
+
+.trip-generator-styles {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem 0;
+    padding-bottom: 0%;
+    height: 100%;
+    background-color: var(--white);
+    padding: 0rem 2rem;
+    margin: 1rem 0;
+    height: 60vh; 
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+.trip-grnerator-form-grid {
+    display: grid;
+    grid-template-columns: 0.1fr 1fr;
+}
+
+.trip-generator-title-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.trip-generator-title-image img {
+    width: 70px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+#trip-generator-styles {
+    padding: 0% 0%;
+}
+
+#tripGeneratorForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 2rem;
+}
+
+.tripGeneratorForm input{
+    padding: 1.1rem;
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    border-radius: 50px;
+    width: 95%;
+    font-size: 0.9rem;
+}
+
+.tripGeneratorForm input:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 5px rgba(3, 57, 232, 0.5);
+}
+
+.tripGeneratorForm label {
+    font-weight: bold;
+    margin-left: 0.5rem;
+}
+
+#tripType {
+    padding: 1.1rem;
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    border-radius: 50px;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+#tripType:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 5px rgba(3, 57, 232, 0.5);
+}
+
+.trip-generator-container button {
+    width: 100%;
+    margin: 1rem 0;
+}
+
+#budget-summary,
+#tripGen-budget-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#tripGen-budget-summary{
+    gap: 0;
+
+}
+
+.suprise-destination-image {
+    height: 35%;
+    width: 80%;
+}
+
+.suprise-destination-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.surprised-destination-details {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.surprised-destination-details div {
+    background: #dff5e8;
+    padding: 0.6rem 1.2rem;
+    border-radius: 999px;
+    text-align: center;
+    margin: 1rem 0;
+}
+
+.surprised-destination-details h3 {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #1f7a4d;
+}
+
+#tripTypeDisplay {
+    background: #dff5e8;
+}
+
+#budgetDisplay {
+    background: #dbeafe;
+}
+
+#durationDisplay {
+    background: #fef3c7;
+}
+
+.trip-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 16px;
+    padding: 1.2rem;
+    padding-bottom: 0%;
+    margin-bottom: 0%;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.trip-info-box {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-right: 1.5rem;
+    border-right: 1px solid #e5e7eb;
+}
+
+.trip-info-box:last-child {
+    border-right: none;
+}
+
+.icon {
+    font-size: 1.8rem;
+}
+
+.trip-info-box h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+.trip-info-box p {
+    margin: 0.2rem 0 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+.trip-info-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.trip-info-box {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-right: 1.5rem;
+    border-right: 1px solid #e5e7eb;
+}
+
+.trip-info-box:last-child {
+    border-right: none;
+}
+
+.icon {
+    font-size: 1.8rem;
+}
+
+.trip-info-box h4 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #111827;
+}
+
+.trip-info-box p {
+    margin: 0.2rem 0 0;
+    color: #6b7280;
+    font-size: 0.9rem;
 }
