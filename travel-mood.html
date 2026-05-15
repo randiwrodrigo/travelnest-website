@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelNest - Budget Planner</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header with navigation bar -->
+    <header>
+        <nav class="nav-bar">
+            <div class="logo">
+                <h1>Logo</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destination.html">Destinations</a></li>
+                <li><a href="budget-planner.html">Budget Planner</a></li>
+                <li><a href="trip-generator.html">Trip Generator</a></li>
+                <li><a href="travel-mood.html">Travel Mood</a></li>
+                <li><a href="support.html">Support</a></li>
+            </ul>
+            <button class="button">log in</button>
+            <div class="hamburger">
+                ☰
+            </div>
+        </nav>
+    </header>
+    <div class="header-image">
+            <img src="img/travel-mood-top.png" alt="">
+    </div>
+
+    <main>
+        <section class="budget-planner-header">
+            <h1><span>Trip Budget</span> Planner</h1>
+            <p>Plan your trip budget and manage your expenses effectively.</p>
+        </section>
+
+        <section class="travel-mood">
+                <div id="travel-mood-styles-top" class="travel-mood-styles">
+                    <div class="travel-mood-top-container">
+                        <div class="card-title">
+                            <h2>🎵 Ambient Travel Sounds</h2>
+                            <p>Choose a sound to relax or concentrate.</p>
+                        </div>
+
+                        <div class="sound-buttons">
+                            <button class="active">🌊 Beach</button>
+                            <button>🍃 Forest</button>
+                            <button>🏙️ City</button>
+                            <button>🌧️ Rain</button>
+                            <button>⛰️ Mountain</button>
+                        </div>
+
+                        <div class="music-banner">
+                            <img src="img/must_visit_places_sri_lanka_sigiriya.jpg" alt="">
+                            <div class="banner-content">
+                                <h3>Beach Waves</h3>
+                                <p>Feel the calm waves and let your mind unwind.</p>
+                                <button>▶ Now Playing</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div id="travel-mood-styles-bottem" class="travel-mood-styles">
+                    <div class="card-title">
+                        <h2>📍 Your Destinations</h2>
+                        <p>Track places you've visited or plan to visit.</p>
+                    </div>
+
+                    <div class="destination-filter">
+                        <button class="active">All</button>
+                        <button>Visited</button>
+                        <button>Planned</button>
+                    </div>
+
+                    <div class="destination-list">
+
+                        <div class="destination-item">
+                            <img src="img/Weligama-Beach-Best-Tourist-Destinations-in-Sri-Lanka.webp" alt="">
+                            <div>
+                                <h3>Bali, Indonesia</h3>
+                                <p>Relaxation • Beach</p>
+                            </div>
+                            <button class="visited">✔ Visited</button>
+                        </div>
+
+                        <div class="destination-item">
+                            <img src="img/must_visit_places_sri_lanka_sigiriya.jpg" alt="">
+                            <div>
+                                <h3>Switzerland</h3>
+                                <p>Adventure • Mountains</p>
+                            </div>
+                            <button class="planned">📅 Planned</button>
+                        </div>
+
+                        <div class="destination-item">
+                            <img src="img/WELIGAMA.jpg" alt="">
+                            <div>
+                                <h3>Tokyo, Japan</h3>
+                                <p>City • Culture</p>
+                            </div>
+                            <button class="planned">📅 Planned</button>
+                            
+                        </div>
+
+                    </div>
+
+                    <button class="secondary-button" id="travel-mood-more-destination">
+                        Explore More Destinations ↗
+                    </button>
+                </div>
+        </section>
+
+        
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>Travel<span>Nest</span></h2>
+                <p>Plan your perfect trip with <br> our all-in-one travel planning platform.</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="destination.html">Destinations</a></li>
+                    <li><a href="budget-planner.html">Budget Planner</a></li>
+                    <li><a href="trip-generator.html">Trip Generator</a></li>
+                    <li><a href="index.html">Home</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h3>Support</h3>
+                <p>Email: support@travelnest.com</p>
+                <div class="social-icons">
+                    <li>
+                        <a href="#"><img src="icon/social-media/fb-icon.svg" alt="Facebook"></a>
+                        <a href="#"><img src="icon/social-media/insta-icon.svg" alt="Instagram"></a>
+                        <a href="#"><img src="icon/social-media/printrest-icon.svg" alt="Pinterest"></a>
+                        <a href="#"><img src="icon/social-media/youtube-icon.svg" alt="YouTube"></a>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 TravelNest. All rights reserved.</p>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <link rel="stylesheet" href="mobile.css">
+</body>
+</html>
