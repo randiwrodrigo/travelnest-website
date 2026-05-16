@@ -19,9 +19,9 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="destination.html">Destinations</a></li>
                 <li><a href="budget-planner.html">Budget Planner</a></li>
-                <li><a href="#">Trip Generator</a></li>
-                <li><a href="#">Travel Mood</a></li>
-                <li><a href="#">Support</a></li>
+                <li><a href="trip-generator.html">Trip Generator</a></li>
+                <li><a href="travel-mood.html">Travel Mood</a></li>
+                <li><a href="support.html">Support</a></li>
             </ul>
             <button class="button">log in</button>
             <div class="hamburger">
@@ -37,8 +37,8 @@
                 <h1>Discover Your Next Adventure <br>with <span>TravelNest</span></h1>
                 <p class="small-text">Plan your perfect trip with our all-in-one travel planning platform. Explore destinations, create budgets, and generate personalized itineraries.</p>
                 <div class="home-button-group">
-                    <button class="button" >Explore Destinations</button>
-                    <button class="secondary-button">Plan Your Trip</button>
+                    <button class="button ExpDestinationBtn" >Explore Destinations</button>
+                    <button id="BdgPlanerBtn" class="secondary-button">Plan Your Trip</button>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
@@ -59,7 +59,7 @@
                 </div>
             </div>
             <div class="hero-image">
-                <img src="img/must_visit_places_sri_lanka_sigiriya.jpg" alt="">
+                <img id="hero-image" src="img/must_visit_places_sri_lanka_sigiriya.jpg" alt="">
             </div>
         </section>
 
@@ -67,16 +67,16 @@
         <section class="daily-destination">
             <div class="destination-box">
                 <div class="destination-image">
-                    <img src="img/WELIGAMA.jpg" alt="">
+                    <img id="daily-destination-image" src="" alt="">
                 </div>
                 <div class="destination-card">
                     <div class="destination-title">
                         <h1 class="headings-h1">DESTINATION <span>OF THE DAY</span></h1>
                         <img src="icon/daily-destination-title.svg" alt="">
                     </div>
-                    <h2>Mirissa, Sri Lanka</h2>
-                    <p>Mirissa is a small, beautiful beach town on the southern coast of Sri Lanka, known for its golden sandy beaches, turquoise waters, and relaxed tropical vibe. It’s a popular destination for whale watching, surfing, and enjoying stunning sunsets, while still keeping a laid-back atmosphere with beachside cafés and palm-lined shores.</p>
-                    <button class="button">Explore Mirissa →</button>
+                    <h2 id="daily-destination-title"></h2>
+                    <p id="daily-destination-description" >Mirissa is a small, beautiful beach town on the southern coast of Sri Lanka, known for its golden sandy beaches, turquoise waters, and relaxed tropical vibe. It’s a popular destination for whale watching, surfing, and enjoying stunning sunsets, while still keeping a laid-back atmosphere with beachside cafés and palm-lined shores.</p>
+                    <button class="button ExpDestinationBtn">Explore More →</button>
                 </div>
 
                 <div class="quick-info-tab">
@@ -85,28 +85,28 @@
                         <img src="icon/quick -info/location-icon.svg" alt="">
                         <div>
                             <p><strong>Country</strong></p>
-                            <p>Sri Lanka</p>
+                            <p id="dily-destination-country" >Sri Lanka</p>
                         </div>
                     </div>               
                     <div class="quick-info-row">
                         <img src="icon/quick -info/time-icon.svg" alt="">
                         <div>
                             <p><strong>Best Time to Visit</strong></p>
-                            <p>November to April</p>
+                            <p id="dily-destination-bestTime" >November to April</p>
                         </div>
                     </div>
                     <div class="quick-info-row">
                         <img src="icon/quick -info/money-icon.svg" alt="">
                         <div>
                             <p><strong>Est.Daily Budget</strong></p>
-                            <p>$100-$120</p>
+                            <p id="daily-destination-dailyBudget" >$100-$120</p>
                         </div>
                     </div>
                     <div class="quick-info-row">
                         <img src="icon/quick -info/face-icon.svg" alt="">
                         <div>
                             <p><strong>Travel Vibes</strong></p>
-                            <p>Relaxed, Tropical</p>
+                            <p id="daily-destination-travelVibes" >Relaxed, Tropical</p>
                         </div>
                     </div>
             
@@ -126,8 +126,8 @@
                 </div>
                 <div class="newsletter-form">
                     <form>
-                        <input type="email" placeholder="✉ Your Email" required>
-                        <button type="submit" class="button">Subscribe</button>
+                        <input id="emailinput" type="email" placeholder="✉ Your Email" required>
+                        <button type="submit" class="button" id="emailSub">Subscribe</button>
                     </form>
                 </div>
             </div>
@@ -144,22 +144,24 @@
             <div class="footer-links">
                 <h3>Quick Links</h3>
                 <ul>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="destination.html">Destinations</a></li>
                     <li><a href="budget-planner.html">Budget Planner</a></li>
                     <li><a href="trip-generator.html">Trip Generator</a></li>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="travel-mood.html">Travel Mood</a></li>
+                    <li><a href="support.html">Support</a></li>
                 </ul>
             </div>
             <div class="footer-contact">
                 <h3>Support</h3>
                 <p>Email: support@travelnest.com</p>
                 <div class="social-icons">
-                    <li>
-                        <a href="#"><img src="icon/social-media/fb-icon.svg" alt="Facebook"></a>
-                        <a href="#"><img src="icon/social-media/insta-icon.svg" alt="Instagram"></a>
-                        <a href="#"><img src="icon/social-media/printrest-icon.svg" alt="Pinterest"></a>
-                        <a href="#"><img src="icon/social-media/youtube-icon.svg" alt="YouTube"></a>
-                    </li>
+                    <ul>
+                        <li><a href="#"><img src="icon/social-media/fb-icon.svg" alt="Facebook"></a></li>
+                        <li><a href="#"><img src="icon/social-media/insta-icon.svg" alt="Instagram"></a></li>
+                        <li><a href="#"><img src="icon/social-media/printrest-icon.svg" alt="Pinterest"></a></li>
+                        <li><a href="#"><img src="icon/social-media/youtube-icon.svg" alt="YouTube"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -167,6 +169,7 @@
             <p>&copy; 2024 TravelNest. All rights reserved.</p>
         </div>
     </footer>
+    <script src="js/destinations.js"></script>
     <script src="js/script.js"></script>
     <link rel="stylesheet" href="mobile.css">
 </body>

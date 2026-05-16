@@ -19,12 +19,11 @@
 
     }   
 
-    /* 1. Prevent Horizontal Scroll */
     html, body {
         overflow-x: hidden;
         width: 100%;
         position: relative;
-        padding-top: 12%;
+        margin-top: 0%;
     }
 
     h1 {
@@ -33,7 +32,7 @@
 
     .home-button-group {
         flex-direction: column; 
-        gap: 10px; /* Add spacing between buttons */
+        gap: 10px; 
     }
 
     .button {
@@ -46,20 +45,33 @@
         font-size: 1rem; 
     }
 
-    /* 2. Fix the Navigation Bar */
     .nav-bar {
         padding: 10px 20px; 
         height: 60px;
         backdrop-filter: blur(10px);
+        margin-bottom: 0%;
     }
 
-    /* Hide the desktop links and the log-in button */
-    .nav-links, 
     .nav-bar .button {
         display: none; 
     }
 
-    /* Show the hamburger icon */
+    .nav-links {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem 0;
+        display: none;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
     .hamburger {
         display: block ; 
         color: var(--primary);
@@ -91,11 +103,12 @@
         font-size: 2rem ; 
     }
 
-    .hero-image img {
-        height: auto;
+   .hero-image img {
         border-radius: 0%;
         width: 100%;
-        height: 20%; 
+        height: 300px;
+        object-fit: cover;
+        margin-top: 0%;
     }
     
     .hero-stats {
@@ -202,14 +215,6 @@
         padding: 10px;
     }
 
-    .footer-container {
-        display: flex ;
-        flex-direction: column ;
-        align-items: center ;
-        text-align: center ;
-        padding: 1rem;
-    }
-
     .social-icons {
         display: flex ;
         justify-content: space-around;
@@ -217,10 +222,6 @@
 
     /*For destination page========================================================================================================*/
 
-    .header-image img {
-        width: 130%;
-        height:250px;
-    }
 
     .destination-explorer {
         display: flex ;
@@ -355,10 +356,247 @@
         flex-direction: start;
     }
 
+    /* Trip Generator Page Mobile */
+/* ========================================================================== */
+
+    .trip-generator-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0.8rem;
+        margin: 0.8rem;
+        gap: 1rem;
+        box-sizing: border-box;
+    }
+
+    .trip-generator-styles,
+    #trip-generator-styles {
+        width: 100%;
+        height: auto;
+        padding: 1rem;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    .tripGeneratorForm input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .trip-grnerator-form-grid {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+
+    .trip-generator-title-image img {
+        width: 60px;
+    }
+
+    #tripGeneratorForm {
+        margin: 1rem 0;
+        width: 100%;
+    }
+
+    #tripType,
+    .tripGeneratorForm input {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .suprise-destination-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .suprise-destination-image img {
+        height: 220px;
+        object-fit: cover;
+    }
+
+    #tripGen-budget-summary h2 {
+        text-align: center;
+    }
+
+    .surprised-destination-details {
+        justify-content: center;
+        gap: 0.6rem;
+    }
+
+    .surprised-destination-details div {
+        margin: 0;
+    }
+
+    .trip-info-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 0;
+        width: 100%;
+    }
+
+    .trip-info-box {
+        border-right: none;
+        justify-content: center;
+        text-align: center;
+        padding: 1rem;
+        background: #f8fafc;
+        border-radius: 16px;
+        flex-direction: column;
+    }
+
+    #wish-button {
+        font-size: 0.9rem;
+        padding: 0.9rem;
+    }
 
 
+    /* ========================================================================== */
+    /* Travel Mood Mobile */
+    /* ========================================================================== */
+
+    .travel-mood {
+        margin: 1rem;
+        gap: 1rem;
+    }
+
+    .travel-mood-top-container {
+        padding: 1.5rem 1rem;
+        min-height: auto;
+        background-position: center;
+    }
+
+    .travel-mood-styles {
+        padding: 1rem;
+    }
+
+    .card-title {
+        text-align: center;
+    }
+
+    .sound-buttons,
+    .destination-filter {
+        justify-content: center;
+        gap: 0.6rem;
+    }
+
+    .sound-buttons button,
+    .destination-filter button {
+        padding: 0.7rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .music-banner {
+        width: 100%;
+        height: 250px;
+        margin-bottom: 1rem;
+    }
+
+    .banner-content {
+        left: 1rem;
+        bottom: 1rem;
+    }
+
+    .banner-content h3 {
+        font-size: 1.6rem;
+    }
+
+    .banner-content p {
+        font-size: 0.9rem;
+    }
+
+    .destination-list {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-item {
+        padding: 0.8rem;
+    }
+
+    .destination-item img {
+        height: 220px;
+    }
+
+    .destination-item button {
+        width: 100%;
+        text-align: center;
+    }
 
 
+    /* ========================================================================== */
+    /* Support Page Mobile */
+    /* ========================================================================== */
 
+    .support-grid {
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .support-card {
+        padding: 1.2rem;
+    }
+
+    .input-group input,
+    .input-group textarea {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .contact-headings {
+        margin: 1rem;
+    }
+
+    .contact-headings h2,
+    .contact-headings p {
+        text-align: center;
+    }
+
+    .contact-cards {
+        grid-template-columns: 1fr;
+        margin: 1rem;
+    }
+
+    .contact-card {
+        padding: 1.5rem;
+    }
+
+    .faq-question {
+        font-size: 0.9rem;
+        text-align: left;
+    }
+
+    .success-message {
+        font-size: 0.9rem;
+        text-align: center;
+    }
+
+    /* Shared Header Image Mobile */
+
+    .header-image img {
+        width: 100%;
+        height: auto;
+        top: 60px;
+        opacity: 0.9;
+    }
+
+    /* Footer Mobile Improvements */
+
+    .footer {
+        padding: 2rem 1rem;
+    }
+
+    .footer-container {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+        gap: 2rem;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
 
 }
