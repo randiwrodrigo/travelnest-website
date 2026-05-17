@@ -43,36 +43,36 @@
             <div class="budget-planner-container">
                 <div class="budget-form budget-container-styles" >
                     <h2>Set Your Budget 💳</h2>
-                    <form id="budgetForm">
 
+                    <form id="budgetForm">
                         <label for="destination">Destination:</label>
-                        <input type="text" id="destination" name="destination" required placeholder="📍 Country Name">
+                        <input type="text" id="planner-destination" name="destination" required placeholder="📍 Country Name">
                         <p>Where are you planning to go?</p>
 
                         <label for="numberOfDays">Number of Days:</label>
-                        <input type="number" id="numberOfDays" name="numberOfDays" placeholder="📆 Number of Days" required>
+                        <input type="number" id="planner-numberOfDays" name="numberOfDays" placeholder="📆 Number of Days" required>
                         <p>How many days will your trip last?</p>
 
                         <label for="totalBudget">Daily Budget ($):</label>
-                        <input type="number" id="totalBudget" name="totalBudget" required placeholder="💵 Budget">
+                        <input type="number" id="planner-dailyBudget" name="totalBudget" required placeholder="💵 Budget">
                         <p>What is your average daily budget for this trip?</p>
 
-                        <button type="submit" class="button">Calculate Budget</button>
+                        <button id="planner-calculate-btn" type="submit" class="button">Calculate Budget</button>
                     </form>
+
                 </div>
                 <div id="budget-summary" class="budget-container-styles budget-summary">
                     <h2>Budget Summary 📶</h2>
                     <div class="estimated-budget">
                         <h2>Estimated Budget 🤑</h2>
-                        <h1 id="estimatedBudget">$0</h1>
+                        <h1 id="plannner-estimatedBudget">$0</h1>
                     </div>
                     <div class="estimated-budget">
                         <h2>Budget Status ⚖️</h2>
                         <h1 id="budgetStatus">-</h1>
                         <div class="progress-container">
-                            <div class="progress-bar"></div>
+                            <div id="plannner-progress-bar" class="progress-bar"></div>
                         </div>
-                        <p>0% of typical budget</p>
                     </div>
                     <button class="secondary-button">⛉ Save to my plans</button>
                 </div>

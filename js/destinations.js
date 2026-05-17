@@ -16,9 +16,9 @@ const destinations = [
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: "$50 - $80",
-      moderate: "$80 - $150",
-      luxury: "$150+"
+      low: [50,80],
+      moderate: [80,150],
+      luxury: [150]
     },
 
     destinationDescription:
@@ -48,9 +48,9 @@ const destinations = [
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: "$80 - $120",
-      moderate: "$120 - $250",
-      luxury: "$250+"
+      low: [80,120],
+      moderate: [120,250],
+      luxury: [250]
     },
 
     destinationDescription:
@@ -80,9 +80,9 @@ const destinations = [
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: "$70 - $100",
-      moderate: "$100 - $180",
-      luxury: "$180+"
+      low: [70,100],
+      moderate: [100,180],
+      luxury: [180]
     },
 
     destinationDescription:
@@ -112,9 +112,9 @@ const destinations = [
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: "$80 - $120",
-      moderate: "$120 - $220",
-      luxury: "$220+"
+      low: [80,120],
+      moderate: [120,220],
+      luxury: [220]
     },
 
     destinationDescription:
@@ -144,9 +144,9 @@ const destinations = [
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: "$70 - $90",
-      moderate: "$90 - $170",
-      luxury: "$170+"
+      low: [70,90],
+      moderate: [90,170],
+      luxury: [170]
     },
 
     destinationDescription:
@@ -176,9 +176,9 @@ const destinations = [
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: "$70 - $100",
-      moderate: "$100 - $250",
-      luxury: "$250+"
+      low: [70,100],
+      moderate: [100,250],
+      luxury: [250]
     },
 
     destinationDescription:
@@ -208,9 +208,9 @@ const destinations = [
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: "$100 - $150",
-      moderate: "$150 - $300",
-      luxury: "$300+"
+      low: [100,150],
+      moderate: [150,300],
+      luxury: [300]
     },
 
     destinationDescription:
@@ -240,9 +240,9 @@ const destinations = [
     generalBudgetType: "Low Budget",
 
     budgetType: {
-      low: "$40 - $60",
-      moderate: "$60 - $100",
-      luxury: "$100+"
+      low: [40,60],
+      moderate: [60,100],
+      luxury: [100]
     },
 
     destinationDescription:
@@ -272,9 +272,9 @@ const destinations = [
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: "$60 - $80",
-      moderate: "$80 - $140",
-      luxury: "$140+"
+      low: [60,80],
+      moderate: [80,140],
+      luxury: [140]
     },
 
     destinationDescription:
@@ -304,9 +304,9 @@ const destinations = [
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: "$80 - $120",
-      moderate: "$120 - $250",
-      luxury: "$250+"
+      low: [80,120],
+      moderate: [120,250],
+      luxury: [250]
     },
 
     destinationDescription:
@@ -336,9 +336,9 @@ const destinations = [
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: "$50 - $70",
-      moderate: "$70 - $120",
-      luxury: "$120+"
+      low: [50,70],
+      moderate: [70,120],
+      luxury: [120]
     },
 
     destinationDescription:
@@ -350,7 +350,7 @@ const destinations = [
       "Grand Bazaar"
     ]
   },
-  
+
   {
     destinationName: "Sydney",
     country: "Australia",
@@ -368,9 +368,9 @@ const destinations = [
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: "$80 - $100",
-      moderate: "$100 - $200",
-      luxury: "$200+"
+      low: [80,100],
+      moderate: [100,200],
+      luxury: [200]
     },
 
     destinationDescription:
@@ -400,9 +400,9 @@ const destinations = [
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: "$50 - $70",
-      moderate: "$70 - $150",
-      luxury: "$150+"
+      low: [50,70],
+      moderate: [70,150],
+      luxury: [150]
     },
 
     destinationDescription:
@@ -432,9 +432,9 @@ const destinations = [
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: "$90 - $120",
-      moderate: "$120 - $220",
-      luxury: "$220+"
+      low: [90,120],
+      moderate: [120,220],
+      luxury: [220]
     },
 
     destinationDescription:
@@ -464,9 +464,9 @@ const destinations = [
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: "$50 - $70",
-      moderate: "$70 - $140",
-      luxury: "$140+"
+      low: [50,70],
+      moderate: [70,140],
+      luxury: [140]
     },
 
     destinationDescription:

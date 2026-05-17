@@ -306,6 +306,114 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+/*================================================================== Budget Planner Page =========================================================================*/ 
+    
+    const plannerDestinationInput = document.getElementById("planner-destination");
+    const plannerNumberOfDaysInput = document.getElementById("planner-numberOfDays");
+    const plannerDailyBudgetInput = document.getElementById("planner-dailyBudget");
+    const plannerCalculateBtn = document.getElementById("planner-calculate-btn");
+    const plannnerEstimatedBudget = document.getElementById("plannner-estimatedBudget");
+    const budgetStatusElement = document.getElementById("budgetStatus");
+    const plannnerProgressBar = document.getElementById("plannner-progress-bar");
+
+
+    if( plannerDestinationInput &&
+        plannerNumberOfDaysInput &&
+        plannerDailyBudgetInput &&
+        plannerCalculateBtn &&
+        plannnerEstimatedBudget &&
+        budgetStatusElement &&
+        plannnerProgressBar
+    ){
+
+        function calculateBudget() {
+
+            const enteredPlace = plannerDestinationInput.value.toLowerCase();
+            const rNumberOfDays = Number(plannerNumberOfDaysInput.value);
+            const dailyBudget = Number(plannerDailyBudgetInput.value);
+
+            const totalbudget = rNumberOfDays * dailyBudget;
+
+            plannnerEstimatedBudget.innerText = `$${totalbudget}`;
+
+            const selectedDestination =
+                destinations.find((destination) => {
+
+                    return destination.destinationName
+                        .toLowerCase() === enteredPlace;
+
+                });
+
+            if (!selectedDestination) {
+
+                alert("Destination not found!");
+
+                return;
+
+            }
+
+            const lowRange = selectedDestination.budgetType.low;
+            const moderateRange = selectedDestination.budgetType.moderate;
+            const luxuryMin = selectedDestination.budgetType.luxury[0];
+
+            let budgetStatus = "";
+            let progressWidth = 0;
+
+            if (dailyBudget < lowRange[0]) {
+
+                budgetStatus = "Low Budget";
+
+                progressWidth =
+                    (dailyBudget / lowRange[0]) * 10;
+
+            }
+
+            else if (dailyBudget >= lowRange[0] && dailyBudget <= lowRange[1]) {
+
+                budgetStatus = "Low Budget";
+
+                progressWidth = ((dailyBudget - lowRange[0]) / (lowRange[1] - lowRange[0])) * 33;
+
+            }
+
+            else if (dailyBudget >= moderateRange[0] && dailyBudget <= moderateRange[1]) {
+
+                budgetStatus = "Moderate Budget";
+                progressWidth = 33 + ((dailyBudget - moderateRange[0]) /(moderateRange[1] - moderateRange[0])) * 33
+                
+
+
+            }
+
+            else if (dailyBudget >= luxuryMin) {
+
+                budgetStatus = "Luxury Budget";
+                const luxuryMax = luxuryMin * 2;
+
+                progressWidth = 66 + ((dailyBudget - luxuryMin) / (luxuryMax - luxuryMin)) * 34;
+
+            }
+
+            if (progressWidth > 100) {
+
+                progressWidth = 100;
+
+            }
+
+            budgetStatusElement.innerText = budgetStatus;
+            plannnerProgressBar.style.width = `${progressWidth}%`;
+
+        }
+
+        plannerCalculateBtn.addEventListener("click", (event) => {
+
+            event.preventDefault();
+
+            calculateBudget();
+
+        });
+
+    }
 
 });
 

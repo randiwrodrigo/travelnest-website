@@ -855,7 +855,7 @@ input:focus {
     padding: 1rem;
 }
 
-#estimatedBudget {
+#plannner-estimatedBudget {
     color: var(--accent);
     font-size: 4rem;
     margin: 0.5rem 0 0 0;
@@ -868,7 +868,7 @@ input:focus {
 }
 
 .progress-container {
-    margin: 1rem ;
+    margin: 2rem ;
     width: 40rem;
     height: 1.5rem;
     background: #cfe0ff;
