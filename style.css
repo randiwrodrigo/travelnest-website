@@ -569,17 +569,17 @@ input:focus {
 .explore-card {
     background: var(--white);
     border-radius: 20px;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    box-shadow: 0 0 15px rgba(0,0,0,0.5);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     width: 100%;
-    transition: 0.3s;
+    transition: transform 0.3s ease;
     cursor: pointer;
 }
 
 .explore-card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
 .explore-card img {
@@ -877,7 +877,7 @@ input:focus {
 }
 
 .progress-bar {
-    width: 66%;
+    width: 0%;
     height: 100%;
     background: #1f6fff;
     border-radius: 50px;

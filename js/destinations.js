@@ -2,7 +2,8 @@ const destinations = [
   {
     destinationName: "Bali",
     country: "Indonesia",
-    rating:"4.7",
+    continent: "Asia",
+    rating: "4.7",
     destinationImage: "destination-images/image1.jpg",
     bestTimeToVisit: "April to October",
     dailyBudget: "$80 - $150",
@@ -13,13 +14,16 @@ const destinations = [
     destinationType: "Adventure",
     estimateDays: "7 - 10 days",
     generalBudgetType: "Medium Budget",
+
     budgetType: {
       low: "$50 - $80",
       moderate: "$80 - $150",
       luxury: "$150+"
     },
+
     destinationDescription:
-      "Bali offers tropical beaches, rice terraces, waterfalls, and vibrant cultural experiences perfect for relaxing and adventure.",
+      "Bali is a tropical paradise famous for stunning beaches, lush rice terraces, waterfalls, ancient temples, and vibrant nightlife. Visitors can enjoy surfing, island hopping, cultural performances, relaxing resorts, delicious Indonesian cuisine, and breathtaking sunset views throughout the island.",
+
     popularAttractions: [
       "Ubud Rice Terraces",
       "Tanah Lot Temple",
@@ -30,7 +34,8 @@ const destinations = [
   {
     destinationName: "Maldives",
     country: "Maldives",
-    rating:"4.8",
+    continent: "Asia",
+    rating: "4.8",
     destinationImage: "destination-images/image2.jpg",
     bestTimeToVisit: "November to April",
     dailyBudget: "$120 - $250",
@@ -41,13 +46,16 @@ const destinations = [
     destinationType: "Beach",
     estimateDays: "5 - 7 days",
     generalBudgetType: "Luxury Budget",
+
     budgetType: {
       low: "$80 - $120",
       moderate: "$120 - $250",
       luxury: "$250+"
     },
+
     destinationDescription:
-      "Crystal-clear waters, overwater villas, and coral reefs make the Maldives perfect for beach lovers and honeymooners.",
+      "The Maldives is known for crystal-clear waters, white sandy beaches, luxury overwater villas, and colorful coral reefs. Travelers can enjoy snorkeling, diving, romantic sunsets, island hopping, and peaceful tropical escapes surrounded by breathtaking ocean scenery.",
+
     popularAttractions: [
       "Coral Reefs",
       "Private Islands",
@@ -58,7 +66,8 @@ const destinations = [
   {
     destinationName: "Tokyo",
     country: "Japan",
-    rating:"4.9",
+    continent: "Asia",
+    rating: "4.9",
     destinationImage: "destination-images/image3.jpg",
     bestTimeToVisit: "March to May",
     dailyBudget: "$100 - $180",
@@ -69,13 +78,16 @@ const destinations = [
     destinationType: "City",
     estimateDays: "6 - 8 days",
     generalBudgetType: "Medium Budget",
+
     budgetType: {
       low: "$70 - $100",
       moderate: "$100 - $180",
       luxury: "$180+"
     },
+
     destinationDescription:
-      "Tokyo combines futuristic city life, anime culture, delicious food, and historic temples in one exciting destination.",
+      "Tokyo blends futuristic technology, anime culture, traditional temples, and incredible food experiences into one exciting city. Visitors can explore neon-lit streets, shopping districts, peaceful gardens, historic shrines, and some of the best restaurants in the world.",
+
     popularAttractions: [
       "Shibuya Crossing",
       "Tokyo Tower",
@@ -86,7 +98,8 @@ const destinations = [
   {
     destinationName: "Paris",
     country: "France",
-    rating:"4.9",
+    continent: "Europe",
+    rating: "4.9",
     destinationImage: "destination-images/image4.jpg",
     bestTimeToVisit: "April to June",
     dailyBudget: "$120 - $220",
@@ -97,13 +110,16 @@ const destinations = [
     destinationType: "City",
     estimateDays: "5 - 7 days",
     generalBudgetType: "Luxury Budget",
+
     budgetType: {
       low: "$80 - $120",
       moderate: "$120 - $220",
       luxury: "$220+"
     },
+
     destinationDescription:
-      "Paris is famous for art, fashion, iconic landmarks, charming cafés, and romantic city experiences.",
+      "Paris is one of the world’s most romantic cities, famous for iconic landmarks, luxury shopping, charming cafés, and historic architecture. Visitors can explore art museums, enjoy French cuisine, cruise along the Seine River, and experience elegant Parisian culture.",
+
     popularAttractions: [
       "Eiffel Tower",
       "Louvre Museum",
@@ -114,7 +130,8 @@ const destinations = [
   {
     destinationName: "Santorini",
     country: "Greece",
-    rating:"4.5",
+    continent: "Europe",
+    rating: "4.5",
     destinationImage: "destination-images/image5.jpg",
     bestTimeToVisit: "May to September",
     dailyBudget: "$90 - $170",
@@ -125,13 +142,16 @@ const destinations = [
     destinationType: "Island",
     estimateDays: "4 - 6 days",
     generalBudgetType: "Medium Budget",
+
     budgetType: {
       low: "$70 - $90",
       moderate: "$90 - $170",
       luxury: "$170+"
     },
+
     destinationDescription:
-      "Santorini features whitewashed villages, stunning sunsets, blue domes, and beautiful Mediterranean beaches.",
+      "Santorini is famous for whitewashed buildings, blue domes, dramatic cliffs, and breathtaking sunsets overlooking the Aegean Sea. Visitors can relax on volcanic beaches, enjoy Mediterranean cuisine, explore charming villages, and experience unforgettable island scenery.",
+
     popularAttractions: [
       "Oia Village",
       "Red Beach",
@@ -142,7 +162,8 @@ const destinations = [
   {
     destinationName: "Dubai",
     country: "UAE",
-    rating:"4.4",
+    continent: "Asia",
+    rating: "4.4",
     destinationImage: "destination-images/image6.jpg",
     bestTimeToVisit: "November to March",
     dailyBudget: "$100 - $250",
@@ -153,13 +174,16 @@ const destinations = [
     destinationType: "City",
     estimateDays: "5 - 7 days",
     generalBudgetType: "Luxury Budget",
+
     budgetType: {
       low: "$70 - $100",
       moderate: "$100 - $250",
       luxury: "$250+"
     },
+
     destinationDescription:
-      "Dubai offers skyscrapers, desert adventures, luxury shopping, and world-class entertainment experiences.",
+      "Dubai is a futuristic city known for luxury shopping, towering skyscrapers, desert adventures, and world-class entertainment. Visitors can enjoy fine dining, beautiful beaches, desert safaris, modern attractions, and vibrant nightlife experiences throughout the city.",
+
     popularAttractions: [
       "Burj Khalifa",
       "Desert Safari",
@@ -170,7 +194,8 @@ const destinations = [
   {
     destinationName: "Swiss Alps",
     country: "Switzerland",
-    rating:"4.8",
+    continent: "Europe",
+    rating: "4.8",
     destinationImage: "destination-images/image7.jpg",
     bestTimeToVisit: "December to February",
     dailyBudget: "$150 - $300",
@@ -181,13 +206,16 @@ const destinations = [
     destinationType: "Mountain",
     estimateDays: "7 - 10 days",
     generalBudgetType: "Luxury Budget",
+
     budgetType: {
       low: "$100 - $150",
       moderate: "$150 - $300",
       luxury: "$300+"
     },
+
     destinationDescription:
-      "Snowy mountains, skiing resorts, scenic train rides, and alpine villages define the Swiss Alps experience.",
+      "The Swiss Alps offer breathtaking snowy mountains, scenic train rides, skiing resorts, and peaceful alpine villages. Travelers can enjoy winter sports, hiking trails, panoramic landscapes, and unforgettable outdoor adventures surrounded by beautiful natural scenery.",
+
     popularAttractions: [
       "Jungfraujoch",
       "Matterhorn",
@@ -198,7 +226,8 @@ const destinations = [
   {
     destinationName: "Bangkok",
     country: "Thailand",
-    rating:"4.8",
+    continent: "Asia",
+    rating: "4.8",
     destinationImage: "destination-images/image8.jpg",
     bestTimeToVisit: "November to February",
     dailyBudget: "$40 - $100",
@@ -209,13 +238,16 @@ const destinations = [
     destinationType: "City",
     estimateDays: "4 - 6 days",
     generalBudgetType: "Low Budget",
+
     budgetType: {
       low: "$40 - $60",
       moderate: "$60 - $100",
       luxury: "$100+"
     },
+
     destinationDescription:
-      "Bangkok is known for street food, floating markets, nightlife, temples, and vibrant city energy.",
+      "Bangkok is a vibrant city famous for street food, floating markets, nightlife, temples, and energetic city life. Visitors can explore cultural landmarks, enjoy delicious Thai cuisine, shop in busy markets, and experience the city's exciting atmosphere.",
+
     popularAttractions: [
       "Grand Palace",
       "Chatuchak Market",
@@ -226,7 +258,8 @@ const destinations = [
   {
     destinationName: "Cape Town",
     country: "South Africa",
-    rating:"4.5",
+    continent: "Africa",
+    rating: "4.5",
     destinationImage: "destination-images/image9.jpg",
     bestTimeToVisit: "November to March",
     dailyBudget: "$60 - $140",
@@ -237,13 +270,16 @@ const destinations = [
     destinationType: "Adventure",
     estimateDays: "6 - 8 days",
     generalBudgetType: "Medium Budget",
+
     budgetType: {
       low: "$60 - $80",
       moderate: "$80 - $140",
       luxury: "$140+"
     },
+
     destinationDescription:
-      "Cape Town combines beaches, mountains, wildlife, and vibrant cultural attractions in one stunning location.",
+      "Cape Town combines stunning beaches, dramatic mountains, wildlife experiences, and vibrant cultural attractions in one beautiful destination. Travelers can explore scenic coastlines, hike famous trails, enjoy local cuisine, and discover South Africa’s unique natural beauty.",
+
     popularAttractions: [
       "Table Mountain",
       "Boulders Beach",
@@ -254,7 +290,8 @@ const destinations = [
   {
     destinationName: "New York City",
     country: "USA",
-    rating:"4.3",
+    continent: "North America",
+    rating: "4.3",
     destinationImage: "destination-images/image10.jpg",
     bestTimeToVisit: "September to November",
     dailyBudget: "$120 - $250",
@@ -265,13 +302,16 @@ const destinations = [
     destinationType: "City",
     estimateDays: "5 - 7 days",
     generalBudgetType: "Luxury Budget",
+
     budgetType: {
       low: "$80 - $120",
       moderate: "$120 - $250",
       luxury: "$250+"
     },
+
     destinationDescription:
-      "NYC offers iconic landmarks, Broadway shows, shopping, museums, and nonstop city excitement.",
+      "New York City is famous for iconic landmarks, Broadway shows, shopping districts, museums, and nonstop city energy. Visitors can explore diverse neighborhoods, enjoy world-class dining, experience exciting nightlife, and discover the fast-paced lifestyle of NYC.",
+
     popularAttractions: [
       "Times Square",
       "Central Park",
@@ -282,7 +322,8 @@ const destinations = [
   {
     destinationName: "Istanbul",
     country: "Turkey",
-    rating:"4.8",
+    continent: "Europe",
+    rating: "4.8",
     destinationImage: "destination-images/image11.jpg",
     bestTimeToVisit: "April to May",
     dailyBudget: "$50 - $120",
@@ -293,24 +334,28 @@ const destinations = [
     destinationType: "Historic",
     estimateDays: "5 - 7 days",
     generalBudgetType: "Medium Budget",
+
     budgetType: {
       low: "$50 - $70",
       moderate: "$70 - $120",
       luxury: "$120+"
     },
+
     destinationDescription:
-      "Istanbul blends ancient architecture, colorful bazaars, delicious cuisine, and rich cultural history.",
+      "Istanbul beautifully blends ancient history, colorful bazaars, rich culture, and delicious cuisine. Travelers can visit historic mosques, cruise along the Bosphorus, explore vibrant markets, and experience the city's unique mix of European and Asian influences.",
+
     popularAttractions: [
       "Hagia Sophia",
       "Blue Mosque",
       "Grand Bazaar"
     ]
   },
-
+  
   {
     destinationName: "Sydney",
     country: "Australia",
-    rating:"4.8",
+    continent: "Oceania",
+    rating: "4.8",
     destinationImage: "destination-images/image12.jpg",
     bestTimeToVisit: "September to November",
     dailyBudget: "$100 - $200",
@@ -321,13 +366,16 @@ const destinations = [
     destinationType: "City",
     estimateDays: "6 - 8 days",
     generalBudgetType: "Medium Budget",
+
     budgetType: {
       low: "$80 - $100",
       moderate: "$100 - $200",
       luxury: "$200+"
     },
+
     destinationDescription:
-      "Sydney features iconic beaches, harbor views, surfing culture, and famous architectural landmarks.",
+      "Sydney is a vibrant coastal city known for its iconic harbor, beautiful beaches, surfing culture, and modern city lifestyle. Visitors can explore famous landmarks, enjoy waterfront dining, relax on sunny beaches, and experience Australia's energetic urban atmosphere.",
+
     popularAttractions: [
       "Sydney Opera House",
       "Bondi Beach",
@@ -338,7 +386,8 @@ const destinations = [
   {
     destinationName: "Machu Picchu",
     country: "Peru",
-    rating:"4.7",
+    continent: "South America",
+    rating: "4.7",
     destinationImage: "destination-images/image13.jpg",
     bestTimeToVisit: "May to September",
     dailyBudget: "$70 - $150",
@@ -349,13 +398,16 @@ const destinations = [
     destinationType: "Historic",
     estimateDays: "5 - 7 days",
     generalBudgetType: "Medium Budget",
+
     budgetType: {
       low: "$50 - $70",
       moderate: "$70 - $150",
       luxury: "$150+"
     },
+
     destinationDescription:
-      "Machu Picchu offers breathtaking mountain scenery, ancient ruins, and unforgettable hiking experiences.",
+      "Machu Picchu is an ancient Incan city surrounded by breathtaking mountain scenery and rich history. Travelers can hike scenic trails, explore archaeological ruins, experience traditional Peruvian culture, and enjoy unforgettable panoramic views of the Andes Mountains.",
+
     popularAttractions: [
       "Inca Trail",
       "Sun Gate",
@@ -366,7 +418,8 @@ const destinations = [
   {
     destinationName: "Reykjavik",
     country: "Iceland",
-    rating:"4.8",
+    continent: "Europe",
+    rating: "4.8",
     destinationImage: "destination-images/image14.jpg",
     bestTimeToVisit: "June to August",
     dailyBudget: "$120 - $220",
@@ -377,13 +430,16 @@ const destinations = [
     destinationType: "Nature",
     estimateDays: "6 - 9 days",
     generalBudgetType: "Luxury Budget",
+
     budgetType: {
       low: "$90 - $120",
       moderate: "$120 - $220",
       luxury: "$220+"
     },
+
     destinationDescription:
-      "Iceland is famous for volcanoes, waterfalls, glaciers, hot springs, and the northern lights.",
+      "Reykjavik is the gateway to Iceland’s incredible natural wonders, including glaciers, volcanoes, waterfalls, and hot springs. Visitors can enjoy northern lights tours, scenic road trips, geothermal spas, and breathtaking landscapes unlike anywhere else in the world.",
+
     popularAttractions: [
       "Blue Lagoon",
       "Golden Circle",
@@ -394,7 +450,8 @@ const destinations = [
   {
     destinationName: "Rio de Janeiro",
     country: "Brazil",
-    rating:"4.7",
+    continent: "South America",
+    rating: "4.7",
     destinationImage: "destination-images/image15.jpg",
     bestTimeToVisit: "December to March",
     dailyBudget: "$60 - $140",
@@ -405,17 +462,21 @@ const destinations = [
     destinationType: "Beach",
     estimateDays: "5 - 7 days",
     generalBudgetType: "Medium Budget",
+
     budgetType: {
       low: "$50 - $70",
       moderate: "$70 - $140",
       luxury: "$140+"
     },
+
     destinationDescription:
-      "Rio offers energetic nightlife, stunning beaches, mountain views, and world-famous carnival celebrations.",
+      "Rio de Janeiro is famous for its lively beaches, energetic nightlife, mountain views, and world-renowned Carnival celebrations. Travelers can experience samba culture, relax on beautiful coastlines, explore scenic viewpoints, and enjoy the city’s vibrant atmosphere.",
+
     popularAttractions: [
       "Christ the Redeemer",
       "Copacabana Beach",
       "Sugarloaf Mountain"
     ]
   }
+
 ];

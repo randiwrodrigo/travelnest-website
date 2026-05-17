@@ -43,7 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             heroImage.src = images[currentImage];
 
-        }, 3000);
+        }, 7000);
     };
 
 
@@ -119,102 +119,193 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const today = new Date().getDate();
 
-        const todayDestination =
-            destinations[today % destinations.length];
+        const todayDestination = destinations[today % destinations.length];
 
         dailyDestinationTitle.innerHTML =
             `${todayDestination.destinationName},
             ${todayDestination.country}`;
 
-        dailyDestinationImage.src =
-            todayDestination.destinationImage;
+        dailyDestinationImage.src =todayDestination.destinationImage;
 
-        dailyDestinationDescription.innerText =
-            todayDestination.destinationDescription;
+        dailyDestinationDescription.innerText = todayDestination.destinationDescription;
 
-        dailyDestinationCountry.innerText =
-            todayDestination.country;
+        dailyDestinationCountry.innerText = todayDestination.country;
 
-        dailyDestinationBestTime.innerText =
-            todayDestination.bestTimeToVisit;
+        dailyDestinationBestTime.innerText = todayDestination.bestTimeToVisit;
 
-        dailyDestinationDailyBudget.innerText =
-            todayDestination.dailyBudget;
+        dailyDestinationDailyBudget.innerText = todayDestination.dailyBudget;
 
-        dailyDestinationTravelVibes.innerText =
-            todayDestination.travelVibes;
+        dailyDestinationTravelVibes.innerText = todayDestination.travelVibes;
 
     }
-
-
-
 
     /*==================================================================== Destination Page =========================================================================*/ 
 
-    // Rendering Function
-
     const destinationGrid = document.getElementById("destination-grid-div");
     const destinationSearchInput = document.getElementById("searchInput");
+    const continentFilter = document.getElementById("continent-filter");
+    const PopupCloseButton = document.getElementById("close-button");
 
-    function renderDestinations(destinationArray) {
+    // Rendering Function
+    if (destinationGrid && destinationSearchInput && continentFilter){
 
-        destinationGrid.innerHTML = "";
+            function renderDestinations(destinationArray) {
 
-        destinationArray.forEach((destination) => {
+            destinationGrid.innerHTML = "";
 
-            destinationGrid.innerHTML += `
+            destinationArray.forEach((destination) => {
 
-                <div class="explore-card">
+                destinationGrid.innerHTML += `
 
-                    <img src="${destination.destinationImage}" alt="">
+                    <div class="explore-card">
 
-                    <div class="explore-card-info">
+                        <img src="${destination.destinationImage}" alt="">
 
-                        <div class="explore-card-header">
+                        <div class="explore-card-info">
 
-                            <h3>${destination.destinationName}</h3>
+                            <div class="explore-card-header">
 
-                            <div>
-                                <h3>${destination.rating}</h3>
+                                <h3>${destination.destinationName}</h3>
 
-                                <img src="icon/explore-card/star-icon.svg">
+                                <div>
+                                    <h3>${destination.rating}</h3>
+
+                                    <img src="icon/explore-card/star-icon.svg">
+                                </div>
+
+                            </div>
+
+                            <div class="explore-location">
+
+                                <img src="icon/explore-card/location-icon.svg">
+
+                                <p>${destination.country}</p>
+
                             </div>
 
                         </div>
-
-                        <div class="explore-location">
-
-                            <img src="icon/explore-card/location-icon.svg">
-
-                            <p>${destination.country}</p>
-
-                        </div>
-
                     </div>
 
-                </div>
+                    <div class="popup-window">
+                            <span class="close-button">&times;</span>
+                            <div class="window-grid">
+                                <div>
+                                    <img src="${destination.destinationImage}" alt="">
+                                </div>
+                                <div class="popup-content">
+                                    <h2>${destination.destinationName}</h2>
+                                        <div class="popup-content-paragraph">
+                                            <p>
+                                                ${destination.destinationDescription}
+                                            </p>
+                                        </div>
+                                    <div>
+                                        <div class="popular-attractions">
+                                            <h3>Popular Attractions</h3>
+                                            <ul>
+                                                <li>${destination.popularAttractions[0]}</li>
+                                                <li>${destination.popularAttractions[1]}</li>
+                                                <li>${destination.popularAttractions[2]}</li>
+                                            </ul>
+                                        </div>
+                                        <div>
+                                        <div class="cost-table-container">
+                                            <h3>Travel Cost (Per Day)</h3>
+                                            <table class="travel-table">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Budget Type</th>
+                                                        <th>Estimated Cost</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>Low</td>
+                                                        <td>${destination.budgetType.low}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Moderate</td>
+                                                        <td>${destination.budgetType.moderate}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Luxury</td>
+                                                        <td>${destination.budgetType.luxury}</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                `;
+            });
+        }
 
-            `;
+        renderDestinations(destinations);
+        setupPopup();
 
-        });
+        function filterDestinations() {
 
+            const searchValue = destinationSearchInput.value.toLowerCase();
+            const selectedContinent = continentFilter.value;
+            const filteredDestinations =
+                destinations.filter((destination) => {
+
+                    const matchesSearch =
+                        destination.destinationName
+                            .toLowerCase()
+                            .includes(searchValue);
+
+                    const matchesContinent =
+                        selectedContinent === "" ||
+                        destination.continent === selectedContinent;
+
+                    return matchesSearch &&
+                        matchesContinent;
+                });
+
+            renderDestinations(filteredDestinations);
+            setupPopup();
+        }
+
+        destinationSearchInput.addEventListener("input",filterDestinations);
+        continentFilter.addEventListener("change",filterDestinations);
     }
 
-    renderDestinations(destinations);
+    function setupPopup() {
 
-    destinationSearchInput.addEventListener("input", () => {
+        const exploreCards = document.querySelectorAll(".explore-card");
 
-        const value = destinationSearchInput.value.toLowerCase();
-        const filteredDestinations = destinations.filter((destination) => {
+        exploreCards.forEach((card) => {
 
-                return destination.destinationName
-                    .toLowerCase()
-                    .includes(value);
+            card.addEventListener("click", () => {
+
+                const popup =
+                    card.nextElementSibling;
+
+                popup.classList.add("active");
 
             });
 
-        renderDestinations(filteredDestinations);
+        });
 
-    });
+        const closeButtons = document.querySelectorAll(".close-button");
+
+        closeButtons.forEach((button) => {
+
+            button.addEventListener("click", (event) => {
+
+                event.stopPropagation();
+
+                const popup =
+                    button.closest(".popup-window");
+
+                popup.classList.remove("active");
+            });
+        });
+    }
+
 
 });
+
