@@ -221,15 +221,15 @@ window.addEventListener("DOMContentLoaded", () => {
                                                 <tbody>
                                                     <tr>
                                                         <td>Low</td>
-                                                        <td>${destination.budgetType.low}</td>
+                                                        <td>$${destination.budgetType.low[0]} - $${destination.budgetType.low[1]}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Moderate</td>
-                                                        <td>${destination.budgetType.moderate}</td>
+                                                        <td>$${destination.budgetType.moderate[0]} - $${destination.budgetType.moderate[1]}</td>
                                                     </tr>
                                                     <tr>
                                                         <td>Luxury</td>
-                                                        <td>${destination.budgetType.luxury}</td>
+                                                        <td>$${destination.budgetType.luxury[0]} - $${destination.budgetType.luxury[0]}</td>
                                                     </tr>
                                                 </tbody>
                                             </table>
@@ -245,6 +245,7 @@ window.addEventListener("DOMContentLoaded", () => {
         renderDestinations(destinations);
         setupPopup();
 
+        //Filter the destinations using user input and the selecteor
         function filterDestinations() {
 
             const searchValue = destinationSearchInput.value.toLowerCase();
@@ -273,6 +274,7 @@ window.addEventListener("DOMContentLoaded", () => {
         continentFilter.addEventListener("change",filterDestinations);
     }
 
+    // Pop up window open and closing function
     function setupPopup() {
 
         const exploreCards = document.querySelectorAll(".explore-card");
@@ -326,6 +328,9 @@ window.addEventListener("DOMContentLoaded", () => {
         plannnerProgressBar
     ){
 
+        let currentDestination = null;
+
+        // Calculate the Budget According to place,days and the daily budget
         function calculateBudget() {
 
             const enteredPlace = plannerDestinationInput.value.toLowerCase();
@@ -352,27 +357,28 @@ window.addEventListener("DOMContentLoaded", () => {
 
             }
 
+            // Change the progress bar and change the color
             const lowRange = selectedDestination.budgetType.low;
             const moderateRange = selectedDestination.budgetType.moderate;
             const luxuryMin = selectedDestination.budgetType.luxury[0];
 
             let budgetStatus = "";
             let progressWidth = 0;
+            let barColor = ""
 
             if (dailyBudget < lowRange[0]) {
 
                 budgetStatus = "Low Budget";
-
-                progressWidth =
-                    (dailyBudget / lowRange[0]) * 10;
+                progressWidth = (dailyBudget / lowRange[0]) * 10;
+                plannnerProgressBar.style.backgroundColor = "red"
 
             }
 
             else if (dailyBudget >= lowRange[0] && dailyBudget <= lowRange[1]) {
 
                 budgetStatus = "Low Budget";
-
-                progressWidth = ((dailyBudget - lowRange[0]) / (lowRange[1] - lowRange[0])) * 33;
+                progressWidth = 10 + ((dailyBudget - lowRange[0]) / (lowRange[1] - lowRange[0])) * 23;
+                plannnerProgressBar.style.backgroundColor = "yellow"
 
             }
 
@@ -380,6 +386,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
                 budgetStatus = "Moderate Budget";
                 progressWidth = 33 + ((dailyBudget - moderateRange[0]) /(moderateRange[1] - moderateRange[0])) * 33
+                plannnerProgressBar.style.backgroundColor = "green"
                 
 
 
@@ -391,6 +398,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 const luxuryMax = luxuryMin * 2;
 
                 progressWidth = 66 + ((dailyBudget - luxuryMin) / (luxuryMax - luxuryMin)) * 34;
+                plannnerProgressBar.style.backgroundColor = "blue"
 
             }
 
@@ -414,6 +422,9 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
     }
+
+
+
 
 });
 

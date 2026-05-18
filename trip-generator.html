@@ -62,33 +62,38 @@
                         </select>
 
                         <label for="budget">Budget ($):</label>
-                        <input type="number" id="budget" name="budget" required placeholder="💵 Budget">
+                        <select type="number" id="budget" name="budget" required>
+                            <option value="">Select Budget Type</option>
+                            <option value="Low Budget">Low Budget</option>
+                            <option value="Medium Budget">Medium Budget</option>
+                            <option value="Luxury Budget">Luxury Budget</option>
+                        </select>
 
                         <label for="duration">Duration (days):</label>
                         <input type="number" id="duration" name="duration" required placeholder="📆 Duration">
 
-                        <button type="submit" class="button">Generate Trip</button>
+                        <button id="generate-submit-btn" type="submit" class="button">Suprise Me!</button>
                     </form>
                 </div>
                 <div class="trip-generator-styles" id="tripGen-budget-summary">
                     <h3>🎉 Your Surprised Destination 🎈</h3>
                     <div class="suprise-destination-image">
-                        <img src="img/Weligama-Beach-Best-Tourist-Destinations-in-Sri-Lanka.webp" alt="Surprised Destination">
+                        <img id="suprise-destination-image" src="img/suprise-img.png" alt="Surprised Destination">
                     </div>
                     <h2>
-                        <span id="surprisedDestination-name">Bali,Indonesia</span>
+                        <span id="surprisedDestination-name">I Will Tell You Where To Go!</span>
                     </h2>
                     <div id="surprisedDestination-details" class="surprised-destination-details">
-                        <div id="tripTypeDisplay"><h3>Adventure</h3></div>
-                        <div id="budgetDisplay"><h3>Medium Budget</h3></div>
-                        <div id="durationDisplay"><h3>7-10 days</h3></div>
+                        <div id="tripTypeDisplay"><h3> - </h3></div>
+                        <div id="budgetDisplay"><h3> - </h3></div>
+                        <div id="durationDisplay"><h3> - </h3></div>
                     </div>
                     <div class="trip-info-container">
                         <div class="trip-info-box">
                             <div class="icon">📅</div>
                             <div>
                                 <h4>Best Time</h4>
-                                <p>Apr - Oct</p>
+                                <p id="bestTimeToTravel" > - </p>
                             </div>
                         </div>
 
@@ -96,7 +101,7 @@
                             <div class="icon">☀️</div>
                             <div>
                                 <h4>Weather</h4>
-                                <p>26-30°C</p>
+                                <p id="weather" > - </p>
                             </div>
                         </div>
 
@@ -104,7 +109,7 @@
                             <div class="icon">💬</div>
                             <div>
                                 <h4>Language</h4>
-                                <p>Indonesian</p>
+                                <p id="language"> - </p>
                             </div>
                         </div>
 
@@ -112,7 +117,7 @@
                             <div class="icon">💵</div>
                             <div>
                                 <h4>Currency</h4>
-                                <p>IDR</p>
+                                <p id="currency"> - </p>
                             </div>
                         </div>
 

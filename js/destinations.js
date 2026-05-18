@@ -11,18 +11,18 @@ const destinations = [
     weather: "26°C - 31°C",
     language: "Indonesian",
     currency: "IDR",
-    destinationType: "Adventure",
-    estimateDays: "7 - 10 days",
+    destinationType: "adventure",
+    estimateDays: [7, 10],
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: [50,80],
-      moderate: [80,150],
+      low: [50, 80],
+      moderate: [80, 150],
       luxury: [150]
     },
 
     destinationDescription:
-      "Bali is a tropical paradise famous for stunning beaches, lush rice terraces, waterfalls, ancient temples, and vibrant nightlife. Visitors can enjoy surfing, island hopping, cultural performances, relaxing resorts, delicious Indonesian cuisine, and breathtaking sunset views throughout the island.",
+      "Bali is a tropical paradise famous for stunning beaches, lush rice terraces, waterfalls, ancient temples, and vibrant nightlife.",
 
     popularAttractions: [
       "Ubud Rice Terraces",
@@ -43,18 +43,18 @@ const destinations = [
     weather: "27°C - 32°C",
     language: "Dhivehi",
     currency: "MVR",
-    destinationType: "Beach",
-    estimateDays: "5 - 7 days",
+    destinationType: "relaxation",
+    estimateDays: [5, 7],
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: [80,120],
-      moderate: [120,250],
+      low: [80, 120],
+      moderate: [120, 250],
       luxury: [250]
     },
 
     destinationDescription:
-      "The Maldives is known for crystal-clear waters, white sandy beaches, luxury overwater villas, and colorful coral reefs. Travelers can enjoy snorkeling, diving, romantic sunsets, island hopping, and peaceful tropical escapes surrounded by breathtaking ocean scenery.",
+      "The Maldives is known for crystal-clear waters, white sandy beaches, luxury overwater villas, and colorful coral reefs.",
 
     popularAttractions: [
       "Coral Reefs",
@@ -75,18 +75,18 @@ const destinations = [
     weather: "10°C - 25°C",
     language: "Japanese",
     currency: "JPY",
-    destinationType: "City",
-    estimateDays: "6 - 8 days",
+    destinationType: "cultural",
+    estimateDays: [6, 8],
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: [70,100],
-      moderate: [100,180],
+      low: [70, 100],
+      moderate: [100, 180],
       luxury: [180]
     },
 
     destinationDescription:
-      "Tokyo blends futuristic technology, anime culture, traditional temples, and incredible food experiences into one exciting city. Visitors can explore neon-lit streets, shopping districts, peaceful gardens, historic shrines, and some of the best restaurants in the world.",
+      "Tokyo blends futuristic technology, anime culture, traditional temples, and incredible food experiences into one exciting city.",
 
     popularAttractions: [
       "Shibuya Crossing",
@@ -107,18 +107,18 @@ const destinations = [
     weather: "12°C - 24°C",
     language: "French",
     currency: "EUR",
-    destinationType: "City",
-    estimateDays: "5 - 7 days",
+    destinationType: "cultural",
+    estimateDays: [5, 7],
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: [80,120],
-      moderate: [120,220],
+      low: [80, 120],
+      moderate: [120, 220],
       luxury: [220]
     },
 
     destinationDescription:
-      "Paris is one of the world’s most romantic cities, famous for iconic landmarks, luxury shopping, charming cafés, and historic architecture. Visitors can explore art museums, enjoy French cuisine, cruise along the Seine River, and experience elegant Parisian culture.",
+      "Paris is one of the world’s most romantic cities, famous for iconic landmarks, luxury shopping, charming cafés, and historic architecture.",
 
     popularAttractions: [
       "Eiffel Tower",
@@ -139,18 +139,18 @@ const destinations = [
     weather: "20°C - 30°C",
     language: "Greek",
     currency: "EUR",
-    destinationType: "Island",
-    estimateDays: "4 - 6 days",
+    destinationType: "relaxation",
+    estimateDays: [4, 6],
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: [70,90],
-      moderate: [90,170],
+      low: [70, 90],
+      moderate: [90, 170],
       luxury: [170]
     },
 
     destinationDescription:
-      "Santorini is famous for whitewashed buildings, blue domes, dramatic cliffs, and breathtaking sunsets overlooking the Aegean Sea. Visitors can relax on volcanic beaches, enjoy Mediterranean cuisine, explore charming villages, and experience unforgettable island scenery.",
+      "Santorini is famous for whitewashed buildings, blue domes, dramatic cliffs, and breathtaking sunsets overlooking the Aegean Sea.",
 
     popularAttractions: [
       "Oia Village",
@@ -171,18 +171,18 @@ const destinations = [
     weather: "20°C - 35°C",
     language: "Arabic",
     currency: "AED",
-    destinationType: "City",
-    estimateDays: "5 - 7 days",
+    destinationType: "adventure",
+    estimateDays: [5, 7],
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: [70,100],
-      moderate: [100,250],
+      low: [70, 100],
+      moderate: [100, 250],
       luxury: [250]
     },
 
     destinationDescription:
-      "Dubai is a futuristic city known for luxury shopping, towering skyscrapers, desert adventures, and world-class entertainment. Visitors can enjoy fine dining, beautiful beaches, desert safaris, modern attractions, and vibrant nightlife experiences throughout the city.",
+      "Dubai is a futuristic city known for luxury shopping, towering skyscrapers, desert adventures, and world-class entertainment.",
 
     popularAttractions: [
       "Burj Khalifa",
@@ -203,18 +203,18 @@ const destinations = [
     weather: "-5°C - 10°C",
     language: "German",
     currency: "CHF",
-    destinationType: "Mountain",
-    estimateDays: "7 - 10 days",
+    destinationType: "nature",
+    estimateDays: [7, 10],
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: [100,150],
-      moderate: [150,300],
+      low: [100, 150],
+      moderate: [150, 300],
       luxury: [300]
     },
 
     destinationDescription:
-      "The Swiss Alps offer breathtaking snowy mountains, scenic train rides, skiing resorts, and peaceful alpine villages. Travelers can enjoy winter sports, hiking trails, panoramic landscapes, and unforgettable outdoor adventures surrounded by beautiful natural scenery.",
+      "The Swiss Alps offer breathtaking snowy mountains, scenic train rides, skiing resorts, and peaceful alpine villages.",
 
     popularAttractions: [
       "Jungfraujoch",
@@ -235,18 +235,18 @@ const destinations = [
     weather: "25°C - 34°C",
     language: "Thai",
     currency: "THB",
-    destinationType: "City",
-    estimateDays: "4 - 6 days",
+    destinationType: "cultural",
+    estimateDays: [4, 6],
     generalBudgetType: "Low Budget",
 
     budgetType: {
-      low: [40,60],
-      moderate: [60,100],
+      low: [40, 60],
+      moderate: [60, 100],
       luxury: [100]
     },
 
     destinationDescription:
-      "Bangkok is a vibrant city famous for street food, floating markets, nightlife, temples, and energetic city life. Visitors can explore cultural landmarks, enjoy delicious Thai cuisine, shop in busy markets, and experience the city's exciting atmosphere.",
+      "Bangkok is a vibrant city famous for street food, floating markets, nightlife, temples, and energetic city life.",
 
     popularAttractions: [
       "Grand Palace",
@@ -267,18 +267,18 @@ const destinations = [
     weather: "18°C - 29°C",
     language: "English",
     currency: "ZAR",
-    destinationType: "Adventure",
-    estimateDays: "6 - 8 days",
+    destinationType: "nature",
+    estimateDays: [6, 8],
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: [60,80],
-      moderate: [80,140],
+      low: [60, 80],
+      moderate: [80, 140],
       luxury: [140]
     },
 
     destinationDescription:
-      "Cape Town combines stunning beaches, dramatic mountains, wildlife experiences, and vibrant cultural attractions in one beautiful destination. Travelers can explore scenic coastlines, hike famous trails, enjoy local cuisine, and discover South Africa’s unique natural beauty.",
+      "Cape Town combines stunning beaches, dramatic mountains, wildlife experiences, and vibrant cultural attractions.",
 
     popularAttractions: [
       "Table Mountain",
@@ -299,18 +299,18 @@ const destinations = [
     weather: "5°C - 28°C",
     language: "English",
     currency: "USD",
-    destinationType: "City",
-    estimateDays: "5 - 7 days",
+    destinationType: "cultural",
+    estimateDays: [5, 7],
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: [80,120],
-      moderate: [120,250],
+      low: [80, 120],
+      moderate: [120, 250],
       luxury: [250]
     },
 
     destinationDescription:
-      "New York City is famous for iconic landmarks, Broadway shows, shopping districts, museums, and nonstop city energy. Visitors can explore diverse neighborhoods, enjoy world-class dining, experience exciting nightlife, and discover the fast-paced lifestyle of NYC.",
+      "New York City is famous for iconic landmarks, Broadway shows, shopping districts, museums, and nonstop city energy.",
 
     popularAttractions: [
       "Times Square",
@@ -331,18 +331,18 @@ const destinations = [
     weather: "12°C - 27°C",
     language: "Turkish",
     currency: "TRY",
-    destinationType: "Historic",
-    estimateDays: "5 - 7 days",
+    destinationType: "cultural",
+    estimateDays: [5, 7],
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: [50,70],
-      moderate: [70,120],
+      low: [50, 70],
+      moderate: [70, 120],
       luxury: [120]
     },
 
     destinationDescription:
-      "Istanbul beautifully blends ancient history, colorful bazaars, rich culture, and delicious cuisine. Travelers can visit historic mosques, cruise along the Bosphorus, explore vibrant markets, and experience the city's unique mix of European and Asian influences.",
+      "Istanbul beautifully blends ancient history, colorful bazaars, rich culture, and delicious cuisine.",
 
     popularAttractions: [
       "Hagia Sophia",
@@ -363,18 +363,18 @@ const destinations = [
     weather: "15°C - 28°C",
     language: "English",
     currency: "AUD",
-    destinationType: "City",
-    estimateDays: "6 - 8 days",
+    destinationType: "relaxation",
+    estimateDays: [6, 8],
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: [80,100],
-      moderate: [100,200],
+      low: [80, 100],
+      moderate: [100, 200],
       luxury: [200]
     },
 
     destinationDescription:
-      "Sydney is a vibrant coastal city known for its iconic harbor, beautiful beaches, surfing culture, and modern city lifestyle. Visitors can explore famous landmarks, enjoy waterfront dining, relax on sunny beaches, and experience Australia's energetic urban atmosphere.",
+      "Sydney is a vibrant coastal city known for its iconic harbor, beautiful beaches, surfing culture, and modern city lifestyle.",
 
     popularAttractions: [
       "Sydney Opera House",
@@ -395,18 +395,18 @@ const destinations = [
     weather: "10°C - 22°C",
     language: "Spanish",
     currency: "PEN",
-    destinationType: "Historic",
-    estimateDays: "5 - 7 days",
+    destinationType: "adventure",
+    estimateDays: [5, 7],
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: [50,70],
-      moderate: [70,150],
+      low: [50, 70],
+      moderate: [70, 150],
       luxury: [150]
     },
 
     destinationDescription:
-      "Machu Picchu is an ancient Incan city surrounded by breathtaking mountain scenery and rich history. Travelers can hike scenic trails, explore archaeological ruins, experience traditional Peruvian culture, and enjoy unforgettable panoramic views of the Andes Mountains.",
+      "Machu Picchu is an ancient Incan city surrounded by breathtaking mountain scenery and rich history.",
 
     popularAttractions: [
       "Inca Trail",
@@ -427,18 +427,18 @@ const destinations = [
     weather: "5°C - 15°C",
     language: "Icelandic",
     currency: "ISK",
-    destinationType: "Nature",
-    estimateDays: "6 - 9 days",
+    destinationType: "nature",
+    estimateDays: [6, 9],
     generalBudgetType: "Luxury Budget",
 
     budgetType: {
-      low: [90,120],
-      moderate: [120,220],
+      low: [90, 120],
+      moderate: [120, 220],
       luxury: [220]
     },
 
     destinationDescription:
-      "Reykjavik is the gateway to Iceland’s incredible natural wonders, including glaciers, volcanoes, waterfalls, and hot springs. Visitors can enjoy northern lights tours, scenic road trips, geothermal spas, and breathtaking landscapes unlike anywhere else in the world.",
+      "Reykjavik is the gateway to Iceland’s incredible natural wonders, including glaciers, volcanoes, waterfalls, and hot springs.",
 
     popularAttractions: [
       "Blue Lagoon",
@@ -459,18 +459,18 @@ const destinations = [
     weather: "24°C - 34°C",
     language: "Portuguese",
     currency: "BRL",
-    destinationType: "Beach",
-    estimateDays: "5 - 7 days",
+    destinationType: "relaxation",
+    estimateDays: [5, 7],
     generalBudgetType: "Medium Budget",
 
     budgetType: {
-      low: [50,70],
-      moderate: [70,140],
+      low: [50, 70],
+      moderate: [70, 140],
       luxury: [140]
     },
 
     destinationDescription:
-      "Rio de Janeiro is famous for its lively beaches, energetic nightlife, mountain views, and world-renowned Carnival celebrations. Travelers can experience samba culture, relax on beautiful coastlines, explore scenic viewpoints, and enjoy the city’s vibrant atmosphere.",
+      "Rio de Janeiro is famous for its lively beaches, energetic nightlife, mountain views, and world-renowned Carnival celebrations.",
 
     popularAttractions: [
       "Christ the Redeemer",
@@ -478,5 +478,4 @@ const destinations = [
       "Sugarloaf Mountain"
     ]
   }
-
 ];

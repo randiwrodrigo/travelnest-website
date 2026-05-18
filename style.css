@@ -56,6 +56,20 @@ input:focus {
     box-shadow: 0 0 5px rgba(3, 57, 232, 0.5);
 }
 
+select {
+    padding: 1.1rem;
+    border: 1px solid rgba(15, 23, 42, 0.2);
+    border-radius: 50px;
+    width: 100%;
+    font-size: 0.9rem;
+}
+
+select:focus {
+    outline: none;
+    border-color: var(--secondary);
+    box-shadow: 0 0 5px rgba(3, 57, 232, 0.5);
+}
+
 .button {
     background: var(--secondary);
     font-weight: bold;
@@ -771,7 +785,7 @@ input:focus {
 .trip-generator-container,
 .travel-mood-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.8fr 1fr;
     gap: 2rem;
     margin: 2rem 2.5rem 2.5rem 2.5rem;
     background-color: var(--light-grey);
@@ -952,20 +966,6 @@ input:focus {
 .tripGeneratorForm label {
     font-weight: bold;
     margin-left: 0.5rem;
-}
-
-#tripType {
-    padding: 1.1rem;
-    border: 1px solid rgba(15, 23, 42, 0.2);
-    border-radius: 50px;
-    width: 100%;
-    font-size: 0.9rem;
-}
-
-#tripType:focus {
-    outline: none;
-    border-color: var(--secondary);
-    box-shadow: 0 0 5px rgba(3, 57, 232, 0.5);
 }
 
 .trip-generator-container button {
@@ -1334,6 +1334,11 @@ input:focus {
     display: flex;
     flex-direction: column;
     margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.input-group input {
+    width: 96%;
 }
 
 .input-group label {
@@ -1363,6 +1368,7 @@ input:focus {
 
 .success-message {
     margin-top: 1.5rem;
+    display: none;
     background: rgb(217, 255, 221);
     color: var(--accent);
     padding: 1rem;
