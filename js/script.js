@@ -424,6 +424,153 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 
+/*================================================================== Budget Planner Page =========================================================================*/ 
+
+    const tripTypeinput = document.getElementById("tripType");
+    const tripBudgetInput = document.getElementById("budget");
+    const tripDurationInput = document.getElementById("duration");
+    const generateSubmitBtn = document.getElementById("generate-submit-btn");
+    const supriseDestinationImage = document.getElementById("suprise-destination-image");
+    const surprisedDestinationName = document.getElementById("surprisedDestination-name");
+    const tripTypeDisplay = document.getElementById("tripTypeDisplay");
+    const budgetDisplay = document.getElementById("budgetDisplay");
+    const durationDisplay = document.getElementById("durationDisplay");
+    const bestTimeToTravel = document.getElementById("bestTimeToTravel");
+    const weather = document.getElementById("weather");
+    const language = document.getElementById("language");
+    const currency = document.getElementById("currency");
+    const wishlistBtn = document.getElementById("wish-button");
+
+    if (tripTypeinput &&
+        tripBudgetInput &&
+        tripDurationInput &&
+        generateSubmitBtn &&
+        supriseDestinationImage &&
+        surprisedDestinationName &&
+        tripTypeDisplay &&
+        budgetDisplay &&
+        durationDisplay &&
+        bestTimeToTravel &&
+        weather &&
+        language &&
+        currency
+    ){
+
+        let currentDestination = null;
+
+        // filter and take the matching destination according to trip type, daily budget and the number of days
+
+        function filteredSupriseDestinations() {
+
+            const tripType = tripTypeinput.value;
+
+            const tripBudget = tripBudgetInput.value;
+
+            const tripDuration = Number(tripDurationInput.value);
+
+            const selectedDestination =
+                destinations.filter((destination) => {
+
+                    const matchesTripType =
+
+                        destination.destinationType === tripType;
+
+                    const matchesBudget =
+                
+                        destination.generalBudgetType === tripBudget;
+
+                    const matchesDuration =
+
+                        tripDuration >= destination.estimateDays[0] &&
+
+                        tripDuration <= destination.estimateDays[1];
+
+                    return (
+
+                        matchesTripType &&
+                        matchesBudget &&
+                        matchesDuration
+
+                    );
+
+                });
+
+            if (selectedDestination.length === 0) {
+
+                alert("No matching destinations found!");
+
+                return;
+
+            }
+
+            currentDestination  =
+
+                selectedDestination[
+                    Math.floor(
+                        Math.random() *
+                        selectedDestination.length
+                    )
+                ];
+
+
+            // Chane the details of the suprise destination
+            supriseDestinationImage.src =
+                currentDestination .destinationImage;
+
+            surprisedDestinationName.innerHTML =
+                `${currentDestination .destinationName},
+                ${currentDestination .country}`;
+
+            tripTypeDisplay.innerText = currentDestination .destinationType;
+
+            budgetDisplay.innerText = currentDestination .generalBudgetType;
+
+            durationDisplay.innerHTML =
+                `${currentDestination .estimateDays[0]}
+                - ${currentDestination .estimateDays[1]} Days`;
+
+            bestTimeToTravel.innerText = currentDestination .bestTimeToVisit;
+
+            weather.innerText = currentDestination .weather;
+
+            language.innerText = currentDestination .language;
+
+            currency.innerText = currentDestination .currency;
+
+        }
+
+        generateSubmitBtn.addEventListener("click",
+            (event) => {
+
+                event.preventDefault();
+
+                filteredSupriseDestinations();
+
+            }
+        );
+
+        // Add the current destination to the local database using wishlist key
+        wishlistBtn.addEventListener("click", () => {
+
+            if (!currentDestination) {
+
+                alert("Generate a destination first!");
+
+                return;
+
+            }
+
+            let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+            wishlist.push(currentDestination);
+
+            localStorage.setItem("wishlist",JSON.stringify(wishlist));
+
+            alert("Added to wishlist!");
+
+        });
+    }
+
 
 
 });
