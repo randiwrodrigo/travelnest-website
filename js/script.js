@@ -572,6 +572,73 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 
+/*================================================================== Support Page =========================================================================*/ 
+   
+    // expand FAQ box and change the icon
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item)=>{
+
+        const question =
+            item.querySelector(".faq-question");
+
+        const mark =
+            item.querySelector(".faq-toggle-mark");
+
+        question.addEventListener("click",()=>{
+
+            item.classList.toggle("active");
+
+            if(item.classList.contains("active")){
+
+                mark.innerText = "−";
+
+            }
+
+            else{
+
+                mark.innerText = "+";
+
+            }
+
+        });
+
+    });
+
+
+    const supportForm = document.getElementById("supportForm");
+    const successMessage = document.querySelector(".success-message");
+
+    supportForm.addEventListener("submit",(event)=>{
+
+        event.preventDefault();
+
+        const fullName =  supportForm.querySelector('input[type="text"]').value;
+        const email = supportForm.querySelector('input[type="email"]').value;
+        const message = supportForm.querySelector("textarea").value;
+
+        // Create feedback object
+        const feedbackData = {
+
+            fullName: fullName,
+            email: email,
+            message: message
+
+        };
+
+
+        let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+
+        feedbacks.push(feedbackData);
+
+        localStorage.setItem("feedbacks",JSON.stringify(feedbacks));
+
+        successMessage.style.display = "block";
+
+        supportForm.reset();
+
+    });
+
 
 });
 
