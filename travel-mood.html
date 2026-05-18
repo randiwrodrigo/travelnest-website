@@ -52,7 +52,6 @@
                             <button>🍃 Forest</button>
                             <button>🏙️ City</button>
                             <button>🌧️ Rain</button>
-                            <button>⛰️ Mountain</button>
                         </div>
 
                         <div class="music-banner">
@@ -80,7 +79,7 @@
                         <button>Planned</button>
                     </div>
 
-                    <div class="destination-list">
+                    <div class="destination-list" id="destination-list">
 
                         <div class="destination-item">
                             <img src="img/Weligama-Beach-Best-Tourist-Destinations-in-Sri-Lanka.webp" alt="">
@@ -88,7 +87,10 @@
                                 <h3>Bali, Indonesia</h3>
                                 <p>Relaxation • Beach</p>
                             </div>
-                            <button class="visited">✔ Visited</button>
+                            <div class="button-box">
+                                <button class="visited">📅 Visited</button>
+                                <button class="planned">📅 Planned</button>
+                            </div>
                         </div>
 
                         <div class="destination-item">
@@ -97,7 +99,10 @@
                                 <h3>Switzerland</h3>
                                 <p>Adventure • Mountains</p>
                             </div>
-                            <button class="planned">📅 Planned</button>
+                            <div class="button-box">
+                                <button class="visited active">📅 Visited</button>
+                                <button class="planned">📅 Planned</button>
+                            </div>
                         </div>
 
                         <div class="destination-item">
@@ -106,13 +111,17 @@
                                 <h3>Tokyo, Japan</h3>
                                 <p>City • Culture</p>
                             </div>
-                            <button class="planned">📅 Planned</button>
+                            <div class="button-box">
+                                <button class="visited">📅 Visited</button>
+                                <button class="planned">📅 Planned</button>
+                            </div>
+                            
                             
                         </div>
 
                     </div>
 
-                    <button class="secondary-button" id="travel-mood-more-destination">
+                    <button class="secondary-button ExpDestinationBtn" >
                         Explore More Destinations ↗
                     </button>
                 </div>

@@ -223,12 +223,14 @@
     /*For destination page========================================================================================================*/
 
 
-    .destination-explorer {
-        display: flex ;
-        flex-direction: column ;
-        align-items: center ;
-        text-align: center;
-        padding: 1rem;
+    .destination-grid {
+        display: flex;
+        flex-direction: column;
+        margin: 0%;
+    }
+
+    .explore-card {
+        width: 100%;
         margin: 0%;
     }
 
@@ -248,7 +250,7 @@
     .popup-window {
         display: flex ;
         position: fixed;
-        top: 55%;
+        top: 40%;
         left: 50%;
         flex-direction: column ;
         align-items: center ;
@@ -262,29 +264,26 @@
         border-radius: 30px;
     }
 
+    .window-grid {
+        display: flex;
+        gap: 0%;
+    }
+
+    .window-grid img {
+        display: none;
+
+    }
+
+    .popular-attractions ul {
+        text-align: start;
+    }
+
     .close-button {
         position: absolute;
         top: 10px;
         right: 30px;
         font-size: 2rem;
         cursor: pointer;
-    }
-
-    .window-grid img {
-        margin-top: 25px;
-        width: 85%;
-        height: auto;
-    }
-
-    .window-grid {
-        display: flex ;
-        flex-direction: column ;
-        align-items: center ;
-        text-align: center ;
-        padding: 1rem;
-        margin: 0%;
-        padding: 0%;
-        width: 100%;
     }
 
 

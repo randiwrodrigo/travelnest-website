@@ -571,6 +571,458 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+/*================================================================== Travel Mood Page =========================================================================*/ 
+
+    const soundButtons = document.querySelectorAll(".sound-buttons button");
+
+    if (soundButtons){
+
+        const moodAudio = new Audio();
+
+        const soundData = {
+
+            "🌊 Beach": "audio/beach.mp3",
+            "🍃 Forest": "audio/forest.mp3",
+            "🏙️ City": "audio/city.mp3",
+            "🌧️ Rain": "audio/rain.mp3"
+
+        };
+
+        soundButtons.forEach((button)=>{
+
+            button.addEventListener("click",()=>{
+
+                // Remove active class
+                soundButtons.forEach((btn)=>{
+
+                    btn.classList.remove("active");
+
+                });
+
+                // Add active class
+                button.classList.add("active");
+
+                // Get audio
+                const soundName =
+                    button.innerText.trim();
+
+                moodAudio.src =
+                    soundData[soundName];
+
+                moodAudio.play();
+
+            });
+
+        });
+    }
+
+
+const destinationList =
+    document.getElementById("destination-list");
+
+const filterButtons =
+    document.querySelectorAll(
+        ".destination-filter button"
+    );
+
+
+
+let savedDestinations =
+    JSON.parse(
+        localStorage.getItem(
+            "travelDestinations"
+        )
+    ) || [];
+
+
+
+let currentFilter = "All";
+
+
+
+
+
+// RENDER DESTINATIONS
+function renderDestinations(){
+
+
+    destinationList.innerHTML = "";
+
+
+
+    destinations.forEach((destination)=>{
+
+
+        // FILTER LOGIC
+        const saved =
+            savedDestinations.find((item)=>{
+
+                return item.name ===
+                    destination.destinationName;
+
+            });
+
+
+
+        if(
+
+            currentFilter === "Visited" &&
+
+            (!saved || saved.status !== "Visited")
+
+        ){
+
+            return;
+
+        }
+
+
+
+        if(
+
+            currentFilter === "Planned" &&
+
+            (!saved || saved.status !== "Planned")
+
+        ){
+
+            return;
+
+        }
+
+
+
+        // ACTIVE STATES
+        let visitedActive = "";
+        let plannedActive = "";
+
+
+
+        if(saved){
+
+            if(saved.status === "Visited"){
+
+                visitedActive = "active";
+
+            }
+
+            else if(saved.status === "Planned"){
+
+                plannedActive = "active";
+
+            }
+
+        }
+
+
+
+        // CARD
+        const card =
+            document.createElement("div");
+
+        card.classList.add("destination-item");
+
+
+
+        card.innerHTML = `
+
+            <img
+                src="${destination.destinationImage}"
+                alt=""
+            >
+
+            <div>
+
+                <h3>
+
+                    ${destination.destinationName},
+                    ${destination.country}
+
+                </h3>
+
+                <p>
+
+                    ${destination.travelVibes}
+
+                </p>
+
+            </div>
+
+            <div class="button-box">
+
+                <button
+
+                    class="visited ${visitedActive}"
+
+                    data-name="${destination.destinationName}"
+
+                >
+
+                    📍 Visited
+
+                </button>
+
+                <button
+
+                    class="planned ${plannedActive}"
+
+                    data-name="${destination.destinationName}"
+
+                >
+
+                    📅 Planned
+
+                </button>
+
+            </div>
+
+        `;
+
+
+
+        destinationList.appendChild(card);
+
+    });
+
+
+
+    setupButtons();
+
+}
+
+
+
+
+
+
+
+// BUTTON SYSTEM
+function setupButtons(){
+
+
+    const visitedButtons =
+        document.querySelectorAll(".visited");
+
+
+
+    const plannedButtons =
+        document.querySelectorAll(".planned");
+
+
+
+
+    // VISITED
+    visitedButtons.forEach((button)=>{
+
+
+        button.addEventListener("click",()=>{
+
+
+            const name =
+                button.dataset.name;
+
+
+
+            const existing =
+                savedDestinations.find((item)=>{
+
+                    return item.name === name;
+
+                });
+
+
+
+            // REMOVE ACTIVE
+            if(
+
+                existing &&
+                existing.status === "Visited"
+
+            ){
+
+                savedDestinations =
+                    savedDestinations.filter((item)=>{
+
+                        return item.name !== name;
+
+                    });
+
+            }
+
+
+
+            // SET VISITED
+            else{
+
+                savedDestinations =
+                    savedDestinations.filter((item)=>{
+
+                        return item.name !== name;
+
+                    });
+
+
+
+                savedDestinations.push({
+
+                    name:name,
+                    status:"Visited"
+
+                });
+
+            }
+
+
+
+            localStorage.setItem(
+
+                "travelDestinations",
+
+                JSON.stringify(savedDestinations)
+
+            );
+
+
+
+            renderDestinations();
+
+        });
+
+    });
+
+
+
+
+
+
+
+    // PLANNED
+    plannedButtons.forEach((button)=>{
+
+
+        button.addEventListener("click",()=>{
+
+
+            const name =
+                button.dataset.name;
+
+
+
+            const existing =
+                savedDestinations.find((item)=>{
+
+                    return item.name === name;
+
+                });
+
+
+
+            // REMOVE ACTIVE
+            if(
+
+                existing &&
+                existing.status === "Planned"
+
+            ){
+
+                savedDestinations =
+                    savedDestinations.filter((item)=>{
+
+                        return item.name !== name;
+
+                    });
+
+            }
+
+
+
+            // SET PLANNED
+            else{
+
+                savedDestinations =
+                    savedDestinations.filter((item)=>{
+
+                        return item.name !== name;
+
+                    });
+
+
+
+                savedDestinations.push({
+
+                    name:name,
+                    status:"Planned"
+
+                });
+
+            }
+
+
+
+            localStorage.setItem(
+
+                "travelDestinations",
+
+                JSON.stringify(savedDestinations)
+
+            );
+
+
+
+            renderDestinations();
+
+        });
+
+    });
+
+}
+
+
+
+
+
+
+
+// FILTER BUTTONS
+filterButtons.forEach((button)=>{
+
+
+    button.addEventListener("click",()=>{
+
+
+        filterButtons.forEach((btn)=>{
+
+            btn.classList.remove("active");
+
+        });
+
+
+
+        button.classList.add("active");
+
+
+
+        currentFilter =
+            button.innerText.trim();
+
+
+
+        renderDestinations();
+
+    });
+
+});
+
+
+
+
+
+
+// INITIAL LOAD
+renderDestinations();
+
+
+
 
 /*================================================================== Support Page =========================================================================*/ 
    
