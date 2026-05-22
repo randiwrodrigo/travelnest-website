@@ -503,31 +503,19 @@ window.addEventListener("DOMContentLoaded", () => {
 
             }
 
-            currentDestination  =
-
-                selectedDestination[
-                    Math.floor(
-                        Math.random() *
-                        selectedDestination.length
-                    )
-                ];
+            currentDestination  = selectedDestination[Math.floor(Math.random() * selectedDestination.length)];
 
 
             // Chane the details of the suprise destination
-            supriseDestinationImage.src =
-                currentDestination .destinationImage;
+            supriseDestinationImage.src = currentDestination.destinationImage;
 
-            surprisedDestinationName.innerHTML =
-                `${currentDestination .destinationName},
-                ${currentDestination .country}`;
+            surprisedDestinationName.innerHTML = `${currentDestination .destinationName},${currentDestination .country}`;
 
             tripTypeDisplay.innerText = currentDestination .destinationType;
 
             budgetDisplay.innerText = currentDestination .generalBudgetType;
 
-            durationDisplay.innerHTML =
-                `${currentDestination .estimateDays[0]}
-                - ${currentDestination .estimateDays[1]} Days`;
+            durationDisplay.innerHTML = `${currentDestination .estimateDays[0]} - ${currentDestination .estimateDays[1]} Days`;
 
             bestTimeToTravel.innerText = currentDestination .bestTimeToVisit;
 
@@ -540,9 +528,7 @@ window.addEventListener("DOMContentLoaded", () => {
         }
 
         generateSubmitBtn.addEventListener("click",
-            (event) => {
-
-                event.preventDefault();
+            (event) => {event.preventDefault();
 
                 filteredSupriseDestinations();
 
@@ -574,6 +560,8 @@ window.addEventListener("DOMContentLoaded", () => {
 /*================================================================== Travel Mood Page =========================================================================*/ 
 
     const soundButtons = document.querySelectorAll(".sound-buttons button");
+    const travelMoodSoundBanner = document.getElementById("travel-mood-sound-banner")
+    const MoodSoundBannerTitle = document.querySelector(".banner-content h3")
 
     if (soundButtons){
 
@@ -581,10 +569,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
         const soundData = {
 
-            "🌊 Beach": "audio/beach.mp3",
-            "🍃 Forest": "audio/forest.mp3",
-            "🏙️ City": "audio/city.mp3",
-            "🌧️ Rain": "audio/rain.mp3"
+            "🌊 Beach": ["audio/beach.mp3","img/travel-mood-sound-banners/beach.jpg","Beach Waves"],
+            "🍃 Forest": ["audio/forest.mp3","img/travel-mood-sound-banners/forest.jpg","Forest Sound"],
+            "🏙️ City": ["audio/city.mp3","img/travel-mood-sound-banners/city.jpg","City Sound"],
+            "🌧️ Rain": ["audio/rain.mp3","img/travel-mood-sound-banners/rain.webp","Rani Drops Sound"]
 
         };
 
@@ -606,8 +594,9 @@ window.addEventListener("DOMContentLoaded", () => {
                 const soundName =
                     button.innerText.trim();
 
-                moodAudio.src =
-                    soundData[soundName];
+                moodAudio.src = soundData[soundName][0];
+                travelMoodSoundBanner.src = soundData[soundName][1];
+                MoodSoundBannerTitle.textContent = soundData[soundName][2];
 
                 moodAudio.play();
 
@@ -617,453 +606,338 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 
+    // CHECK IF DESTINATION PAGE ELEMENTS EXIST
     const destinationList = document.getElementById("destination-list");
-
     const filterButtons = document.querySelectorAll(".destination-filter button");
 
-    let savedDestinations =JSON.parse(localStorage.getItem("travelDestinations")) || [];
+    if (destinationList && filterButtons.length > 0) {
 
-    let currentFilter = "All";
+        let savedDestinations = JSON.parse(localStorage.getItem("travelDestinations")) || [];
 
-    // RENDER DESTINATIONS
-    function renderTravelMoodDestinations(){
+        let currentFilter = "All";
+
+        // RENDER DESTINATIONS
+        function renderTravelMoodDestinations() {
+
+            destinationList.innerHTML = "";
+
+            destinations.forEach((destination) => {
+
+                // FIND SAVED DESTINATION
+                const saved =
+                    savedDestinations.find((item) => {
+
+                        return item.name === destination.destinationName;
+
+                    });
+
+                // FILTER LOGIC
+                if (currentFilter === "Visited" && (!saved || saved.status !== "Visited")) 
+                {
+                    return;
+                }
+
+                if (currentFilter === "Planned" && (!saved || saved.status !== "Planned"))
+                {
+                    return;
+                }
+
+                // ACTIVE BUTTON STATES
+                let visitedActive = "";
+                let plannedActive = "";
+
+                if (saved) {
+
+                    if (saved.status === "Visited") {
+
+                        visitedActive = "active";
+
+                    }
+                    else if (saved.status === "Planned") {
+
+                        plannedActive = "active";
+
+                    }
+
+                }
+
+                // CREATE CARD
+                const card = document.createElement("div");
+
+                card.classList.add("destination-item");
+
+                card.innerHTML = `
+
+                    <img src="${destination.destinationImage}" alt="">
+
+                    <div>
+
+                        <h3>
+                            ${destination.destinationName},
+                            ${destination.country}
+                        </h3>
+
+                        <p>
+                            ${destination.travelVibes}
+                        </p>
+
+                    </div>
+
+                    <div class="button-box">
+
+                        <button class="visited ${visitedActive} "data-name="${destination.destinationName}">
+                            📍 Visited
+                        </button>
+
+                        <button class="planned ${plannedActive}" data-name="${destination.destinationName}">
+                            📅 Planned
+                        </button>
+
+                    </div>
+                `;
+
+                destinationList.appendChild(card);
+
+            });
+
+            setupButtons();
+        }
+
+        // BUTTON SYSTEM
+        function setupButtons() {
+
+            const visitedButtons =
+                document.querySelectorAll(".visited");
+
+            const plannedButtons =
+                document.querySelectorAll(".planned");
 
 
-        destinationList.innerHTML = "";
+            visitedButtons.forEach((button) => {
+
+                button.addEventListener("click", () => {
+
+                    const name = button.dataset.name;
+
+                    const existing =
+                        savedDestinations.find((item) => {
+
+                            return item.name === name;
+
+                        });
 
 
+                    if (
+                        existing &&
+                        existing.status === "Visited"
+                    ) {
 
-        destinations.forEach((destination)=>{
+                        savedDestinations =
+                            savedDestinations.filter((item) => {
 
+                                return item.name !== name;
 
-            // FILTER LOGIC
-            const saved =
-                savedDestinations.find((item)=>{
+                            });
 
-                    return item.name === destination.destinationName;
+                    }
+
+                    // ADD VISITED
+                    else {
+
+                        savedDestinations =
+                            savedDestinations.filter((item) => {
+
+                                return item.name !== name;
+
+                            });
+
+                        savedDestinations.push({
+
+                            name: name,
+                            status: "Visited"
+
+                        });
+
+                    }
+
+                    localStorage.setItem("travelDestinations",JSON.stringify(savedDestinations));
+
+                    renderTravelMoodDestinations();
 
                 });
 
+            });
 
+            // PLANNED BUTTONS
+            plannedButtons.forEach((button) => {
 
-            if( currentFilter === "Visited" && (!saved || saved.status !== "Visited")
+                button.addEventListener("click", () => {
 
-            ){
+                    const name = button.dataset.name;
 
-                return;
+                    const existing =
+                        savedDestinations.find((item) => {
 
-            }
+                            return item.name === name;
 
+                        });
 
+                    // REMOVE PLANNED
+                    if (existing && existing.status === "Planned") 
+                        {
+                            savedDestinations =
+                                savedDestinations.filter((item) => {
 
-            if(
+                                    return item.name !== name;
+                                });
+                        }
 
-                currentFilter === "Planned" &&
+                    // ADD PLANNED
+                    else {
 
-                (!saved || saved.status !== "Planned")
+                        savedDestinations =
+                            savedDestinations.filter((item) => {
 
-            ){
+                                return item.name !== name;
 
-                return;
+                            });
 
-            }
+                        savedDestinations.push({
 
+                            name: name,
+                            status: "Planned"
 
+                        });
 
-            // ACTIVE STATES
-            let visitedActive = "";
-            let plannedActive = "";
+                    }
 
+                    localStorage.setItem("travelDestinations",JSON.stringify(savedDestinations));
 
+                    renderTravelMoodDestinations();
 
-            if(saved){
+                });
 
-                if(saved.status === "Visited"){
+            });
 
-                    visitedActive = "active";
+        }
 
-                }
+        // FILTER BUTTONS
+        filterButtons.forEach((button) => {
 
-                else if(saved.status === "Planned"){
+            button.addEventListener("click", () => {
 
-                    plannedActive = "active";
+                filterButtons.forEach((btn) => {
 
-                }
+                    btn.classList.remove("active");
 
-            }
+                });
 
+                button.classList.add("active");
 
+                currentFilter =
+                    button.innerText.trim();
 
-            // CARD
-            const card =
-                document.createElement("div");
+                renderTravelMoodDestinations();
 
-            card.classList.add("destination-item");
-
-
-
-            card.innerHTML = `
-
-                <img
-                    src="${destination.destinationImage}"
-                    alt=""
-                >
-
-                <div>
-
-                    <h3>
-
-                        ${destination.destinationName},
-                        ${destination.country}
-
-                    </h3>
-
-                    <p>
-
-                        ${destination.travelVibes}
-
-                    </p>
-
-                </div>
-
-                <div class="button-box">
-
-                    <button
-
-                        class="visited ${visitedActive}"
-
-                        data-name="${destination.destinationName}"
-
-                    >
-
-                        📍 Visited
-
-                    </button>
-
-                    <button
-
-                        class="planned ${plannedActive}"
-
-                        data-name="${destination.destinationName}"
-
-                    >
-
-                        📅 Planned
-
-                    </button>
-
-                </div>
-
-            `;
-
-
-
-            destinationList.appendChild(card);
+            });
 
         });
 
-
-
-        setupButtons();
+        // INITIAL LOAD
+        renderTravelMoodDestinations();
 
     }
 
 
+    /*================================================================== SUPPORT PAGE ==================================================================*/
 
-
-
-
-
-    // BUTTON SYSTEM
-    function setupButtons(){
-
-
-        const visitedButtons =
-            document.querySelectorAll(".visited");
-
-
-
-        const plannedButtons =
-            document.querySelectorAll(".planned");
-
-
-
-
-        // VISITED
-        visitedButtons.forEach((button)=>{
-
-
-            button.addEventListener("click",()=>{
-
-
-                const name =
-                    button.dataset.name;
-
-
-
-                const existing =
-                    savedDestinations.find((item)=>{
-
-                        return item.name === name;
-
-                    });
-
-
-
-                // REMOVE ACTIVE
-                if(
-
-                    existing &&
-                    existing.status === "Visited"
-
-                ){
-
-                    savedDestinations =
-                        savedDestinations.filter((item)=>{
-
-                            return item.name !== name;
-
-                        });
-
-                }
-
-
-
-                // SET VISITED
-                else{
-
-                    savedDestinations =
-                        savedDestinations.filter((item)=>{
-
-                            return item.name !== name;
-
-                        });
-
-
-
-                    savedDestinations.push({
-
-                        name:name,
-                        status:"Visited"
-
-                    });
-
-                }
-
-
-
-                localStorage.setItem(
-
-                    "travelDestinations",
-
-                    JSON.stringify(savedDestinations)
-
-                );
-
-
-
-                renderDestinations();
-
-            });
-
-        });
-
-
-
-
-
-
-
-        // PLANNED
-        plannedButtons.forEach((button)=>{
-
-
-            button.addEventListener("click",()=>{
-
-
-                const name =
-                    button.dataset.name;
-
-
-
-                const existing =
-                    savedDestinations.find((item)=>{
-
-                        return item.name === name;
-
-                    });
-
-
-
-                // REMOVE ACTIVE
-                if(
-
-                    existing &&
-                    existing.status === "Planned"
-
-                ){
-
-                    savedDestinations =
-                        savedDestinations.filter((item)=>{
-
-                            return item.name !== name;
-
-                        });
-
-                }
-
-
-
-                // SET PLANNED
-                else{
-
-                    savedDestinations =
-                        savedDestinations.filter((item)=>{
-
-                            return item.name !== name;
-
-                        });
-
-
-
-                    savedDestinations.push({
-
-                        name:name,
-                        status:"Planned"
-
-                    });
-
-                }
-
-
-
-                localStorage.setItem(
-
-                    "travelDestinations",
-
-                    JSON.stringify(savedDestinations)
-
-                );
-
-
-
-                renderDestinations();
-
-            });
-
-        });
-
-    }
-
-
-
-
-
-
-
-    // FILTER BUTTONS
-    filterButtons.forEach((button)=>{
-
-
-        button.addEventListener("click",()=>{
-
-
-            filterButtons.forEach((btn)=>{
-
-                btn.classList.remove("active");
-
-            });
-
-
-
-            button.classList.add("active");
-
-
-
-            currentFilter =
-                button.innerText.trim();
-
-
-
-            renderDestinations();
-
-        });
-
-    });
-
-    // INITIAL LOAD
-    renderTravelMoodDestinationsw();
-
-
-
-
-/*================================================================== Support Page =========================================================================*/ 
-   
-    // expand FAQ box and change the icon
+    // FAQ
     const faqItems = document.querySelectorAll(".faq-item");
 
-    faqItems.forEach((item)=>{
+    if (faqItems.length > 0) {
 
-        const question =
-            item.querySelector(".faq-question");
+        faqItems.forEach((item) => {
 
-        const mark =
-            item.querySelector(".faq-toggle-mark");
+            const question =
+                item.querySelector(".faq-question");
 
-        question.addEventListener("click",()=>{
+            const mark =
+                item.querySelector(".faq-toggle-mark");
 
-            item.classList.toggle("active");
+            question.addEventListener("click", () => {
 
-            if(item.classList.contains("active")){
+                item.classList.toggle("active");
 
-                mark.innerText = "−";
+                if (item.classList.contains("active")) {
 
-            }
+                    mark.innerText = "−";
 
-            else{
+                }
+                else {
 
-                mark.innerText = "+";
+                    mark.innerText = "+";
 
-            }
+                }
+
+            });
 
         });
 
-    });
+    }
 
 
-    const supportForm = document.getElementById("supportForm");
-    const successMessage = document.querySelector(".success-message");
+    // SUPPORT FORM
+    const supportForm =
+        document.getElementById("supportForm");
 
-    supportForm.addEventListener("submit",(event)=>{
+    const successMessage =
+        document.querySelector(".success-message");
 
-        event.preventDefault();
+    if (supportForm && successMessage) {
 
-        const fullName =  supportForm.querySelector('input[type="text"]').value;
-        const email = supportForm.querySelector('input[type="email"]').value;
-        const message = supportForm.querySelector("textarea").value;
+        supportForm.addEventListener("submit", (event) => {
 
-        // Create feedback object
-        const feedbackData = {
+            event.preventDefault();
 
-            fullName: fullName,
-            email: email,
-            message: message
+            const fullName =
+                supportForm.querySelector('input[type="text"]').value;
 
-        };
+            const email =
+                supportForm.querySelector('input[type="email"]').value;
 
+            const message =
+                supportForm.querySelector("textarea").value;
 
-        let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+            // FEEDBACK OBJECT
+            const feedbackData = {
 
-        feedbacks.push(feedbackData);
+                fullName: fullName,
+                email: email,
+                message: message
 
-        localStorage.setItem("feedbacks",JSON.stringify(feedbacks));
+            };
 
-        successMessage.style.display = "block";
+            // GET EXISTING FEEDBACKS
+            let feedbacks =
+                JSON.parse(localStorage.getItem("feedbacks")) || [];
 
-        supportForm.reset();
+            // ADD NEW FEEDBACK
+            feedbacks.push(feedbackData);
 
-    });
+            // SAVE TO LOCAL STORAGE
+            localStorage.setItem(
+                "feedbacks",
+                JSON.stringify(feedbacks)
+            );
 
+            // SHOW SUCCESS MESSAGE
+            successMessage.style.display = "block";
 
+            // RESET FORM
+            supportForm.reset();
+
+        });
+
+    }
 });
 

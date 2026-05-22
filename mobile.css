@@ -250,7 +250,7 @@
     .popup-window {
         display: flex ;
         position: fixed;
-        top: 40%;
+        top: 50%;
         left: 50%;
         flex-direction: column ;
         align-items: center ;
@@ -510,6 +510,7 @@
 
     .destination-item {
         padding: 0.8rem;
+        width: auto;
     }
 
     .destination-item img {
