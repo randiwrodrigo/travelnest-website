@@ -12,21 +12,21 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     const images = [
-        "destination-images/image1.jpg",
-        "destination-images/image2.jpg",
-        "destination-images/image3.jpg",
-        "destination-images/image4.jpg",
-        "destination-images/image5.jpg",
-        "destination-images/image6.jpg",
-        "destination-images/image7.jpg",
-        "destination-images/image8.jpg",
-        "destination-images/image9.jpg",
-        "destination-images/image10.jpg",
-        "destination-images/image11.jpg",
-        "destination-images/image12.jpg",
-        "destination-images/image13.jpg",
-        "destination-images/image14.jpg",
-        "destination-images/image15.jpg",
+        "destination-images/image1.webp",
+        "destination-images/image2.webp",
+        "destination-images/image3.webp",
+        "destination-images/image4.webp",
+        "destination-images/image5.webp",
+        "destination-images/image6.webp",
+        "destination-images/image7.webp",
+        "destination-images/image8.webp",
+        "destination-images/image9.webp",
+        "destination-images/image10.webp",
+        "destination-images/image11.webp",
+        "destination-images/image12.webp",
+        "destination-images/image13.webp",
+        "destination-images/image14.webp",
+        "destination-images/image15.webp",
     ];
 
     let currentImage = 0;
@@ -159,7 +159,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
                     <div class="explore-card">
 
-                        <img src="${destination.destinationImage}" alt="">
+                        <img src="${destination.destinationImage}" loading="lazy" alt="">
 
                         <div class="explore-card-info">
 
@@ -617,270 +617,371 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 
-const destinationList =
-    document.getElementById("destination-list");
+    const destinationList = document.getElementById("destination-list");
 
-const filterButtons =
-    document.querySelectorAll(
-        ".destination-filter button"
-    );
+    const filterButtons = document.querySelectorAll(".destination-filter button");
+
+    let savedDestinations =JSON.parse(localStorage.getItem("travelDestinations")) || [];
+
+    let currentFilter = "All";
+
+    // RENDER DESTINATIONS
+    function renderTravelMoodDestinations(){
 
 
-
-let savedDestinations =
-    JSON.parse(
-        localStorage.getItem(
-            "travelDestinations"
-        )
-    ) || [];
+        destinationList.innerHTML = "";
 
 
 
-let currentFilter = "All";
+        destinations.forEach((destination)=>{
+
+
+            // FILTER LOGIC
+            const saved =
+                savedDestinations.find((item)=>{
+
+                    return item.name === destination.destinationName;
+
+                });
+
+
+
+            if( currentFilter === "Visited" && (!saved || saved.status !== "Visited")
+
+            ){
+
+                return;
+
+            }
+
+
+
+            if(
+
+                currentFilter === "Planned" &&
+
+                (!saved || saved.status !== "Planned")
+
+            ){
+
+                return;
+
+            }
+
+
+
+            // ACTIVE STATES
+            let visitedActive = "";
+            let plannedActive = "";
+
+
+
+            if(saved){
+
+                if(saved.status === "Visited"){
+
+                    visitedActive = "active";
+
+                }
+
+                else if(saved.status === "Planned"){
+
+                    plannedActive = "active";
+
+                }
+
+            }
+
+
+
+            // CARD
+            const card =
+                document.createElement("div");
+
+            card.classList.add("destination-item");
+
+
+
+            card.innerHTML = `
+
+                <img
+                    src="${destination.destinationImage}"
+                    alt=""
+                >
+
+                <div>
+
+                    <h3>
+
+                        ${destination.destinationName},
+                        ${destination.country}
+
+                    </h3>
+
+                    <p>
+
+                        ${destination.travelVibes}
+
+                    </p>
+
+                </div>
+
+                <div class="button-box">
+
+                    <button
+
+                        class="visited ${visitedActive}"
+
+                        data-name="${destination.destinationName}"
+
+                    >
+
+                        📍 Visited
+
+                    </button>
+
+                    <button
+
+                        class="planned ${plannedActive}"
+
+                        data-name="${destination.destinationName}"
+
+                    >
+
+                        📅 Planned
+
+                    </button>
+
+                </div>
+
+            `;
+
+
+
+            destinationList.appendChild(card);
+
+        });
+
+
+
+        setupButtons();
+
+    }
 
 
 
 
 
-// RENDER DESTINATIONS
-function renderDestinations(){
 
 
-    destinationList.innerHTML = "";
+    // BUTTON SYSTEM
+    function setupButtons(){
+
+
+        const visitedButtons =
+            document.querySelectorAll(".visited");
 
 
 
-    destinations.forEach((destination)=>{
+        const plannedButtons =
+            document.querySelectorAll(".planned");
 
 
-        // FILTER LOGIC
-        const saved =
-            savedDestinations.find((item)=>{
 
-                return item.name ===
-                    destination.destinationName;
+
+        // VISITED
+        visitedButtons.forEach((button)=>{
+
+
+            button.addEventListener("click",()=>{
+
+
+                const name =
+                    button.dataset.name;
+
+
+
+                const existing =
+                    savedDestinations.find((item)=>{
+
+                        return item.name === name;
+
+                    });
+
+
+
+                // REMOVE ACTIVE
+                if(
+
+                    existing &&
+                    existing.status === "Visited"
+
+                ){
+
+                    savedDestinations =
+                        savedDestinations.filter((item)=>{
+
+                            return item.name !== name;
+
+                        });
+
+                }
+
+
+
+                // SET VISITED
+                else{
+
+                    savedDestinations =
+                        savedDestinations.filter((item)=>{
+
+                            return item.name !== name;
+
+                        });
+
+
+
+                    savedDestinations.push({
+
+                        name:name,
+                        status:"Visited"
+
+                    });
+
+                }
+
+
+
+                localStorage.setItem(
+
+                    "travelDestinations",
+
+                    JSON.stringify(savedDestinations)
+
+                );
+
+
+
+                renderDestinations();
+
+            });
+
+        });
+
+
+
+
+
+
+
+        // PLANNED
+        plannedButtons.forEach((button)=>{
+
+
+            button.addEventListener("click",()=>{
+
+
+                const name =
+                    button.dataset.name;
+
+
+
+                const existing =
+                    savedDestinations.find((item)=>{
+
+                        return item.name === name;
+
+                    });
+
+
+
+                // REMOVE ACTIVE
+                if(
+
+                    existing &&
+                    existing.status === "Planned"
+
+                ){
+
+                    savedDestinations =
+                        savedDestinations.filter((item)=>{
+
+                            return item.name !== name;
+
+                        });
+
+                }
+
+
+
+                // SET PLANNED
+                else{
+
+                    savedDestinations =
+                        savedDestinations.filter((item)=>{
+
+                            return item.name !== name;
+
+                        });
+
+
+
+                    savedDestinations.push({
+
+                        name:name,
+                        status:"Planned"
+
+                    });
+
+                }
+
+
+
+                localStorage.setItem(
+
+                    "travelDestinations",
+
+                    JSON.stringify(savedDestinations)
+
+                );
+
+
+
+                renderDestinations();
+
+            });
+
+        });
+
+    }
+
+
+
+
+
+
+
+    // FILTER BUTTONS
+    filterButtons.forEach((button)=>{
+
+
+        button.addEventListener("click",()=>{
+
+
+            filterButtons.forEach((btn)=>{
+
+                btn.classList.remove("active");
 
             });
 
 
 
-        if(
+            button.classList.add("active");
 
-            currentFilter === "Visited" &&
 
-            (!saved || saved.status !== "Visited")
 
-        ){
-
-            return;
-
-        }
-
-
-
-        if(
-
-            currentFilter === "Planned" &&
-
-            (!saved || saved.status !== "Planned")
-
-        ){
-
-            return;
-
-        }
-
-
-
-        // ACTIVE STATES
-        let visitedActive = "";
-        let plannedActive = "";
-
-
-
-        if(saved){
-
-            if(saved.status === "Visited"){
-
-                visitedActive = "active";
-
-            }
-
-            else if(saved.status === "Planned"){
-
-                plannedActive = "active";
-
-            }
-
-        }
-
-
-
-        // CARD
-        const card =
-            document.createElement("div");
-
-        card.classList.add("destination-item");
-
-
-
-        card.innerHTML = `
-
-            <img
-                src="${destination.destinationImage}"
-                alt=""
-            >
-
-            <div>
-
-                <h3>
-
-                    ${destination.destinationName},
-                    ${destination.country}
-
-                </h3>
-
-                <p>
-
-                    ${destination.travelVibes}
-
-                </p>
-
-            </div>
-
-            <div class="button-box">
-
-                <button
-
-                    class="visited ${visitedActive}"
-
-                    data-name="${destination.destinationName}"
-
-                >
-
-                    📍 Visited
-
-                </button>
-
-                <button
-
-                    class="planned ${plannedActive}"
-
-                    data-name="${destination.destinationName}"
-
-                >
-
-                    📅 Planned
-
-                </button>
-
-            </div>
-
-        `;
-
-
-
-        destinationList.appendChild(card);
-
-    });
-
-
-
-    setupButtons();
-
-}
-
-
-
-
-
-
-
-// BUTTON SYSTEM
-function setupButtons(){
-
-
-    const visitedButtons =
-        document.querySelectorAll(".visited");
-
-
-
-    const plannedButtons =
-        document.querySelectorAll(".planned");
-
-
-
-
-    // VISITED
-    visitedButtons.forEach((button)=>{
-
-
-        button.addEventListener("click",()=>{
-
-
-            const name =
-                button.dataset.name;
-
-
-
-            const existing =
-                savedDestinations.find((item)=>{
-
-                    return item.name === name;
-
-                });
-
-
-
-            // REMOVE ACTIVE
-            if(
-
-                existing &&
-                existing.status === "Visited"
-
-            ){
-
-                savedDestinations =
-                    savedDestinations.filter((item)=>{
-
-                        return item.name !== name;
-
-                    });
-
-            }
-
-
-
-            // SET VISITED
-            else{
-
-                savedDestinations =
-                    savedDestinations.filter((item)=>{
-
-                        return item.name !== name;
-
-                    });
-
-
-
-                savedDestinations.push({
-
-                    name:name,
-                    status:"Visited"
-
-                });
-
-            }
-
-
-
-            localStorage.setItem(
-
-                "travelDestinations",
-
-                JSON.stringify(savedDestinations)
-
-            );
+            currentFilter =
+                button.innerText.trim();
 
 
 
@@ -890,136 +991,8 @@ function setupButtons(){
 
     });
 
-
-
-
-
-
-
-    // PLANNED
-    plannedButtons.forEach((button)=>{
-
-
-        button.addEventListener("click",()=>{
-
-
-            const name =
-                button.dataset.name;
-
-
-
-            const existing =
-                savedDestinations.find((item)=>{
-
-                    return item.name === name;
-
-                });
-
-
-
-            // REMOVE ACTIVE
-            if(
-
-                existing &&
-                existing.status === "Planned"
-
-            ){
-
-                savedDestinations =
-                    savedDestinations.filter((item)=>{
-
-                        return item.name !== name;
-
-                    });
-
-            }
-
-
-
-            // SET PLANNED
-            else{
-
-                savedDestinations =
-                    savedDestinations.filter((item)=>{
-
-                        return item.name !== name;
-
-                    });
-
-
-
-                savedDestinations.push({
-
-                    name:name,
-                    status:"Planned"
-
-                });
-
-            }
-
-
-
-            localStorage.setItem(
-
-                "travelDestinations",
-
-                JSON.stringify(savedDestinations)
-
-            );
-
-
-
-            renderDestinations();
-
-        });
-
-    });
-
-}
-
-
-
-
-
-
-
-// FILTER BUTTONS
-filterButtons.forEach((button)=>{
-
-
-    button.addEventListener("click",()=>{
-
-
-        filterButtons.forEach((btn)=>{
-
-            btn.classList.remove("active");
-
-        });
-
-
-
-        button.classList.add("active");
-
-
-
-        currentFilter =
-            button.innerText.trim();
-
-
-
-        renderDestinations();
-
-    });
-
-});
-
-
-
-
-
-
-// INITIAL LOAD
-renderDestinations();
+    // INITIAL LOAD
+    renderTravelMoodDestinationsw();
 
 
 
