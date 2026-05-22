@@ -341,14 +341,13 @@ window.addEventListener("DOMContentLoaded", () => {
 
 /*================================================================== Budget Planner Page =========================================================================*/ 
     
-    const plannerDestinationInput = document.getElementById("planner-destination");
-    const plannerNumberOfDaysInput = document.getElementById("planner-numberOfDays");
-    const plannerDailyBudgetInput = document.getElementById("planner-dailyBudget");
+    const plannerDestinationInput = document.getElementById("destination");
+    const plannerNumberOfDaysInput = document.getElementById("numberOfDays");
+    const plannerDailyBudgetInput = document.getElementById("totalBudget");
     const plannerCalculateBtn = document.getElementById("planner-calculate-btn");
     const plannnerEstimatedBudget = document.getElementById("plannner-estimatedBudget");
     const budgetStatusElement = document.getElementById("budgetStatus");
     const plannnerProgressBar = document.getElementById("plannner-progress-bar");
-
 
     if( plannerDestinationInput &&
         plannerNumberOfDaysInput &&

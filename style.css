@@ -558,7 +558,6 @@ select:focus {
 
 .header-image img{
     position: absolute;
-    top: 3;
     right: 0;
     height: auto;
     width: 30%;

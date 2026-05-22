@@ -341,22 +341,21 @@
         width: 90%;
         height: 1rem;
         margin: 1rem auto;
-        background: var(--white);
+        background: var(--light-blue);
         border-radius: 50px;
         overflow: hidden;
 }
 
 
     .progress-bar {
-        width: 66%;
+        width: 0%;
         height: 100%;
         background: var(--secondary);
         border-radius: 50px;
-        flex-direction: start;
     }
 
     /* Trip Generator Page Mobile */
-/* ========================================================================== */
+
 
     .trip-generator-container {
         display: flex;
@@ -577,7 +576,7 @@
     .header-image img {
         width: 100%;
         height: auto;
-        top: 60px;
+        top: 3rem;
         opacity: 0.9;
     }
 
