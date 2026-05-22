@@ -1240,7 +1240,7 @@ select:focus {
 .banner-content h3,
 .banner-content p,
 .banner-content button{
-    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+    text-shadow: 0 2px 2px rgba(0,0,0,0.20);
 }
 
 .overlay{
