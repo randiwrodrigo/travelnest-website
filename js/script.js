@@ -208,7 +208,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
                             <div class="explore-location">
 
-                                <img src="icon/explore-card/location-icon.svg" alt="location icon image">
+                                <img src="icon/explore-card/location-icon.svg" alt="location icon image that represent location">
 
                                 <p>${destination.country}</p>
 
