@@ -1,5 +1,7 @@
 window.addEventListener("DOMContentLoaded", () => {
 
+
+    
     /*==================================================================== Home Page =========================================================================*/ 
 
     const heroImage = document.getElementById("hero-image");
@@ -7,8 +9,37 @@ window.addEventListener("DOMContentLoaded", () => {
     const BdgPlanerBtn = document.getElementById("BdgPlanerBtn");
     const hamburger = document.querySelectorAll(".hamburger");
     const navLinks = document.querySelector(".nav-links");
+    const navLinksColor = document.querySelectorAll(".nav-links a");
     const emailinput = document.getElementById("emailinput");
     const emailSub = document.getElementById("emailSub");
+
+
+    if (navLinksColor.length > 0) {
+
+        let currentPage =
+            window.location.pathname.split("/").pop();
+
+        // HOME PAGE FIX
+        if (currentPage === "") {
+
+            currentPage = "index.html";
+
+        }
+
+        navLinksColor.forEach((link) => {
+
+            const linkPage =
+                link.getAttribute("href");
+
+            if (currentPage === linkPage) {
+
+                link.classList.add("active");
+
+            }
+
+        });
+
+    }
 
 
     const images = [
