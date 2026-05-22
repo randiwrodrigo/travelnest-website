@@ -1062,7 +1062,7 @@ select:focus {
 }
 
 #budgetDisplay {
-    background: #c5deff;
+    background: #ffad9d;
 }
 
 #durationDisplay {
@@ -1231,6 +1231,25 @@ select:focus {
     overflow: hidden;
     border-radius: 25px;
     margin-bottom: 4rem;
+}
+
+.banner-content button{
+    box-shadow: 0 2px 4px rgba(0,0,0,0.9);
+}
+
+.banner-content h3,
+.banner-content p,
+.banner-content button{
+    text-shadow: 0 2px 4px rgba(0,0,0,0.9);
+}
+
+.overlay{
+
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.75),rgba(0,0,0,0.01));
+    z-index: 1;
+
 }
 
 .music-banner {

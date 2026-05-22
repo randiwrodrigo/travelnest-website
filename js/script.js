@@ -592,17 +592,18 @@ window.addEventListener("DOMContentLoaded", () => {
     const soundButtons = document.querySelectorAll(".sound-buttons button");
     const travelMoodSoundBanner = document.getElementById("travel-mood-sound-banner")
     const MoodSoundBannerTitle = document.querySelector(".banner-content h3")
+    const MoodSoundBannerDescription = document.querySelector(".banner-content p")
 
     if (soundButtons){
 
         const moodAudio = new Audio();
 
-        const soundData = {
+        const Data = {
 
-            "🌊 Beach": ["audio/beach.mp3","img/travel-mood-sound-banners/beach.jpg","Beach Waves"],
-            "🍃 Forest": ["audio/forest.mp3","img/travel-mood-sound-banners/forest.jpg","Forest Sound"],
-            "🏙️ City": ["audio/city.mp3","img/travel-mood-sound-banners/city.jpg","City Sound"],
-            "🌧️ Rain": ["audio/rain.mp3","img/travel-mood-sound-banners/rain.webp","Rani Drops Sound"]
+            "🌊 Beach": ["audio/beach.mp3","img/travel-mood-sound-banners/beach.jpg","Beach Waves","Feel the calm waves and let your mind unwind."],
+            "🍃 Forest": ["audio/forest.mp3","img/travel-mood-sound-banners/forest.jpg","Forest Sound","Escape into the tranquil atmosphere of a quiet green forest."],
+            "🏙️ City": ["audio/city.mp3","img/travel-mood-sound-banners/city.jpg","City Sound","Enjoy the soothing mix of distant traffic, nightlife, and urban ambience."],
+            "🌧️ Rain": ["audio/rain.mp3","img/travel-mood-sound-banners/rain.webp","Rani Drops Sound","Listen to soft rainfall and gentle thunder to calm your mind and relax."]
 
         };
 
@@ -621,12 +622,13 @@ window.addEventListener("DOMContentLoaded", () => {
                 button.classList.add("active");
 
                 // Get audio
-                const soundName =
+                const dataDetails =
                     button.innerText.trim();
 
-                moodAudio.src = soundData[soundName][0];
-                travelMoodSoundBanner.src = soundData[soundName][1];
-                MoodSoundBannerTitle.textContent = soundData[soundName][2];
+                moodAudio.src = Data[dataDetails][0];
+                travelMoodSoundBanner.src = Data[dataDetails][1];
+                MoodSoundBannerTitle.textContent = Data[dataDetails][2];
+                MoodSoundBannerDescription.textContent = Data[dataDetails][3];
 
                 moodAudio.play();
 
