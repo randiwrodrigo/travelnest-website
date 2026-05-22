@@ -942,6 +942,11 @@ select:focus {
     grid-template-columns: 0.1fr 1fr;
 }
 
+.trip-grnerator-form-grid h2{
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
 .trip-generator-title-image{
     display: flex;
     justify-content: center;
