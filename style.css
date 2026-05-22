@@ -645,7 +645,7 @@ select:focus {
     margin-bottom: 0%;
 }
 
-.explore-card-header h3 {
+.explore-card-header h2 {
     margin: 0;
     font-size: 1.2rem;
     display: inline-block;

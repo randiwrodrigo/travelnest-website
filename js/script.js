@@ -190,25 +190,25 @@ window.addEventListener("DOMContentLoaded", () => {
 
                     <div class="explore-card">
 
-                        <img src="${destination.destinationImage}" loading="lazy" alt="">
+                        <img src="${destination.destinationImage}" loading="lazy" alt="destination image of this card">
 
                         <div class="explore-card-info">
 
                             <div class="explore-card-header">
 
-                                <h3>${destination.destinationName}</h3>
+                                <h2>${destination.destinationName}</h2>
 
                                 <div>
                                     <h3>${destination.rating}</h3>
 
-                                    <img src="icon/explore-card/star-icon.svg">
+                                    <img src="icon/explore-card/star-icon.svg" alt="rating star icon">
                                 </div>
 
                             </div>
 
                             <div class="explore-location">
 
-                                <img src="icon/explore-card/location-icon.svg">
+                                <img src="icon/explore-card/location-icon.svg" alt="location icon image">
 
                                 <p>${destination.country}</p>
 
@@ -221,7 +221,7 @@ window.addEventListener("DOMContentLoaded", () => {
                             <span class="close-button">&times;</span>
                             <div class="window-grid">
                                 <div>
-                                    <img src="${destination.destinationImage}" alt="">
+                                    <img src="${destination.destinationImage}" alt="pop window detination image">
                                 </div>
                                 <div class="popup-content">
                                     <h2>${destination.destinationName}</h2>
