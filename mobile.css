@@ -79,6 +79,28 @@
         z-index: 1001;
     }
 
+    .page-banner{
+        margin-top: 0%;
+        height: 320px;
+        border-radius: 25px;
+        clip-path: ellipse(120% 100% at 50% 0%);
+    }
+
+    .banner-content{
+        width: 90%;
+        padding: 25px;
+    }
+
+    .banner-content h1{
+        font-size: 2.7rem;
+        letter-spacing: -1px;
+    }
+
+    .banner-content p{
+        font-size: 1rem;
+        line-height: 1.6;
+    }
+
     /* 3. Fix Layout Widths (Removes Horizontal Scroll) */
     .hero {
         display: flex ;
@@ -575,10 +597,7 @@
     /* Shared Header Image Mobile */
 
     .header-image img {
-        width: 100%;
-        height: auto;
-        top: 3rem;
-        opacity: 0.9;
+        display: none;
     }
 
     /* Footer Mobile Improvements */

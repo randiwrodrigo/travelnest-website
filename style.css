@@ -300,6 +300,7 @@ select:focus {
    border-radius: 20px;
    padding: 3rem 3rem;
    align-items: center;
+   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.4);
 }
 
 .destination-image img {
@@ -570,7 +571,8 @@ select:focus {
 
 .header-image img{
     position: absolute;
-    right: 0;
+    right: 2.5rem;
+    top: 45rem;
     height: auto;
     width: 30%;
     z-index: -1;
@@ -598,7 +600,7 @@ select:focus {
 
 .destination-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(326px, 326px));
+    grid-template-columns: repeat(auto-fit, minmax(336px, 336px));
     width: 100%;
     gap: 2rem;
     justify-content: start; 
@@ -809,6 +811,7 @@ select:focus {
 
 .budget-planner-header,
 .trip-generator-header,
+.destination-planner-header,
 .travel-mood-header {
     margin: 1rem 2.5rem;
 }
@@ -852,6 +855,7 @@ select:focus {
 }
 
 .budget-planner-header,
+.destination-planner-header,
 .travel-mood-header {
     margin-top: 4rem;
 }
@@ -861,6 +865,7 @@ select:focus {
 }
 
 .budget-planner-header span,
+.destination-planner-header span,
 .travel-mood-header {
     color: var(--primary);
 }
@@ -954,11 +959,20 @@ select:focus {
 .trip-grnerator-form-grid {
     display: grid;
     grid-template-columns: 0.1fr 1fr;
+    margin-top: 0.8rem;
+}
+
+#trip-generator-styles {
+    gap: 0%;
 }
 
 .trip-grnerator-form-grid h2{
     font-size: 1.2rem;
     color: var(--primary);
+}
+
+.trip-grnerator-form-grid p{
+    width: 90%;
 }
 
 .trip-generator-title-image{
@@ -1503,3 +1517,98 @@ select:focus {
 .contact-card h3 {
     margin-bottom: 0.8rem;
 }
+
+/*----------------------------------------------------------------*/
+.page-banner{
+    position: relative;
+    width: 96%;
+    height: 640px;
+
+    margin: 25px auto 60px;
+
+    --banner-img:url('images/beach.jpg');
+    background-image: var(--banner-img);
+
+    background-size: cover;
+    background-position: center;
+
+    overflow: hidden;
+
+    border-radius: 40px;
+
+    /* Curved Bottom Shape */
+    clip-path: ellipse(95% 100% at 50% 0%);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.18),
+    0 5px 15px rgba(0,0,0,0.08);
+}
+
+.page-banner::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background:
+    linear-gradient(
+        to right,
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.45)
+    );
+
+    z-index: 1;
+}
+
+.banner-content{
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    max-width: 850px;
+
+    padding: 40px 60px;
+
+    border-radius: 30px;
+
+}
+
+.banner-content h1{
+    font-size: 5rem;
+
+    font-weight: 800;
+
+    line-height: 1.05;
+
+    letter-spacing: -3px;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 4px 10px rgba(0,0,0,0.8),
+        0 8px 25px rgba(0,0,0,0.7),
+        0 15px 45px rgba(0,0,0,0.6);
+}
+
+
+/* ===== PARAGRAPH ===== */
+
+.banner-content p{
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: rgba(255,255,255,0.92);
+    text-shadow:
+        0 4px 10px rgba(0,0,0,0.8),
+        0 8px 25px rgba(0,0,0,0.7),
+        0 15px 45px rgba(0,0,0,0.6);
+}
+
+
+
