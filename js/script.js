@@ -603,7 +603,7 @@ window.addEventListener("DOMContentLoaded", () => {
             "🌊 Beach": ["audio/beach.mp3","img/travel-mood-sound-banners/beach.jpg","Beach Waves","Feel the calm waves and let your mind unwind."],
             "🍃 Forest": ["audio/forest.mp3","img/travel-mood-sound-banners/forest.jpg","Forest Sound","Escape into the tranquil atmosphere of a quiet green forest."],
             "🏙️ City": ["audio/city.mp3","img/travel-mood-sound-banners/city.jpg","City Sound","Enjoy the soothing mix of distant traffic, nightlife, and urban ambience."],
-            "🌧️ Rain": ["audio/rain.mp3","img/travel-mood-sound-banners/rain.webp","Rani Drops Sound","Listen to soft rainfall and gentle thunder to calm your mind and relax."]
+            "🌧️ Rain": ["audio/rain.mp3","img/travel-mood-sound-banners/rain.webp","Rain Drops Sound","Listen to soft rainfall and gentle thunder to calm your mind and relax."]
 
         };
 

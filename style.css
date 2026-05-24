@@ -173,6 +173,8 @@ select:focus {
     cursor: pointer;
 }
 
+/*---------------------------------------------------------------------- Home Page-----------------------------------------------------------------------*/
+
 .hero {
     display: grid;
     grid-template-columns: 1fr 1.6fr;
@@ -558,7 +560,7 @@ select:focus {
 /*Home page mobile designe*/
 
 
-/* Destination Explorer Styles --------------------------------------------------------------------------------------------------------------*/
+/* -------------------------------------------------------------Destination Explorer Styles --------------------------------------------------------------*/
 
 .destination-explorer {
     margin: 0 3rem;
@@ -807,7 +809,7 @@ select:focus {
     margin-bottom: 0.5rem;
 }
 
-/* Trip Budget Planner Styles --------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------- Trip Budget Planner Styles ------------------------------------------------------*/
 
 .budget-planner-header,
 .trip-generator-header,
@@ -950,7 +952,7 @@ select:focus {
     background-color: var(--white);
     padding: 0rem 2rem;
     margin: 1rem 0;
-    height: 60vh; 
+    height: 63vh; 
     border-radius: 20px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1);
 }
@@ -1165,7 +1167,7 @@ select:focus {
 
 
 
-/* Travel mood page */
+/*------------------------------------------------------------- Travel mood page -------------------------------------------------------------------------------*/
 
 
 
@@ -1260,12 +1262,14 @@ select:focus {
 }
 
 .overlay{
-
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top,rgba(0,0,0,0.96),rgba(0,0,0,0.01));
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.1)
+    );
     z-index: 1;
-
 }
 
 .music-banner {
@@ -1275,13 +1279,14 @@ select:focus {
     height: 18rem;
 }
 
-.music-banner img {
+.music-banner img{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block;
 }
  
-.banner-content {
+.travel-mood-banner-content {
     position: absolute;
     bottom: 1.5rem;
     left: 1.5rem;
@@ -1289,16 +1294,16 @@ select:focus {
     color: white;
 }
 
-.banner-content h3 {
+.travel-mood-banner-content h3 {
     font-size: 2rem;
     margin-bottom: 0%
 }
 
-.banner-content p {
+.travel-mood-banner-content p {
     margin: 0%;
 }
 
-.banner-content button {
+.travel-mood-banner-content button {
     margin-top: 1rem;
     padding: 0.7rem 1.2rem;
     border: 1px solid white;
@@ -1380,16 +1385,23 @@ select:focus {
     background-color: var(--accent);
 }
 
-#travel-mood-more-destination {
-    margin-top: 2rem;
-    width: 100%;
+#travel-mood-styles-top {
+    padding: 0%;
 }
 
-#travel-mood-more-destination {
-    margin-top: 2rem;
+#travel-mood-styles-top h2 {
+    padding-top: 4rem;
 }
 
-/*Feed back and Support Page*/
+.travel-mood-styles {
+    background: var(--white);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    gap: 0;
+}
+
+/*------------------------------------------------------------------Feed back and Support Page-------------------------------------------------------------------------*/
 
 .support-grid {
     display: grid;
@@ -1518,7 +1530,7 @@ select:focus {
     margin-bottom: 0.8rem;
 }
 
-/*----------------------------------------------------------------*/
+/*------------------------------------------------------------------Page Banner -------------------------------------------------------------------*/
 .page-banner{
     position: relative;
     width: 96%;
@@ -1567,47 +1579,35 @@ select:focus {
 .banner-content{
     position: relative;
     z-index: 2;
-
     text-align: center;
-
     max-width: 850px;
-
     padding: 40px 60px;
-
     border-radius: 30px;
 
 }
 
 .banner-content h1{
     font-size: 5rem;
-
     font-weight: 800;
-
     line-height: 1.05;
-
     letter-spacing: -3px;
-
     color: white;
-
     margin-bottom: 20px;
-
     text-shadow:
         0 4px 10px rgba(0,0,0,0.8),
         0 8px 25px rgba(0,0,0,0.7),
         0 15px 45px rgba(0,0,0,0.6);
 }
 
-
-/* ===== PARAGRAPH ===== */
-
 .banner-content p{
     font-size: 1.25rem;
+    font-weight: bold;
     line-height: 1.8;
     color: rgba(255,255,255,0.92);
     text-shadow:
-        0 4px 10px rgba(0,0,0,0.8),
-        0 8px 25px rgba(0,0,0,0.7),
-        0 15px 45px rgba(0,0,0,0.6);
+        2 4px 10px rgba(0,0,0,0.5),
+        2 8px 25px rgba(0,0,0,0.20),
+        2 15px 45px rgba(0,0,0,0.10);
 }
 
 

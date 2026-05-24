@@ -19,6 +19,10 @@
 
     }   
 
+    *{
+        box-sizing: border-box;
+    }
+
     html, body {
         overflow-x: hidden;
         width: 100%;
@@ -131,6 +135,7 @@
         height: 300px;
         object-fit: cover;
         margin-top: 0%;
+        box-shadow: 0px 15px 5px rgba(0, 0, 0, 0.3);
     }
     
     .hero-stats {
@@ -391,10 +396,11 @@
     .trip-generator-styles,
     #trip-generator-styles {
         width: 100%;
+        max-width: 100%;
         height: auto;
         padding: 1rem;
         margin: 0;
-        box-sizing: border-box;
+        overflow: hidden;
     }
 
     .tripGeneratorForm input {
@@ -449,11 +455,8 @@
 
     .trip-info-container {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         gap: 1rem;
-        padding: 0;
-        width: 100%;
-        margin-top: 2rem;
     }
 
     .trip-info-box {
@@ -618,4 +621,23 @@
         justify-content: center;
     }
 
+
+    .trip-generator-container{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .trip-generator-styles,
+    #trip-generator-styles{
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+
+    .trip-info-container{
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
 }
+
+
