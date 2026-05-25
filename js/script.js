@@ -19,7 +19,6 @@ window.addEventListener("DOMContentLoaded", () => {
         let currentPage =
             window.location.pathname.split("/").pop();
 
-        // HOME PAGE FIX
         if (currentPage === "") {
 
             currentPage = "index.html";
@@ -118,10 +117,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
             emails.push(email);
 
-            localStorage.setItem(
-                "emails",
-                JSON.stringify(emails)
-            );
+            localStorage.setItem("emails",JSON.stringify(emails));
 
             alert("Subscribed!");
 
@@ -940,7 +936,6 @@ window.addEventListener("DOMContentLoaded", () => {
             const message =
                 supportForm.querySelector("textarea").value;
 
-            // FEEDBACK OBJECT
             const feedbackData = {
 
                 fullName: fullName,
@@ -950,22 +945,16 @@ window.addEventListener("DOMContentLoaded", () => {
             };
 
             // GET EXISTING FEEDBACKS
-            let feedbacks =
-                JSON.parse(localStorage.getItem("feedbacks")) || [];
+            let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
 
-            // ADD NEW FEEDBACK
+        
             feedbacks.push(feedbackData);
 
-            // SAVE TO LOCAL STORAGE
-            localStorage.setItem(
-                "feedbacks",
-                JSON.stringify(feedbacks)
-            );
+        
+            localStorage.setItem("feedbacks",JSON.stringify(feedbacks));
 
-            // SHOW SUCCESS MESSAGE
             successMessage.style.display = "block";
 
-            // RESET FORM
             supportForm.reset();
 
         });
