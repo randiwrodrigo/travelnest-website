@@ -60,7 +60,7 @@
             <div class="support-card">
 
                 <div class="card-title">
-                    <h2>✉ Send us a message</h2>
+                    <h2>📮 Send us a message</h2>
                     <p>Fill out the form and we'll get back to you.</p>
                 </div>
 
@@ -68,17 +68,20 @@
 
                     <div class="input-group">
                         <label for="fullName">Full Name</label>
-                        <input id="fullName" type="text" placeholder="Enter your full name" required>
+                        <input id="fullName" type="text" placeholder="Enter your full name">
+                        <p id="fullNameError" class="error-message"></p>
                     </div>
 
                     <div class="input-group">
                         <label for="emailAddress" >Email Address</label>
-                        <input id="emailAddress" type="email" placeholder="Enter your email address" required>
+                        <input id="email" type="email" placeholder="Enter your email address">
+                        <p id="emailError" class="error-message"></p>
                     </div>
 
                     <div class="input-group">
                         <label for="message">Message</label>
-                        <textarea id="message" placeholder="How can we help you?" required></textarea>
+                        <textarea id="message" placeholder="How can we help you?"></textarea>
+                        <p id="messageError" class="error-message"></p>
                     </div>
 
                     <button type="submit" class="support-submit-btn button">

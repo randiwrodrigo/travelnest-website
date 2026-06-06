@@ -180,6 +180,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
             destinationGrid.innerHTML = "";
 
+            if (destinationArray.length === 0) {
+
+                destinationGrid.innerHTML = `
+                    <div class="no-results">
+                        <h2>🔍 No matching destinations found</h2>
+                        <p>
+                            Try a different destination name or continent.
+                        </p>
+                    </div>
+                `;
+
+                return;
+            }
+
             destinationArray.forEach((destination) => {
 
                 destinationGrid.innerHTML += `
@@ -212,58 +226,59 @@ window.addEventListener("DOMContentLoaded", () => {
 
                         </div>
                     </div>
-
-                    <div class="popup-window">
-                            <span class="close-button">&times;</span>
-                            <div class="window-grid">
-                                <div>
-                                    <img src="${destination.destinationImage}" alt="pop window detination image">
-                                </div>
-                                <div class="popup-content">
-                                    <h2>${destination.destinationName}</h2>
-                                        <div class="popup-content-paragraph">
-                                            <p>
-                                                ${destination.destinationDescription}
-                                            </p>
-                                        </div>
+                    <div class="popup-backdrop">
+                        <div class="popup-window">
+                                <span class="close-button">&times;</span>
+                                <div class="window-grid">
                                     <div>
-                                        <div class="popular-attractions">
-                                            <h3>Popular Attractions</h3>
-                                            <ul>
-                                                <li>${destination.popularAttractions[0]}</li>
-                                                <li>${destination.popularAttractions[1]}</li>
-                                                <li>${destination.popularAttractions[2]}</li>
-                                            </ul>
-                                        </div>
+                                        <img src="${destination.destinationImage}" alt="pop window detination image">
+                                    </div>
+                                    <div class="popup-content">
+                                        <h2>${destination.destinationName}</h2>
+                                            <div class="popup-content-paragraph">
+                                                <p>
+                                                    ${destination.destinationDescription}
+                                                </p>
+                                            </div>
                                         <div>
-                                        <div class="cost-table-container">
-                                            <h3>Travel Cost (Per Day)</h3>
-                                            <table class="travel-table">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Budget Type</th>
-                                                        <th>Estimated Cost</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td>Low</td>
-                                                        <td>$${destination.budgetType.low[0]} - $${destination.budgetType.low[1]}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Moderate</td>
-                                                        <td>$${destination.budgetType.moderate[0]} - $${destination.budgetType.moderate[1]}</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Luxury</td>
-                                                        <td>$${destination.budgetType.luxury[0]} - $${destination.budgetType.luxury[0]}</td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <div class="popular-attractions">
+                                                <h3>Popular Attractions</h3>
+                                                <ul>
+                                                    <li>${destination.popularAttractions[0]}</li>
+                                                    <li>${destination.popularAttractions[1]}</li>
+                                                    <li>${destination.popularAttractions[2]}</li>
+                                                </ul>
+                                            </div>
+                                            <div>
+                                            <div class="cost-table-container">
+                                                <h3>Travel Cost (Per Day)</h3>
+                                                <table class="travel-table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Budget Type</th>
+                                                            <th>Estimated Cost</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>Low</td>
+                                                            <td>$${destination.budgetType.low[0]} - $${destination.budgetType.low[1]}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Moderate</td>
+                                                            <td>$${destination.budgetType.moderate[0]} - $${destination.budgetType.moderate[1]}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Luxury</td>
+                                                            <td>$${destination.budgetType.luxury[0]} - $${destination.budgetType.luxury[0]}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                        </div>
                     </div>
                 `;
             });
@@ -307,30 +322,29 @@ window.addEventListener("DOMContentLoaded", () => {
         const exploreCards = document.querySelectorAll(".explore-card");
 
         exploreCards.forEach((card) => {
-
             card.addEventListener("click", () => {
-
-                const popup =
-                    card.nextElementSibling;
-
-                popup.classList.add("active");
-
+                const backdrop = card.nextElementSibling; // now targets backdrop
+                backdrop.classList.add("active");
             });
-
         });
 
         const closeButtons = document.querySelectorAll(".close-button");
 
         closeButtons.forEach((button) => {
-
             button.addEventListener("click", (event) => {
-
                 event.stopPropagation();
+                button.closest(".popup-backdrop").classList.remove("active");
+            });
+        });
 
-                const popup =
-                    button.closest(".popup-window");
+        // ✅ Click outside — on the dark backdrop — closes popup
+        const backdrops = document.querySelectorAll(".popup-backdrop");
 
-                popup.classList.remove("active");
+        backdrops.forEach((backdrop) => {
+            backdrop.addEventListener("click", (event) => {
+                if (event.target === backdrop) {   // clicked the dark area, not the box
+                    backdrop.classList.remove("active");
+                }
             });
         });
     }
@@ -355,6 +369,7 @@ window.addEventListener("DOMContentLoaded", () => {
     ){
 
         let currentDestination = null;
+        const saveToPlansBtn = document.getElementById("save-to-plans-btn");
 
         // Calculate the Budget According to place,days and the daily budget
         function calculateBudget() {
@@ -413,9 +428,6 @@ window.addEventListener("DOMContentLoaded", () => {
                 budgetStatus = "Moderate Budget";
                 progressWidth = 33 + ((dailyBudget - moderateRange[0]) /(moderateRange[1] - moderateRange[0])) * 33
                 plannnerProgressBar.style.backgroundColor = "green"
-                
-
-
             }
 
             else if (dailyBudget >= luxuryMin) {
@@ -437,20 +449,209 @@ window.addEventListener("DOMContentLoaded", () => {
             budgetStatusElement.innerText = budgetStatus;
             plannnerProgressBar.style.width = `${progressWidth}%`;
 
+            currentDestination = {
+            destinationName: selectedDestination.destinationName,
+            country: selectedDestination.country,
+            image: selectedDestination.destinationImage,
+            totalBudget: totalbudget,
+            budgetStatus: budgetStatus,
+            days: rNumberOfDays
+            };
+
         }
 
         plannerCalculateBtn.addEventListener("click", (event) => {
 
             event.preventDefault();
 
-            calculateBudget();
+            let hasError = false;
 
+            // Error elements
+            const destinationError =
+                document.getElementById("destinationError");
+
+            const numberOfDaysError =
+                document.getElementById("numberOfDaysError");
+
+            const totalBudgetError =
+                document.getElementById("totalBudgetError");
+
+            // Reset
+            destinationError.textContent = "";
+            numberOfDaysError.textContent = "";
+            totalBudgetError.textContent = "";
+
+            plannerDestinationInput.classList.remove("input-error");
+            plannerNumberOfDaysInput.classList.remove("input-error");
+            plannerDailyBudgetInput.classList.remove("input-error");
+
+            // Destination validation
+            if (plannerDestinationInput.value.trim() === "") {
+
+                destinationError.textContent =
+                    "Please enter a destination";
+
+                plannerDestinationInput.classList.add("input-error");
+
+                hasError = true;
+            }
+
+            // Number of days validation
+            if (
+                plannerNumberOfDaysInput.value === "" ||
+                Number(plannerNumberOfDaysInput.value) <= 0
+            ) {
+
+                numberOfDaysError.textContent =
+                    "Please enter number of days";
+
+                plannerNumberOfDaysInput.classList.add("input-error");
+
+                hasError = true;
+            }
+
+            // Budget validation
+            if (
+                plannerDailyBudgetInput.value === "" ||
+                Number(plannerDailyBudgetInput.value) <= 0
+            ) {
+
+                totalBudgetError.textContent =
+                    "Please enter a daily budget";
+
+                plannerDailyBudgetInput.classList.add("input-error");
+
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            calculateBudget();
         });
+
+        saveToPlansBtn.addEventListener("click", () => {
+
+            if (!currentDestination) {
+                alert("Calculate a budget first!");
+                return;
+            }
+
+            let savedPlans =
+                JSON.parse(localStorage.getItem("savedPlans")) || [];
+
+            const exists = savedPlans.some(
+                plan => plan.destinationName === currentDestination.destinationName
+            );
+
+            if (!exists) {
+                savedPlans.push(currentDestination);
+
+                localStorage.setItem(
+                    "savedPlans",
+                    JSON.stringify(savedPlans)
+                );
+
+                renderWishlist();
+
+                alert("Destination saved!");
+            }
+            else {
+                alert("Already saved!");
+            }
+        });
+
+
 
     }
 
+    const wishlistContainer = document.getElementById("wishlist-container");
 
-/*================================================================== Budget Planner Page =========================================================================*/ 
+    if (wishlistContainer) {
+
+        function renderWishlist() {
+
+            const savedPlans =
+                JSON.parse(localStorage.getItem("savedPlans")) || [];
+
+            wishlistContainer.innerHTML = "";
+
+            if (savedPlans.length === 0) {
+
+                wishlistContainer.innerHTML = `
+                    <div class="no-results-2">
+                        <h2>📭 No saved plans yet</h2>
+                        <p>
+                            Save destinations from the Budget Planner
+                            to see them here.
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            savedPlans.forEach((plan, index) => {
+
+                wishlistContainer.innerHTML += `
+
+                    <div class="wishlist-card">
+
+                        <img src="${plan.image}" alt="">
+
+                        <div class="wishlist-info">
+                            <h3>
+                                ${plan.destinationName},
+                                ${plan.country}
+                            </h3>
+
+                            <p>
+                                Days: ${plan.days}
+                            </p>
+
+                            <p>
+                                Budget: $${plan.totalBudget}
+                            </p>
+
+                            <p>
+                                ${plan.budgetStatus}
+                            </p>
+
+                            <button
+                                class="remove-plan button"
+                                data-index="${index}">
+                                Remove
+                            </button>
+                        </div>
+
+                    </div>
+                `;
+            });
+
+            document.querySelectorAll(".remove-plan")
+                .forEach(button => {
+
+                    button.addEventListener("click", () => {
+
+                        const index =
+                            button.dataset.index;
+
+                        savedPlans.splice(index, 1);
+
+                        localStorage.setItem(
+                            "savedPlans",
+                            JSON.stringify(savedPlans)
+                        );
+
+                        renderWishlist();
+                    });
+                });
+        }
+
+        renderWishlist();
+    }
+    
+
+
+/*================================================================== Trip Generator Page =========================================================================*/ 
 
     const tripTypeinput = document.getElementById("tripType");
     const tripBudgetInput = document.getElementById("budget");
@@ -518,6 +719,7 @@ window.addEventListener("DOMContentLoaded", () => {
                         matchesDuration
 
                     );
+            
 
                 });
 
@@ -551,16 +753,64 @@ window.addEventListener("DOMContentLoaded", () => {
 
             currency.innerText = currentDestination .currency;
 
+            document.querySelector(".trip-placeholder").style.display = "none";
+
         }
 
-        generateSubmitBtn.addEventListener("click",
-            (event) => {event.preventDefault();
 
-                filteredSupriseDestinations();
+        generateSubmitBtn.addEventListener("click", (event) => {
 
+            event.preventDefault();
+
+            let hasError = false;
+
+            // Error elements
+            const tripTypeError = document.getElementById("tripTypeError");
+            const budgetError = document.getElementById("budgetError");
+            const durationError = document.getElementById("durationError");
+
+            // Reset errors
+            tripTypeError.textContent = "";
+            budgetError.textContent = "";
+            durationError.textContent = "";
+
+            tripTypeinput.classList.remove("input-error");
+            tripBudgetInput.classList.remove("input-error");
+            tripDurationInput.classList.remove("input-error");
+
+            // Validate Trip Type
+            if (tripTypeinput.value === "") {
+                tripTypeError.textContent = "Please select a trip type";
+                tripTypeinput.classList.add("input-error");
+                hasError = true;
             }
-        );
 
+            // Validate Budget
+            if (tripBudgetInput.value === "") {
+                budgetError.textContent = "Please select a budget type";
+                tripBudgetInput.classList.add("input-error");
+                hasError = true;
+            }
+
+            // Validate Duration
+            if (
+                tripDurationInput.value === "" ||
+                Number(tripDurationInput.value) <= 0
+            ) {
+                durationError.textContent = "Please enter number of days";
+                tripDurationInput.classList.add("input-error");
+                hasError = true;
+            }
+
+            // Stop if there are errors
+            if (hasError) {
+                return;
+            }
+
+            // Generate destination
+            filteredSupriseDestinations();
+
+        });
         // Add the current destination to the local database using wishlist key
         wishlistBtn.addEventListener("click", () => {
 
@@ -586,53 +836,93 @@ window.addEventListener("DOMContentLoaded", () => {
 /*================================================================== Travel Mood Page =========================================================================*/ 
 
     const soundButtons = document.querySelectorAll(".sound-buttons button");
-    const travelMoodSoundBanner = document.getElementById("travel-mood-sound-banner")
-    const MoodSoundBannerTitle = document.querySelector(".banner-content h3")
-    const MoodSoundBannerDescription = document.querySelector(".banner-content p")
+    const travelMoodSoundBanner = document.getElementById("travel-mood-sound-banner");
+    const MoodSoundBannerTitle = document.querySelector(".travel-mood-banner-content h3");
+    const MoodSoundBannerDescription = document.querySelector(".travel-mood-banner-content p");
+    const playPauseBtn = document.getElementById("play-pause-btn");
+    const volumeSlider = document.getElementById("volume-slider");
+    const volumeIcon = document.getElementById("volume-icon");
 
-    if (soundButtons){
+    if (soundButtons,
+        travelMoodSoundBanner,
+        MoodSoundBannerTitle,
+        MoodSoundBannerDescription,
+        playPauseBtn,
+        volumeSlider,
+        volumeIcon
+    ) {
 
         const moodAudio = new Audio();
+        let isPlaying = false;
 
         const Data = {
-
-            "🌊 Beach": ["audio/beach.mp3","img/travel-mood-sound-banners/beach.jpg","Beach Waves","Feel the calm waves and let your mind unwind."],
-            "🍃 Forest": ["audio/forest.mp3","img/travel-mood-sound-banners/forest.jpg","Forest Sound","Escape into the tranquil atmosphere of a quiet green forest."],
-            "🏙️ City": ["audio/city.mp3","img/travel-mood-sound-banners/city.jpg","City Sound","Enjoy the soothing mix of distant traffic, nightlife, and urban ambience."],
-            "🌧️ Rain": ["audio/rain.mp3","img/travel-mood-sound-banners/rain.webp","Rain Drops Sound","Listen to soft rainfall and gentle thunder to calm your mind and relax."]
-
+            "🌊 Beach": ["audio/beach.mp3", "img/travel-mood-sound-banners/beach.jpg", "Beach Waves", "Feel the calm waves and let your mind unwind."],
+            "🍃 Forest": ["audio/forest.mp3", "img/travel-mood-sound-banners/forest.jpg", "Forest Sound", "Escape into the tranquil atmosphere of a quiet green forest."],
+            "🏙️ City": ["audio/city.mp3", "img/travel-mood-sound-banners/city.jpg", "City Sound", "Enjoy the soothing mix of distant traffic, nightlife, and urban ambience."],
+            "🌧️ Rain": ["audio/rain.mp3", "img/travel-mood-sound-banners/rain.webp", "Rain Drops Sound", "Listen to soft rainfall and gentle thunder to calm your mind and relax."]
         };
 
-        soundButtons.forEach((button)=>{
+        // Load a sound when a category button is clicked
+        soundButtons.forEach((button) => {
+            button.addEventListener("click", () => {
 
-            button.addEventListener("click",()=>{
-
-                // Remove active class
-                soundButtons.forEach((btn)=>{
-
-                    btn.classList.remove("active");
-
-                });
-
-                // Add active class
+                soundButtons.forEach((btn) => btn.classList.remove("active"));
                 button.classList.add("active");
 
-                // Get audio
-                const dataDetails =
-                    button.innerText.trim();
-
+                const dataDetails = button.innerText.trim();
                 moodAudio.src = Data[dataDetails][0];
                 travelMoodSoundBanner.src = Data[dataDetails][1];
                 MoodSoundBannerTitle.textContent = Data[dataDetails][2];
                 MoodSoundBannerDescription.textContent = Data[dataDetails][3];
 
                 moodAudio.play();
-
+                isPlaying = true;
+                playPauseBtn.textContent = "⏸ Pause";
             });
+        });
 
+        // Play / Pause toggle
+        playPauseBtn.addEventListener("click", () => {
+            if (!moodAudio.src) return;
+
+            if (isPlaying) {
+                moodAudio.pause();
+                isPlaying = false;
+                playPauseBtn.textContent = "▶ Play";
+            } else {
+                moodAudio.play();
+                isPlaying = true;
+                playPauseBtn.textContent = "⏸ Pause";
+            }
+        });
+
+        // Volume slider
+        volumeSlider.addEventListener("input", () => {
+            moodAudio.volume = volumeSlider.value;
+
+            // Update icon based on volume level
+            if (volumeSlider.value == 0) {
+                volumeIcon.textContent = "🔇";
+            } else if (volumeSlider.value < 0.5) {
+                volumeIcon.textContent = "🔉";
+            } else {
+                volumeIcon.textContent = "🔊";
+            }
+        });
+
+        // Click volume icon to mute/unmute
+        volumeIcon.addEventListener("click", () => {
+            if (moodAudio.volume > 0) {
+                moodAudio.volume = 0;
+                volumeSlider.value = 0;
+                volumeIcon.textContent = "🔇";
+            } else {
+                moodAudio.volume = 1;
+                volumeSlider.value = 1;
+                volumeIcon.textContent = "🔊";
+            }
         });
     }
-
 
     // CHECK IF DESTINATION PAGE ELEMENTS EXIST
     const destinationList = document.getElementById("destination-list");
@@ -915,11 +1205,9 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     // SUPPORT FORM
-    const supportForm =
-        document.getElementById("supportForm");
+    const supportForm = document.getElementById("supportForm");
 
-    const successMessage =
-        document.querySelector(".success-message");
+    const successMessage = document.querySelector(".success-message");
 
     if (supportForm && successMessage) {
 
@@ -928,35 +1216,89 @@ window.addEventListener("DOMContentLoaded", () => {
             event.preventDefault();
 
             const fullName =
-                supportForm.querySelector('input[type="text"]').value;
+                document.getElementById("fullName");
 
             const email =
-                supportForm.querySelector('input[type="email"]').value;
+                document.getElementById("email");
 
             const message =
-                supportForm.querySelector("textarea").value;
+                document.getElementById("message");
 
+            const fullNameError =
+                document.getElementById("fullNameError");
+
+            const emailError =
+                document.getElementById("emailError");
+
+            const messageError =
+                document.getElementById("messageError");
+
+            let hasError = false;
+
+            // Reset
+            fullNameError.textContent = "";
+            emailError.textContent = "";
+            messageError.textContent = "";
+
+            fullName.classList.remove("input-error");
+            email.classList.remove("input-error");
+            message.classList.remove("input-error");
+
+            // Full Name
+            if (fullName.value.trim() === "") {
+
+                fullNameError.textContent =
+                    "Please enter your full name";
+
+                fullName.classList.add("input-error");
+
+                hasError = true;
+            }
+
+            // Email
+            if (email.value.trim() === "") {
+
+                emailError.textContent =
+                    "Please enter your email address";
+
+                email.classList.add("input-error");
+
+                hasError = true;
+            }
+
+            // Message
+            if (message.value.trim() === "") {
+
+                messageError.textContent =
+                    "Please enter a message";
+
+                message.classList.add("input-error");
+
+                hasError = true;
+            }
+
+            if (hasError) return;
+
+            // Save data
             const feedbackData = {
-
-                fullName: fullName,
-                email: email,
-                message: message
-
+                fullName: fullName.value,
+                email: email.value,
+                message: message.value
             };
 
-            // GET EXISTING FEEDBACKS
-            let feedbacks = JSON.parse(localStorage.getItem("feedbacks")) || [];
+            let feedbacks =
+                JSON.parse(localStorage.getItem("feedbacks")) || [];
 
-        
             feedbacks.push(feedbackData);
 
-        
-            localStorage.setItem("feedbacks",JSON.stringify(feedbacks));
+            localStorage.setItem(
+                "feedbacks",
+                JSON.stringify(feedbacks)
+            );
 
             successMessage.style.display = "block";
 
             supportForm.reset();
-
         });
 
     }

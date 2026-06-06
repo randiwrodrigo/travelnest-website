@@ -11,7 +11,7 @@ const destinations = [
     weather: "26°C - 31°C",
     language: "Indonesian",
     currency: "IDR",
-    destinationType: "adventure",
+    destinationType: "Adventure",
     estimateDays: [7, 10],
     generalBudgetType: "Medium Budget",
 
@@ -43,7 +43,7 @@ const destinations = [
     weather: "27°C - 32°C",
     language: "Dhivehi",
     currency: "MVR",
-    destinationType: "relaxation",
+    destinationType: "Relaxation",
     estimateDays: [5, 7],
     generalBudgetType: "Luxury Budget",
 
@@ -75,7 +75,7 @@ const destinations = [
     weather: "10°C - 25°C",
     language: "Japanese",
     currency: "JPY",
-    destinationType: "cultural",
+    destinationType: "Cultural",
     estimateDays: [6, 8],
     generalBudgetType: "Medium Budget",
 
@@ -107,7 +107,7 @@ const destinations = [
     weather: "12°C - 24°C",
     language: "French",
     currency: "EUR",
-    destinationType: "cultural",
+    destinationType: "Cultural",
     estimateDays: [5, 7],
     generalBudgetType: "Luxury Budget",
 
@@ -139,7 +139,7 @@ const destinations = [
     weather: "20°C - 30°C",
     language: "Greek",
     currency: "EUR",
-    destinationType: "relaxation",
+    destinationType: "Relaxation",
     estimateDays: [4, 6],
     generalBudgetType: "Medium Budget",
 
@@ -171,7 +171,7 @@ const destinations = [
     weather: "20°C - 35°C",
     language: "Arabic",
     currency: "AED",
-    destinationType: "adventure",
+    destinationType: "Adventure",
     estimateDays: [5, 7],
     generalBudgetType: "Luxury Budget",
 
@@ -203,7 +203,7 @@ const destinations = [
     weather: "-5°C - 10°C",
     language: "German",
     currency: "CHF",
-    destinationType: "nature",
+    destinationType: "Nature",
     estimateDays: [7, 10],
     generalBudgetType: "Luxury Budget",
 
@@ -235,7 +235,7 @@ const destinations = [
     weather: "25°C - 34°C",
     language: "Thai",
     currency: "THB",
-    destinationType: "cultural",
+    destinationType: "Cultural",
     estimateDays: [4, 6],
     generalBudgetType: "Low Budget",
 
@@ -267,7 +267,7 @@ const destinations = [
     weather: "18°C - 29°C",
     language: "English",
     currency: "ZAR",
-    destinationType: "nature",
+    destinationType: "Nature",
     estimateDays: [6, 8],
     generalBudgetType: "Medium Budget",
 
@@ -299,7 +299,7 @@ const destinations = [
     weather: "5°C - 28°C",
     language: "English",
     currency: "USD",
-    destinationType: "cultural",
+    destinationType: "Cultural",
     estimateDays: [5, 7],
     generalBudgetType: "Luxury Budget",
 
@@ -331,7 +331,7 @@ const destinations = [
     weather: "12°C - 27°C",
     language: "Turkish",
     currency: "TRY",
-    destinationType: "cultural",
+    destinationType: "Cultural",
     estimateDays: [5, 7],
     generalBudgetType: "Medium Budget",
 
@@ -363,7 +363,7 @@ const destinations = [
     weather: "15°C - 28°C",
     language: "English",
     currency: "AUD",
-    destinationType: "relaxation",
+    destinationType: "Relaxation",
     estimateDays: [6, 8],
     generalBudgetType: "Medium Budget",
 
@@ -395,7 +395,7 @@ const destinations = [
     weather: "10°C - 22°C",
     language: "Spanish",
     currency: "PEN",
-    destinationType: "adventure",
+    destinationType: "Adventure",
     estimateDays: [5, 7],
     generalBudgetType: "Medium Budget",
 
@@ -427,7 +427,7 @@ const destinations = [
     weather: "5°C - 15°C",
     language: "Icelandic",
     currency: "ISK",
-    destinationType: "nature",
+    destinationType: "Nature",
     estimateDays: [6, 9],
     generalBudgetType: "Luxury Budget",
 
@@ -459,7 +459,7 @@ const destinations = [
     weather: "24°C - 34°C",
     language: "Portuguese",
     currency: "BRL",
-    destinationType: "relaxation",
+    destinationType: "Relaxation",
     estimateDays: [5, 7],
     generalBudgetType: "Medium Budget",
 
