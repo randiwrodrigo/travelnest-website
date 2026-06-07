@@ -246,6 +246,11 @@
         display: flex ;
         justify-content: space-around;
     }
+
+    #emailinput{
+        width: 100%;
+        padding: 15px;
+    }
     
 
     /*For destination page========================================================================================================*/
@@ -379,9 +384,8 @@
     }
 
     #searchInput{
-        width:100%;
         padding: 1.1rem 3rem 1.1rem 1.3rem;
-        width:114%;
+        width:120%;
         
     }
 
@@ -581,6 +585,7 @@
 
     #tripGeneratorForm label{
         display:block;
+        text-align:left;
         margin-bottom:10px;
     }
 
