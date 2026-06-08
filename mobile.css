@@ -485,21 +485,25 @@
     .daily-budget-wrapper::before{
         top: 50%;
     }
-
+    .trip-wishlist-container,
     .wishlist-container{
         display:flex;
         flex-direction:column;
         align-items:center;
         width:100%;
     }
+    .trip-wishlist-section h2,
     .wishlist-section h2{
         text-align:center;
     }
-
     .wishlist-card{
+        width:100%;
+        border-radius:15px;
+        margin-bottom:15px;
         margin-right: 1rem;
     }
 
+    .no-results-3,
     .no-results-2{
         width:100%;
         margin:0;
@@ -507,7 +511,8 @@
         padding:20px;
         text-align:center;
     }
-
+    .no-results-3 h2,
+    .no-results-3 p,
     .no-results-2 h2,
     .no-results-2 p{
         text-align:center;

@@ -824,13 +824,131 @@ window.addEventListener("DOMContentLoaded", () => {
 
             let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
 
-            wishlist.push(currentDestination);
+            const exists = wishlist.some(
+                item =>
+                    item.destinationName ===
+                    currentDestination.destinationName
+            );
 
-            localStorage.setItem("wishlist",JSON.stringify(wishlist));
+            if(!exists){
 
-            alert("Added to wishlist!");
+                wishlist.push(currentDestination);
+
+                localStorage.setItem(
+                    "wishlist",
+                    JSON.stringify(wishlist)
+                );
+
+                renderTripWishlist();
+
+                alert("Added to wishlist!");
+            }
+            else{
+
+                alert("Already in wishlist!");
+
+            }
 
         });
+    }
+    
+    const tripWishlistContainer =
+        document.getElementById("trip-wishlist-container");
+
+    if(tripWishlistContainer){
+
+        function renderTripWishlist(){
+
+            const wishlist =
+                JSON.parse(localStorage.getItem("wishlist")) || [];
+
+            tripWishlistContainer.innerHTML = "";
+
+            if(wishlist.length === 0){
+
+                tripWishlistContainer.innerHTML = `
+                    <div class="no-results-3">
+                        <h2>📭 No destinations in wishlist</h2>
+                        <p>
+                            Generate a destination and
+                            add it to your wishlist.
+                        </p>
+                    </div>
+                `;
+
+                return;
+            }
+
+            wishlist.forEach((destination,index)=>{
+
+                tripWishlistContainer.innerHTML += `
+
+                    <div class="wishlist-card">
+
+                        <img src="${destination.destinationImage}" alt="">
+
+                        <div class="wishlist-info">
+
+                            <h3>
+                                ${destination.destinationName},
+                                ${destination.country}
+                            </h3>
+
+                            <p>
+                                ${destination.destinationType}
+                            </p>
+
+                            <p>
+                                ${destination.generalBudgetType}
+                            </p>
+
+                            <p>
+                                ${destination.estimateDays[0]}
+                                -
+                                ${destination.estimateDays[1]}
+                                Days
+                            </p>
+
+                            <button
+                                class="button remove-wishlist"
+                                data-index="${index}">
+                                Remove
+                            </button>
+
+                        </div>
+
+                    </div>
+                `;
+            });
+
+            document
+                .querySelectorAll(".remove-wishlist")
+                .forEach((button)=>{
+
+                    button.addEventListener("click",()=>{
+
+                        const wishlist =
+                            JSON.parse(localStorage.getItem("wishlist")) || [];
+
+                        wishlist.splice(
+                            button.dataset.index,
+                            1
+                        );
+
+                        localStorage.setItem(
+                            "wishlist",
+                            JSON.stringify(wishlist)
+                        );
+
+                        renderTripWishlist();
+                    });
+
+                });
+
+        }
+
+        renderTripWishlist();
+
     }
 
 /*================================================================== Travel Mood Page =========================================================================*/ 
@@ -1297,6 +1415,18 @@ window.addEventListener("DOMContentLoaded", () => {
             );
 
             successMessage.style.display = "block";
+            successMessage.style.opacity = "1";
+
+            supportForm.reset();
+
+            setTimeout(() => {
+                successMessage.style.opacity = "0";
+
+                setTimeout(() => {
+                    successMessage.style.display = "none";
+                }, 500);
+
+            }, 3000);
 
             supportForm.reset();
         });
