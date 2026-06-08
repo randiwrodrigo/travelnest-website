@@ -1134,16 +1134,10 @@ input:focus {
     color: #1f7a4d;
 }
 
-#tripTypeDisplay {
-    background: #dff5e8;
-}
-
-#budgetDisplay {
-    background: #ffad9d;
-}
-
+#tripTypeDisplay ,
+#budgetDisplay ,
 #durationDisplay {
-    background: #fef3c7;
+    background: rgb(221, 255, 221)yellow;
 }
 
 .trip-info-container {
@@ -1490,6 +1484,14 @@ input:focus {
 .destination-filter .active {
     background: #1d4ed8;
     color: white;
+}
+
+#volume-icon{
+    background-color: transparent;
+}
+
+.wave5icon{
+    background-color: black;
 }
 
 .card-title h2 {
@@ -1941,9 +1943,9 @@ input:focus {
     background:
     linear-gradient(
         to right,
-        rgba(0,0,0,0.75),
-        rgba(0,0,0,0.65),
-        rgba(0,0,0,0.75)
+        rgba(0,0,0,0.35),
+        rgba(0,0,0,0.45),
+        rgba(0,0,0,0.55)
     );
 
     z-index: 1;
