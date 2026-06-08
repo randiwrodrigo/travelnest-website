@@ -7,6 +7,8 @@
     name="description"
     content="TravelNest helps you discover destinations, create budgets, generate itineraries, and plan unforgettable trips.">
     <title>TravelNest - Trip Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="mobile.css">
@@ -18,7 +20,7 @@
     <header>
         <nav class="nav-bar">
             <div>
-                <img  class="logo" src="icon/travelNest-logo.png" alt="TravelNest Logo">
+                <img  class="logo" src="icon/travelNest-logo.png" alt="TravelNest Logo" loading="lazy">
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -38,7 +40,7 @@
 
     <main>
         <!-- ===== Banner Section ===== -->
-        <section class="page-banner" style="--banner-img:url('img/banner-image-3.webp');">
+        <section class="page-banner" style="--banner-img:url('img/banner-image-3.webp');" loading="lazy">
             <div class="banner-overlay"></div>
 
             <div class="banner-content">
@@ -55,7 +57,7 @@
                 <p>Generate your perfect trip itinerary with our easy-to-use trip generator.</p>             
             </div>
             <div class="header-image">
-                <img src="img/trip-generate-top.png" alt="">
+                <img src="img/trip-generate-top.png" alt="" loading="lazy">
             </div>
         </section>
 
@@ -64,7 +66,7 @@
                 <div id="trip-generator-styles" class="trip-generator-styles" >
                     <div class="trip-grnerator-form-grid">
                         <div class="trip-generator-title-image">
-                            <img src="icon/trip-generator/flight-image.svg" alt="">
+                            <img src="icon/trip-generator/flight-image.svg" alt="" loading="lazy">
                         </div>
                         <div>
                             <h2>Customize your surprise.</h2>
@@ -100,7 +102,7 @@
 
                         <label for="duration">Duration (days):</label>
                         <div class="duration-wrapper">
-                            <input type="number" id="duration" name="duration" required placeholder="Duration">
+                            <input type="number" id="duration" name="duration" required placeholder="Duration" loading="lazy">
                         </div>
                         <p id="durationError" class="error-message"></p>
 
@@ -108,10 +110,10 @@
                     </form>
                 </div>
                 <div class="trip-generator-styles" id="tripGen-budget-summary">
-                    <img class="trip-placeholder" src="img/suprise-me-box-banner.png" alt="Generate a trip">
+                    <img class="trip-placeholder" src="img/suprise-me-box-banner.png" alt="Generate a trip" loading="lazy">
                     <h3>🎉 Your Surprised Destination 🎈</h3>
                     <div class="suprise-destination-image">
-                        <img id="suprise-destination-image" src="img/suprise-img.png" alt="Surprised Destination">
+                        <img id="suprise-destination-image" src="img/suprise-img.png" alt="Surprised Destination" loading="lazy">
                     </div>
                     <h2>
                         <span id="surprisedDestination-name">I Will Tell You Where To Go!</span>
@@ -170,7 +172,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <img  class="logo" src="icon/travelNest-logo.png" alt="TravelNest Logo">
+                <img  class="logo" src="icon/travelNest-logo.png" alt="TravelNest Logo" loading="lazy">
                 <p>Plan your perfect trip with <br> our all-in-one travel planning platform.</p>
             </div>
             <div class="footer-links">
@@ -189,10 +191,10 @@
                 <p>Email: support@travelnest.com</p>
                 <div class="social-icons">
                     <ul>
-                        <li><a href="#"><img src="icon/social-media/fb-icon.svg" alt="Facebook"></a></li>
-                        <li><a href="#"><img src="icon/social-media/insta-icon.svg" alt="Instagram"></a></li>
-                        <li><a href="#"><img src="icon/social-media/printrest-icon.svg" alt="Pinterest"></a></li>
-                        <li><a href="#"><img src="icon/social-media/youtube-icon.svg" alt="YouTube"></a></li>
+                        <li><a href="#"><img src="icon/social-media/fb-icon.svg" alt="Facebook" loading="lazy"></a></li>
+                        <li><a href="#"><img src="icon/social-media/insta-icon.svg" alt="Instagram" loading="lazy"></a></li>
+                        <li><a href="#"><img src="icon/social-media/printrest-icon.svg" alt="Pinterest" loading="lazy"></a></li>
+                        <li><a href="#"><img src="icon/social-media/youtube-icon.svg" alt="YouTube" loading="lazy"></a></li>
                     </ul>
                 </div>
             </div>
@@ -201,7 +203,7 @@
             <p>&copy; 2024 TravelNest. All rights reserved.</p>
         </div>
     </footer>
-    <script src="js/destinations.js"></script>
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/destinations.js" defer></script>
 </body>
 </html>
