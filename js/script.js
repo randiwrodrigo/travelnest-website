@@ -200,7 +200,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
                     <div class="explore-card">
 
-                        <img src="${destination.destinationImage}" loading="lazy" alt="destination image of this card">
+                        <img src="${destination.destinationImage}" loading="lazy" alt="destination image of this card" loading="lazy">
 
                         <div class="explore-card-info">
 
@@ -211,14 +211,14 @@ window.addEventListener("DOMContentLoaded", () => {
                                 <div>
                                     <h3>${destination.rating}</h3>
 
-                                    <img src="icon/explore-card/star-icon.svg" alt="rating star icon">
+                                    <img src="icon/explore-card/star-icon.svg" alt="rating star icon" loading="lazy">
                                 </div>
 
                             </div>
 
                             <div class="explore-location">
 
-                                <img src="icon/explore-card/location-icon.svg" alt="location icon image that represent location">
+                                <img src="icon/explore-card/location-icon.svg" alt="location icon image that represent location" loading="lazy">
 
                                 <p>${destination.country}</p>
 
@@ -231,7 +231,7 @@ window.addEventListener("DOMContentLoaded", () => {
                                 <span class="close-button">&times;</span>
                                 <div class="window-grid">
                                     <div>
-                                        <img src="${destination.destinationImage}" alt="pop window detination image">
+                                        <img src="${destination.destinationImage}" alt="pop window detination image" loading="lazy">
                                     </div>
                                     <div class="popup-content">
                                         <h2>${destination.destinationName}</h2>
@@ -595,7 +595,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
                     <div class="wishlist-card">
 
-                        <img src="${plan.image}" alt="">
+                        <img src="${plan.image}" alt="destination image" loading="lazy">
 
                         <div class="wishlist-info">
                             <h3>
@@ -885,7 +885,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
                     <div class="wishlist-card">
 
-                        <img src="${destination.destinationImage}" alt="">
+                        <img src="${destination.destinationImage}" alt="destination image" loading="lazy">
 
                         <div class="wishlist-info">
 
@@ -1104,7 +1104,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
                 card.innerHTML = `
 
-                    <img src="${destination.destinationImage}" alt="">
+                    <img src="${destination.destinationImage}" alt="destination image" loading="lazy">
 
                     <div>
 
