@@ -1952,5 +1952,11 @@ input:focus {
     z-index: 1;
 }
 
+.banner-content{
+    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    padding: 2rem 3rem;
+}
 
 
