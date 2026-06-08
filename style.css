@@ -1860,12 +1860,9 @@ input:focus {
     height: 640px;
 
     margin: 25px auto 60px;
-
-    --banner-img:url('images/beach.jpg');
-    background-image: var(--banner-img);
-
     background-size: cover;
     background-position: center;
+    background-color: black;
 
     overflow: hidden;
 
@@ -1952,11 +1949,5 @@ input:focus {
     z-index: 1;
 }
 
-.banner-content{
-    backdrop-filter: blur(4px);
-    background: rgba(0,0,0,0.5);
-    border-radius: 20px;
-    padding: 2rem 3rem;
-}
 
 
