@@ -702,18 +702,17 @@ input:focus {
 
 .popup-window {
     width: 60%;
-    max-height: 85vh;        /* prevents overflow on small screens */
-    overflow-y: auto;        /* scroll if content is too tall */
+    max-height: 85vh;        
+    overflow-y: auto;      
     background: var(--white);
     border-radius: 20px;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     display: flex;
     z-index: 2000;
     padding: 1rem;
-    position: relative;      /* needed for close button positioning */
+    position: relative;      
 }
 
-/* Remove the old opacity/pointer-events — backdrop handles show/hide now */
 .popup-backdrop {
     position: fixed;
     inset: 0;
@@ -797,26 +796,25 @@ input:focus {
     font-size: 0.95rem;
 }
 
-/* Remove right border on the last column */
+
 .travel-table th:last-child, 
 .travel-table td:last-child {
     border-right: none;
 }
 
-/* Remove bottom border on the last row */
+
 .travel-table tr:last-child td {
     border-bottom: none;
 }
 
-/* Header specific styling */
 .travel-table th {
-    background-color: #f8fafc; /* Very light blue/gray background */
-    color: #64748b; /* Muted slate for headers */
+    background-color: #f8fafc;
+    color: #64748b; 
     font-weight: 600;
 }
 
 .travel-table td {
-    color: #334155; /* Slightly darker text for values */
+    color: #334155; 
 }
 
 .popular-attractions li {
@@ -1430,9 +1428,9 @@ input:focus {
     background-position: center;
     background-repeat: no-repeat;
     border-radius: 24px;
-    position: relative;        /* ← ADD THIS */
-    min-height: 350px;         /* ← ADD THIS so container has height */
-    padding-bottom: 2rem;      /* ← ADD THIS for spacing */
+    position: relative;       
+    min-height: 350px;        
+    padding-bottom: 2rem;    
 }
 
 #travel-mood-styles-top {
@@ -1514,14 +1512,14 @@ input:focus {
 #volume-slider {
     -webkit-appearance: none;
     appearance: none;
-    width: 100px !important;   /* ← override global input width */
+    width: 100px !important; 
     height: 4px;
     border-radius: 2px;
     background: rgba(255, 255, 255, 0.4);
     outline: none;
     cursor: pointer;
-    padding: 0 !important;     /* ← override global input padding */
-    border: none !important;   /* ← override global input border */
+    padding: 0 !important;    
+    border: none !important;  
 }
 
 .banner-content button{
