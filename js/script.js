@@ -1337,7 +1337,7 @@ window.addEventListener("DOMContentLoaded", () => {
                 document.getElementById("fullName");
 
             const email =
-                document.getElementById("email");
+                document.getElementById("emailAddress");
 
             const message =
                 document.getElementById("message");

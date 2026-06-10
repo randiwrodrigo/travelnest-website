@@ -19,7 +19,7 @@
     <header>
         <nav class="nav-bar">
             <div>
-                <img  class="logo" src="icon/travelNest-logo.png" alt="TravelNest Logo" loading="lazy">
+                <a href="index.html"><img  class="logo" src="icon/travelNest-logo.png" alt="TravelNest Logo" loading="lazy"></a>
             </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
@@ -73,19 +73,19 @@
                 <form id="supportForm">
 
                     <div class="input-group">
-                        <label for="fullName">Full Name</label>
+                        <label for="fullName">Full Name<span class="required">*</span></label>
                         <input id="fullName" type="text" placeholder="Enter your full name">
                         <p id="fullNameError" class="error-message"></p>
                     </div>
 
                     <div class="input-group">
-                        <label for="emailAddress" >Email Address</label>
+                        <label for="emailAddress" >Email Address<span class="required">*</span></label>
                         <input id="emailAddress" type="email" placeholder="Enter your email address">
                         <p id="emailError" class="error-message"></p>
                     </div>
 
                     <div class="input-group">
-                        <label for="message">Message</label>
+                        <label for="message">Message<span class="required">*</span></label>
                         <textarea id="message" placeholder="How can we help you?"></textarea>
                         <p id="messageError" class="error-message"></p>
                     </div>
@@ -115,42 +115,39 @@
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            How do I save my visited destinations?
+                            How can I start planning my trip?
                             <span class="faq-toggle-mark">+</span>
                         </button>
 
                         <div class="faq-answer">
                             <p>
-                                You can save visited destinations by clicking
-                                the visited button on destination cards.
+                                Begin by exploring destinations or use the Trip Generator to discover recommendations based on your interests, budget, and travel duration.
                             </p>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            Can I create a custom trip plan?
+                            Will my saved plans and wishlist disappear when I close the browser?
                             <span class="faq-toggle-mark">+</span>
                         </button>
 
                         <div class="faq-answer">
                             <p>
-                                Yes! Use the Trip Generator to create
-                                personalized plans.
+                                No. TravelNest uses Local Storage, so your saved plans, wishlist items, and travel preferences remain available on the same device and browser.
                             </p>
                         </div>
                     </div>
 
                     <div class="faq-item">
                         <button class="faq-question">
-                            How does Travel Mood work?
+                            How does the Budget Planner work?
                             <span class="faq-toggle-mark">+</span>
                         </button>
 
                         <div class="faq-answer">
                             <p>
-                                Travel Mood provides ambient sounds
-                                for relaxation while planning trips.
+                                Enter your destination, trip duration, and daily budget. The planner will calculate your estimated travel cost and categorize your budget level.
                             </p>
                         </div>
                     </div>
@@ -191,7 +188,7 @@
     <footer class="footer">
         <div class="footer-container">
             <div class="footer-brand">
-                <img  class="logo" src="icon/travelNest-logo.png" alt="TravelNest Logo" loading="lazy">
+                <a href="index.html"><img  class="logo" src="icon/travelNest-logo.png" alt="TravelNest Logo"></a>
                 <p>Plan your perfect trip with <br> our all-in-one travel planning platform.</p>
             </div>
             <div class="footer-links">
